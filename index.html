@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Observatório do Eixo 4 · Soberania em Dados</title>
+  <meta name="description" content="Protótipo visual do Observatório do Eixo 4 do Movimento pela Soberania Digital Popular: Orçamento e Gastos, Pessoas e Instituições, Projetos de Tech Pública, Consultas Públicas e Mapeamento de Licitações.">
+  <link rel="stylesheet" href="css/design-system.css">
+</head>
+<body>
+
+  <!-- Faixa de Convocação (Vermelho Ato) -->
+  <aside class="banner-ato" aria-label="Convocação do Manifesto">
+    <div class="lema">
+      <span class="destaque-manifesto">EIXO 4 · REFORMAS ESTRUTURAIS</span>
+      <span>Tecnologia não é neutra: ou serve ao capital, ou constrói o poder popular.</span>
+    </div>
+    <div style="font-family: var(--font-mono); font-size: 0.75rem; white-space: nowrap;">
+      Brasília · 2026
+    </div>
+  </aside>
+
+  <!-- Faixa de Aviso de Protótipo e Dados Ilustrativos -->
+  <div style="background-color: var(--amarelo-sol); color: var(--preto-tinta); border-bottom: var(--border-medium); padding: 6px 16px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; text-align: center; letter-spacing: 0.02em;">
+    ⚠️ PROTÓTIPO CONCEITUAL DE INTERFACE · Todos os dados, valores, números e nomes apresentados nesta plataforma são simulados e ilustrativos para fins de demonstração visual.
+  </div>
+
+  <!-- Cabeçalho Principal com Marca Oficial A Dobra -->
+  <header class="header-principal">
+    <a href="#orcamento" class="marca-container" title="Movimento pela Soberania Digital Popular">
+      <!-- Símbolo Oficial da Marca: A Dobra (Viga que sobe um degrau + Sol Amarelo) -->
+      <svg class="simbolo-dobra" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Sol Amarelo oficial -->
+        <circle cx="78" cy="22" r="14" fill="#FDC303" stroke="#1C1712" stroke-width="3"/>
+        <!-- A Dobra: Viga azul contínua que sobe o degrau da esquerda para a direita -->
+        <path d="M10 75 H44 V42 H88 V58 H56 V91 H10 Z" fill="#1243A5" stroke="#1C1712" stroke-width="4" stroke-linejoin="miter"/>
+        <!-- Detalhe da face superior da viga em areia/respiro -->
+        <path d="M10 75 L22 67 H54 L44 75 Z" fill="#F3E3B5" stroke="#1C1712" stroke-width="2"/>
+        <path d="M54 67 V34 H98 L88 42 H56 V58 L54 67 Z" fill="#F3E3B5" stroke="#1C1712" stroke-width="2"/>
+      </svg>
+
+      <div class="marca-texto">
+        <h1>
+          <span>Soberania em Dados</span>
+          Observatório do Eixo 4
+        </h1>
+        <p>TRADUÇÃO POPULAR DA BUROCRACIA E DO ORÇAMENTO PÚBLICO DE TI</p>
+      </div>
+    </a>
+
+    <div class="header-actions">
+      <a href="apresentacao-subeixos.html" class="btn-tradutor-popular" style="background-color: var(--azul-macacao); color: var(--branco-papel); text-decoration: none;" title="Abrir apresentação de slides dos 5 sub-eixos">
+        <span>📽️ Apresentação dos Sub-eixos</span>
+      </a>
+      <button class="btn-tradutor-popular" id="btnAbrirTradutor" title="Abrir glossário explicativo para outros eixos">
+        <span>📖 Tradutor Popular</span>
+      </button>
+      <span class="badge-versao">PROTÓTIPO 1.0</span>
+    </div>
+  </header>
+
+  <!-- Abas de Navegação na Ordem Solicitada -->
+  <nav class="nav-prototipos" aria-label="Navegação entre protótipos de visualização">
+    <button class="tab-btn active" data-tab="orcamento" id="tabBtnOrcamento">
+      <span class="tab-icon">1</span>
+      <span>Orçamento & Gastos</span>
+    </button>
+    <button class="tab-btn" data-tab="pessoas-grafo" id="tabBtnGrafo">
+      <span class="tab-icon">2</span>
+      <span>Pessoas & Instituições</span>
+    </button>
+    <button class="tab-btn" data-tab="projetos" id="tabBtnProjetos">
+      <span class="tab-icon">3</span>
+      <span>Projetos de Tech Pública</span>
+    </button>
+    <button class="tab-btn" data-tab="consultas" id="tabBtnConsultas">
+      <span class="tab-icon">4</span>
+      <span>Consultas Públicas</span>
+    </button>
+    <button class="tab-btn" data-tab="licitacoes" id="tabBtnLicitacoes">
+      <span class="tab-icon">5</span>
+      <span>Mapeamento de Licitações</span>
+    </button>
+  </nav>
+
+  <!-- Área Central de Conteúdo -->
+  <main class="main-content">
+
+    <!-- ======================================================================
+         1. ORÇAMENTO & GASTOS ESTRANGEIROS (Visualização Principal)
+         ====================================================================== -->
+    <section class="tab-content" id="tab-orcamento">
+      <div class="secao-header">
+        <span class="meta-tag">Módulo 1 · Onde Vai o Dinheiro Público</span>
+        <h2>Análise de Orçamento e Gastos com Tecnologia Estrangeira</h2>
+        <p>
+          Evidências públicas dos gastos federais em TI. Análise histórica do <strong>Elemento de Despesa 40</strong> (mais de R$ 10,6 bilhões empenhados) e o ralo de dependência em marcas estrangeiras como Microsoft, Oracle, Dell e Red Hat.
+        </p>
+
+        <div class="box-traducao-rapida">
+          <span class="tag-pop">Para que serve?</span>
+          <div>
+            <strong>Tradução Popular:</strong> O governo federal gasta bilhões todo ano alugando licenças de software estrangeiro em vez de desenvolver tecnologia nacional. Esta tela mostra para onde o dinheiro está indo e usa o <em>Simulador de Custo de Oportunidade</em> para demonstrar quantas bolsas de pesquisa ou cooperativas populares poderiam ser bancadas com esse mesmo recurso.
+          </div>
+        </div>
+      </div>
+
+      <!-- KPIs do Orçamento -->
+      <div class="kpi-grid" id="orcamentoKPIs"></div>
+
+      <!-- Split de Gráficos -->
+      <div class="orcamento-container">
+        <div class="orcamento-split">
+          <!-- Gráfico 1: Série Histórica Elemento 40 -->
+          <div class="grafico-card">
+            <h3>Série Histórica de Serviços de TI (Elemento 40)</h3>
+            <p class="sub">Valores anuais em R$ Bilhões (União, 2022 a 2026)</p>
+            <div class="chart-canvas-wrapper">
+              <canvas id="canvasSerieHistorica"></canvas>
+            </div>
+            <div style="margin-top: 14px; font-size: 0.82rem; color: #56615C; border-top: var(--border-thin); padding-top: 8px;">
+              * 2026 parcial. Fontes: SIOP, Contratos.gov.br e Compras.gov.br.
+            </div>
+          </div>
+
+          <!-- Gráfico 2: Composição do Núcleo Estrangeiro por Marca -->
+          <div class="grafico-card">
+            <h3>Divisão do Núcleo Estrangeiro por Marca</h3>
+            <p class="sub">Total de R$ 2,78 Bilhões assinados em contratos identificados (2023-2026)</p>
+            <div class="chart-canvas-wrapper">
+              <canvas id="canvasMarcasDonut"></canvas>
+            </div>
+            <div style="margin-top: 14px; font-size: 0.82rem; color: #56615C; border-top: var(--border-thin); padding-top: 8px;">
+              Apenas 5 marcas monopolizam 67,2% do valor assinado do núcleo.
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulador Interativo do Custo de Oportunidade Popular -->
+        <div class="simulador-card">
+          <div class="simulador-header">
+            <h3>Simulador do Custo de Oportunidade Popular</h3>
+            <p style="margin-top: 4px; color: #3d4642;">
+              Selecione um contrato ou gasto com Big Techs e veja o que esse mesmo dinheiro faria se fosse investido na soberania do povo brasileiro:
+            </p>
+
+            <select id="simuladorContratoSelect" class="simulador-select" aria-label="Selecione o contrato para simulação">
+              <option value="0">Contrato MGI-Microsoft (R$ 606,5 Milhões - vigência até 2029)</option>
+              <option value="1">Total em Licenças Estrangeiras Identificadas (R$ 2,78 Bilhões)</option>
+            </select>
+          </div>
+
+          <div class="alternativas-grid" id="simuladorResultados"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         2. PESSOAS & INSTITUIÇÕES (Grafo Interativo)
+         ====================================================================== -->
+    <section class="tab-content" id="tab-pessoas-grafo" style="display: none;">
+      <div class="secao-header">
+        <span class="meta-tag">Módulo 2 · Teia do Poder Público</span>
+        <h2>Mapeamento de Pessoas Responsáveis & Instituições</h2>
+        <p>
+          Saiba quem decide os rumos da tecnologia pública no Brasil e <strong>como essa pessoa chegou lá</strong>. O grafo interativo conecta ministérios, estatais (Serpro, Dataprev), agências reguladoras (ANPD) e tribunais de contas às lideranças no comando de cada projeto e orçamento.
+        </p>
+
+        <div class="box-traducao-rapida">
+          <span class="tag-pop">Para que serve?</span>
+          <div>
+            <strong>Tradução Popular:</strong> Política pública tem nome, sobrenome e CPF. Se um órgão fecha um contrato danoso de R$ 600 milhões com a Microsoft, precisamos saber se quem assinou foi alguém de carreira pública ou um ex-executivo que veio de multinacional (a famosa "porta giratória"). Clique em qualquer pessoa no grafo para ver o currículo, trajetória e os projetos geridos.
+          </div>
+        </div>
+      </div>
+
+      <!-- Grafo Interativo em Canvas -->
+      <div class="grafo-wrapper">
+        <div class="grafo-toolbar">
+          <div class="grafo-legenda">
+            <span style="font-weight: 700; text-transform: uppercase;">Origem da Liderança:</span>
+            <div class="legenda-item">
+              <span class="legenda-dot bigtech"></span>
+              <span>Porta Giratória (Ex-Big Tech)</span>
+            </div>
+            <div class="legenda-item">
+              <span class="legenda-dot carreira"></span>
+              <span>Servidor Público de Carreira</span>
+            </div>
+            <div class="legenda-item">
+              <span class="legenda-dot movimento"></span>
+              <span>Movimento Social / Academia</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 8px;">
+            <button class="btn-filtro" onclick="GrafoModule.zoomIn()" title="Aumentar zoom">+</button>
+            <button class="btn-filtro" onclick="GrafoModule.zoomOut()" title="Diminuir zoom">-</button>
+            <button class="btn-filtro" onclick="GrafoModule.resetZoom()" title="Centralizar visualização">Centralizar</button>
+          </div>
+        </div>
+
+        <div class="canvas-container">
+          <canvas id="grafoCanvas"></canvas>
+          <div class="grafo-hint">
+            💡 <strong>Interação:</strong> Arraste os nós para reorganizar · Role o mouse para Zoom · Clique em qualquer pessoa ou instituição para abrir o dossiê completo.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3. PROJETOS PÚBLICOS DE TECNOLOGIA & REFORMAS ESTRUTURAIS
+         ====================================================================== -->
+    <section class="tab-content" id="tab-projetos" style="display: none;">
+      <div class="secao-header">
+        <span class="meta-tag">Módulo 3 · Monitor de Reformas Estruturais</span>
+        <h2>Projetos de Tecnologia Pública Hoje: O que está sendo produzido e quanto custa</h2>
+        <p>
+          Auditoria cidadã dos grandes projetos de tecnologia do Estado brasileiro. Avaliamos cada iniciativa com a <strong>Régua dos 5 Critérios do Manifesto do Eixo 4</strong>: <em>anúncio não é política pública; só é conquista o que tiver Norma, Orçamento, Responsável, Indicador e Controle Social</em>.
+        </p>
+
+        <div class="box-traducao-rapida">
+          <span class="tag-pop">Para que serve?</span>
+          <div>
+            <strong>Tradução Popular:</strong> Muitas vezes o governo lança um projeto com propaganda bonita, mas na prática entrega o sistema para a iniciativa privada ou esconde os algoritmos que decidem quem recebe auxílio. Aqui a gente audita se o projeto realmente serve à soberania popular ou se é só vitrine.
+          </div>
+        </div>
+      </div>
+
+      <!-- KPIs de Projetos -->
+      <div class="kpi-grid" id="projetosKPIs"></div>
+
+      <!-- Grid de Projetos Estruturais -->
+      <div class="projetos-grid" id="projetosGrid"></div>
+    </section>
+
+    <!-- ======================================================================
+         4. CONSULTAS & CHAMADAS PÚBLICAS (Orçamento & Tech)
+         ====================================================================== -->
+    <section class="tab-content" id="tab-consultas" style="display: none;">
+      <div class="secao-header">
+        <span class="meta-tag">Módulo 4 · Participação Popular & Orçamento</span>
+        <h2>Mapeamento de Chamadas e Consultas Públicas de Tecnologia</h2>
+        <p>
+          Monitore todas as consultas sobre orçamento público, planos de governo (PPA/LOA), marcos regulatórios e chamadas de fomento abertas para tecnologia. Descubra onde incidir e acesse o <strong>Kit de Incidência Popular</strong> com propostas e justificativas prontas para mobilização.
+        </p>
+
+        <div class="box-traducao-rapida">
+          <span class="tag-pop">Para que serve?</span>
+          <div>
+            <strong>Tradução Popular:</strong> Consulta pública não pode ser espaço só de lobby corporativo. Quando o governo abre consulta para decidir para onde vai a verba de TI ou como regular a inteligência artificial, este painel avisa a nossa militância e entrega o texto pronto para copiar, colar e votar em peso na plataforma oficial.
+          </div>
+        </div>
+      </div>
+
+      <!-- KPIs Rápidos de Consultas -->
+      <div class="kpi-grid" id="consultasKPIs"></div>
+
+      <!-- Barra de Filtros de Consultas -->
+      <div class="painel-controles">
+        <div class="filtros-grupo">
+          <span class="filtro-label">Tipo:</span>
+          <button class="btn-filtro active" data-consulta-tipo="todos">Todos</button>
+          <button class="btn-filtro" data-consulta-tipo="consulta_publica" style="border-left: 4px solid var(--azul-macacao);">📢 Consultas Públicas (Leis & Orçamento)</button>
+          <button class="btn-filtro" data-consulta-tipo="chamada_fomento" style="border-left: 4px solid var(--amarelo-sol);">💰 Chamadas de Fomento (Editais)</button>
+        </div>
+
+        <div class="filtros-grupo">
+          <span class="filtro-label">Eixo Temático:</span>
+          <button class="btn-filtro active" data-consulta-cat="todas">Todos</button>
+          <button class="btn-filtro" data-consulta-cat="orcamento">💰 Orçamento & PPA</button>
+          <button class="btn-filtro" data-consulta-cat="fomento_cooperativas">🤝 Cooperativismo</button>
+          <button class="btn-filtro" data-consulta-cat="regulacao_ia">⚖️ Regulação de IA</button>
+          <button class="btn-filtro" data-consulta-cat="infra_livre">📡 Infraestrutura Livre</button>
+        </div>
+
+        <div class="filtros-grupo">
+          <span class="filtro-label">Esfera:</span>
+          <button class="btn-filtro active" data-consulta-esfera="todas">Todas</button>
+          <button class="btn-filtro" data-consulta-esfera="federal">Federal</button>
+          <button class="btn-filtro" data-consulta-esfera="estadual">Estadual</button>
+          <button class="btn-filtro" data-consulta-esfera="municipal">Municipal</button>
+        </div>
+
+        <div>
+          <input type="search" class="input-busca" id="buscaConsultas" placeholder="Buscar consulta ou chamada..." aria-label="Buscar consultas públicas">
+        </div>
+      </div>
+
+      <!-- Grid de Consultas e Chamadas -->
+      <div class="licitacoes-grid" id="consultasGrid"></div>
+    </section>
+
+    <!-- ======================================================================
+         5. MAPEAMENTO DE LICITAÇÕES (Federal, Estadual, Municipal)
+         ====================================================================== -->
+    <section class="tab-content" id="tab-licitacoes" style="display: none;">
+      <div class="secao-header">
+        <span class="meta-tag">Módulo 5 · Poder de Compra do Estado</span>
+        <h2>Mapeamento de Licitações Abertas para Tecnologia</h2>
+        <p>
+          Acompanhamento em tempo real de editais públicos de TI em todo o Brasil. Monitore onde o Estado está aplicando recursos, identifique ameaças de aprisionamento tecnológico por Big Techs e descubra editais com oportunidades para cooperativas populares e software livre.
+        </p>
+
+        <div class="box-traducao-rapida">
+          <span class="tag-pop">Para que serve?</span>
+          <div>
+            <strong>Tradução Popular:</strong> Em vez de descobrir tarde demais que a prefeitura ou o ministério comprou milhões em licenças de multinacionais sem disputa, esta tela alerta o movimento antes da assinatura do contrato para que a gente possa impugnar, disputar e exigir compras de cooperativas nacionais.
+          </div>
+        </div>
+      </div>
+
+      <!-- KPIs Rápidos -->
+      <div class="kpi-grid" id="licitacoesKPIs"></div>
+
+      <!-- Barra de Filtros e Granularidade (Federal -> Estadual -> Municipal) -->
+      <div class="painel-controles">
+        <div class="filtros-grupo">
+          <span class="filtro-label">Granularidade:</span>
+          <button class="btn-filtro active" data-esfera="todas">Todas as Esferas</button>
+          <button class="btn-filtro" data-esfera="federal">🇧🇷 Federal (União)</button>
+          <button class="btn-filtro" data-esfera="estadual">📍 Estadual (UFs)</button>
+          <button class="btn-filtro" data-esfera="municipal">🏛️ Municipal (Cidades)</button>
+        </div>
+
+        <div class="filtros-grupo">
+          <span class="filtro-label">Alertas Críticos:</span>
+          <button class="btn-filtro active" data-tag="todas">Todos</button>
+          <button class="btn-filtro" data-tag="alerta-dependencia" style="border-left: 4px solid var(--vermelho-ato);">🚨 Risco Big Tech</button>
+          <button class="btn-filtro" data-tag="oportunidade-popular" style="border-left: 4px solid var(--verde-pilar);">🟢 Oportunidade Popular</button>
+          <button class="btn-filtro" data-tag="alerta-vigilancia">👁️ Vigilância / Facial</button>
+        </div>
+
+        <div>
+          <input type="search" class="input-busca" id="buscaLicitacoes" placeholder="Buscar por órgão, objeto ou cidade..." aria-label="Buscar licitações">
+        </div>
+      </div>
+
+      <!-- Grid de Editais -->
+      <div class="licitacoes-grid" id="licitacoesGrid"></div>
+    </section>
+
+  </main>
+
+  <!-- Gaveta Lateral Deslizante (Drawer) para Dossiês e Perfis -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="drawer" id="mainDrawer" aria-label="Dossiê detalhado">
+    <div class="drawer-header">
+      <h3 id="drawerTitulo">Dossiê Detalhado</h3>
+      <button class="btn-fechar-drawer" id="btnFecharDrawer" title="Fechar painel">×</button>
+    </div>
+    <div class="drawer-body" id="drawerBody"></div>
+  </aside>
+
+  <!-- Modal do Tradutor Popular (Dicionário de Burocracia Governamental) -->
+  <div class="modal-overlay" id="tradutorModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>📖 Tradutor Popular: O Burocratês em Linguagem de Luta</h3>
+        <button class="btn-fechar-drawer" id="btnFecharModalTradutor">×</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.95rem; color: #2b312e;">
+          O objetivo central do Eixo 4 é <strong>desmistificar o labirinto burocrático do Estado</strong> para que os outros eixos e as bases populares possam disputar o orçamento público com firmeza.
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="background: #FFF; border: var(--border-thin); padding: 14px; border-left: 6px solid var(--azul-macacao);">
+            <strong style="font-family: var(--font-display); font-size: 1rem; color: var(--azul-macacao);">Elemento de Despesa 40 (Serviços de TI)</strong>
+            <p style="font-size: 0.88rem; margin-top: 4px;">
+              É o código contábil do orçamento onde a União registra todo dinheiro gasto para contratar empresas de tecnologia. Em 2025 somou mais de R$ 10,6 bilhões. É o principal termômetro para saber se o dinheiro está ficando no Brasil ou indo para o exterior.
+            </p>
+          </div>
+
+          <div style="background: #FFF; border: var(--border-thin); padding: 14px; border-left: 6px solid var(--vermelho-ato);">
+            <strong style="font-family: var(--font-display); font-size: 1rem; color: var(--vermelho-ato);">Porta Giratória (Revolving Door)</strong>
+            <p style="font-size: 0.88rem; margin-top: 4px;">
+              Quando diretores ou lobistas de multinacionais (como Microsoft, Amazon ou Google) são nomeados para cargos de confiança no governo para gerir compras de TI e, depois de assinar contratos milionários, voltam para as mesmas empresas.
+            </p>
+          </div>
+
+          <div style="background: #FFF; border: var(--border-thin); padding: 14px; border-left: 6px solid var(--urucum);">
+            <strong style="font-family: var(--font-display); font-size: 1rem; color: var(--urucum);">Lock-in Tecnológico (Aprisionamento)</strong>
+            <p style="font-size: 0.88rem; margin-top: 4px;">
+              Quando o governo adota um sistema proprietário que cria tanta dependência que fica quase impossível trocar depois. É a armadilha que obriga o Estado a pagar renovações de licenças cada vez mais caras ano após ano.
+            </p>
+          </div>
+
+          <div style="background: #FFF; border: var(--border-thin); padding: 14px; border-left: 6px solid var(--verde-pilar);">
+            <strong style="font-family: var(--font-display); font-size: 1rem; color: var(--verde-pilar);">Nuvem Soberana</strong>
+            <p style="font-size: 0.88rem; margin-top: 4px;">
+              Infraestrutura de servidores e armazenamento de dados gerida pelo próprio Estado brasileiro (através de estatais como Serpro e Dataprev), protegida contra espionagem e sem risco de sofrer bloqueios judiciais estrangeiros.
+            </p>
+          </div>
+
+          <div style="background: #FFF; border: var(--border-thin); padding: 14px; border-left: 6px solid var(--amarelo-sol);">
+            <strong style="font-family: var(--font-display); font-size: 1rem; color: var(--preto-tinta);">A Régua dos 5 Critérios</strong>
+            <p style="font-size: 0.88rem; margin-top: 4px;">
+              A métrica do nosso manifesto: uma proposta só é conquista se tiver <strong>Norma</strong> (lei que a sustente), <strong>Orçamento</strong> (dinheiro garantido), <strong>Responsável</strong> (autoridade pública nominal), <strong>Indicador</strong> (meta mensurável) e <strong>Controle Social</strong> (o povo sentado na mesa para decidir).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé Oficial na Nova Ordem -->
+  <footer class="footer-principal">
+    <div class="footer-inner">
+      <div class="footer-texto">
+        <p>
+          <strong>Movimento pela Soberania Digital Popular</strong> · Eixo 4: Incidir no Estado e Lutar por Reformas Estruturais
+        </p>
+        <p style="margin-top: 4px; font-size: 0.78rem;">
+          Construído a partir das diretrizes de identidade visual oficial: Neobrutalismo Popular Brasileiro, A Dobra e a Viga Contínua.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#orcamento" onclick="App.navegarPara('orcamento')">1. Orçamento & Gastos</a>
+        <a href="#pessoas-grafo" onclick="App.navegarPara('pessoas-grafo')">2. Pessoas & Instituições</a>
+        <a href="#projetos" onclick="App.navegarPara('projetos')">3. Projetos de Tech Pública</a>
+        <a href="#consultas" onclick="App.navegarPara('consultas')">4. Consultas Públicas</a>
+        <a href="#licitacoes" onclick="App.navegarPara('licitacoes')">5. Mapeamento de Licitações</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts do Observatório -->
+  <script src="js/data.js"></script>
+  <script src="js/licitacoes.js"></script>
+  <script src="js/grafo.js"></script>
+  <script src="js/orcamento.js"></script>
+  <script src="js/projetos.js"></script>
+  <script src="js/consultas.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

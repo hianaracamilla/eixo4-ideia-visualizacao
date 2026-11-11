@@ -1,0 +1,11 @@
+# Documentos internos e arquivos brutos protegidos
+Eixo 4/
+Eixo 4 - Incidir no Estado e lutar por reformas estruturais.pdf
+identidade_visual.pdf
+manifesto.doc
+
+# Sistema e caches
+.DS_Store
+*.log
+__pycache__/
+*.pyc

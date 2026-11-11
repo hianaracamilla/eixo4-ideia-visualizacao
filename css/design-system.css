@@ -1,0 +1,1161 @@
+/* ==========================================================================
+   Design System - Movimento pela Soberania Digital Popular
+   Eixo 4: Incidir no Estado e Lutar por Reformas Estruturais
+   Diretrizes visuais: Identidade Visual v1 (Neobrutalismo Popular Brasileiro)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  /* Cores Oficiais da Identidade Visual */
+  --azul-macacao: #1243A5; /* A marca, quem trabalha */
+  --amarelo-sol: #FDC303;  /* A chamada */
+  --vermelho-ato: #C8322A; /* A convocação, faixas de rua */
+  --verde-pilar: #21672A;  /* O que sustenta */
+  --branco-papel: #FFFDF7; /* O respiro */
+  --branco-puro: #FFFFFF;
+  --preto-tinta: #1C1712;  /* Texto, contornos e sombras */
+
+  /* Cores de Apoio da Identidade */
+  --urucum: #ED8D1F;
+  --morro: #3B7B27;
+  --terra: #392617;
+  --areia: #F3E3B5;
+  --cinza-papel: #F0EDE4;
+  --cinza-borda: #D8D3C5;
+
+  /* Tipografia */
+  --font-display: 'Archivo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Archivo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* Regras Neobrutalistas */
+  --border-thick: 3px solid var(--preto-tinta);
+  --border-medium: 2px solid var(--preto-tinta);
+  --border-thin: 1.5px solid var(--preto-tinta);
+  --shadow-hard: 4px 4px 0px var(--preto-tinta);
+  --shadow-hard-lg: 6px 6px 0px var(--preto-tinta);
+  --shadow-hard-sm: 2px 2px 0px var(--preto-tinta);
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-pill: 9999px;
+
+  /* Transições táteis */
+  --trans-fast: 0.15s ease-in-out;
+}
+
+/* Reset e Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--branco-papel);
+  color: var(--preto-tinta);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  background-image: radial-gradient(var(--cinza-borda) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Faixa de Topo / Convocação (O Vermelho de Ato) */
+.banner-ato {
+  background-color: var(--vermelho-ato);
+  color: var(--branco-papel);
+  padding: 8px 16px;
+  border-bottom: var(--border-thick);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.banner-ato .destaque-manifesto {
+  background-color: var(--amarelo-sol);
+  color: var(--preto-tinta);
+  padding: 2px 8px;
+  border: var(--border-medium);
+  box-shadow: 2px 2px 0px var(--preto-tinta);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.banner-ato .lema {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Cabeçalho Principal com a Marca Oficial (A Dobra) */
+.header-principal {
+  background-color: var(--branco-papel);
+  border-bottom: var(--border-thick);
+  padding: 20px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.marca-container {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Símbolo A Dobra (em SVG) */
+.simbolo-dobra {
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  filter: drop-shadow(3px 3px 0px var(--preto-tinta));
+}
+
+.marca-texto h1 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.5rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--preto-tinta);
+}
+
+.marca-texto h1 span {
+  color: var(--azul-macacao);
+  display: block;
+}
+
+.marca-texto p {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #56615C;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+/* Ações do Topo */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-tradutor-popular {
+  background-color: var(--amarelo-sol);
+  color: var(--preto-tinta);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-hard);
+  padding: 8px 16px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform var(--trans-fast), box-shadow var(--trans-fast);
+}
+
+.btn-tradutor-popular:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-hard-lg);
+  background-color: #ffd233;
+}
+
+.btn-tradutor-popular:active {
+  transform: translate(1px, 1px);
+  box-shadow: var(--shadow-hard-sm);
+}
+
+.badge-versao {
+  background-color: var(--areia);
+  border: var(--border-medium);
+  padding: 6px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* Barra de Navegação dos Protótipos (Abas Neobrutalistas) */
+.nav-prototipos {
+  background-color: var(--cinza-papel);
+  border-bottom: var(--border-thick);
+  padding: 0 32px;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.tab-btn {
+  background-color: var(--areia);
+  border: var(--border-thick);
+  border-bottom: none;
+  padding: 14px 22px;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 0.95rem;
+  color: var(--preto-tinta);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  transition: all var(--trans-fast);
+  white-space: nowrap;
+  position: relative;
+}
+
+.tab-btn:hover {
+  background-color: #f7edd1;
+  transform: translateY(-2px);
+}
+
+.tab-btn.active {
+  background-color: var(--azul-macacao);
+  color: var(--branco-papel);
+  box-shadow: 0 -4px 0 var(--amarelo-sol);
+  transform: translateY(-4px);
+}
+
+.tab-btn.active .tab-icon {
+  background-color: var(--amarelo-sol);
+  color: var(--preto-tinta);
+}
+
+.tab-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: var(--branco-papel);
+  color: var(--preto-tinta);
+  border: var(--border-thin);
+  border-radius: 2px;
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+/* Área de Conteúdo Principal */
+.main-content {
+  flex: 1;
+  padding: 32px;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Painel de Introdução de cada Seção */
+.secao-header {
+  background-color: var(--branco-puro);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-hard-lg);
+  padding: 24px 28px;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.secao-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--azul-macacao),
+    var(--azul-macacao) 12px,
+    var(--amarelo-sol) 12px,
+    var(--amarelo-sol) 24px
+  );
+}
+
+.secao-header .meta-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--azul-macacao);
+  margin-bottom: 4px;
+  display: inline-block;
+  background-color: #E8EEFA;
+  padding: 2px 8px;
+  border: 1px solid var(--azul-macacao);
+}
+
+.secao-header h2 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  line-height: 1.15;
+  margin-bottom: 8px;
+  color: var(--preto-tinta);
+}
+
+.secao-header p {
+  font-size: 1rem;
+  color: #3d4642;
+  max-width: 900px;
+}
+
+/* Barra de Tradução Popular Rápida dentro da tela */
+.box-traducao-rapida {
+  margin-top: 16px;
+  background-color: var(--areia);
+  border: var(--border-medium);
+  padding: 12px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9rem;
+}
+
+.box-traducao-rapida .tag-pop {
+  background-color: var(--vermelho-ato);
+  color: var(--branco-papel);
+  padding: 2px 8px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+/* Cards de Resumo e Métricas (KPIs Neobrutalistas) */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.kpi-card {
+  background-color: var(--branco-puro);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-hard);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform var(--trans-fast);
+}
+
+.kpi-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-hard-lg);
+}
+
+.kpi-card.destaque-vermelho {
+  background-color: #FFF2F1;
+  border-left: 8px solid var(--vermelho-ato);
+}
+
+.kpi-card.destaque-azul {
+  background-color: #F0F4FF;
+  border-left: 8px solid var(--azul-macacao);
+}
+
+.kpi-card.destaque-verde {
+  background-color: #F1FBF2;
+  border-left: 8px solid var(--verde-pilar);
+}
+
+.kpi-card.destaque-amarelo {
+  background-color: #FFFDF0;
+  border-left: 8px solid var(--amarelo-sol);
+}
+
+.kpi-titulo {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #56615C;
+  margin-bottom: 6px;
+}
+
+.kpi-valor {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--preto-tinta);
+  margin-bottom: 8px;
+}
+
+.kpi-desc {
+  font-size: 0.82rem;
+  color: #56615C;
+  line-height: 1.35;
+}
+
+/* Filtros e Controles */
+.painel-controles {
+  background-color: var(--branco-puro);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-hard);
+  padding: 18px 24px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.filtros-grupo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filtro-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--preto-tinta);
+}
+
+.btn-filtro {
+  background-color: var(--branco-papel);
+  border: var(--border-medium);
+  box-shadow: var(--shadow-hard-sm);
+  padding: 6px 14px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all var(--trans-fast);
+}
+
+.btn-filtro:hover {
+  background-color: var(--areia);
+  transform: translate(-1px, -1px);
+}
+
+.btn-filtro.active {
+  background-color: var(--preto-tinta);
+  color: var(--branco-papel);
+  box-shadow: 2px 2px 0px var(--azul-macacao);
+}
+
+.input-busca {
+  border: var(--border-medium);
+  box-shadow: var(--shadow-hard-sm);
+  padding: 8px 14px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  background-color: var(--branco-papel);
+  color: var(--preto-tinta);
+  outline: none;
+  min-width: 260px;
+}
+
+.input-busca:focus {
+  border-color: var(--azul-macacao);
+  background-color: var(--branco-puro);
+}
+
+/* Grid de Licitações */
+.licitacoes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 22px;
+}
+
+.card-licitacao {
+  background-color: var(--branco-puro);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-hard);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  position: relative;
+  transition: transform var(--trans-fast), box-shadow var(--trans-fast);
+}
+
+.card-licitacao:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-hard-lg);
+}
+
+.card-licitacao-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.badge-esfera {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: var(--border-thin);
+}
+
+.badge-esfera.federal {
+  background-color: var(--azul-macacao);
+  color: var(--branco-papel);
+}
+
+.badge-esfera.estadual {
+  background-color: var(--verde-pilar);
+  color: var(--branco-papel);
+}
+
+.badge-esfera.municipal {
+  background-color: var(--urucum);
+  color: var(--branco-papel);
+}
+
+.licitacao-id {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #727c77;
+}
+
+.licitacao-orgao {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--preto-tinta);
+  margin-top: 4px;
+}
+
+.licitacao-objeto {
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: #2b312e;
+}
+
+.licitacao-alerta {
+  background-color: #FFF2F1;
+  border: var(--border-thin);
+  border-left: 5px solid var(--vermelho-ato);
+  padding: 10px 12px;
+  font-size: 0.82rem;
+  color: #1C1712;
+  line-height: 1.35;
+}
+
+.licitacao-alerta.oportunidade {
+  background-color: #F1FBF2;
+  border-left-color: var(--verde-pilar);
+}
+
+.card-licitacao-footer {
+  border-top: var(--border-thin);
+  padding-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.licitacao-valor {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--azul-macacao);
+}
+
+.btn-detalhes {
+  background-color: var(--amarelo-sol);
+  color: var(--preto-tinta);
+  border: var(--border-medium);
+  box-shadow: var(--shadow-hard-sm);
+  padding: 6px 12px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all var(--trans-fast);
+}
+
+.btn-detalhes:hover {
+  background-color: var(--preto-tinta);
+  color: var(--branco-papel);
+  transform: translate(-1px, -1px);
+}
+
+/* Área do Grafo Interativo de Pessoas & Instituições */
+.grafo-wrapper {
+  background-color: var(--branco-puro);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-hard-lg);
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.grafo-toolbar {
+  background-color: var(--cinza-papel);
+  border-bottom: var(--border-thick);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.grafo-legenda {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.legenda-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legenda-dot {
+  width: 12px;
+  height: 12px;
+  border: var(--border-thin);
+  border-radius: 50%;
+}
+
+.legenda-dot.bigtech {
+  background-color: var(--vermelho-ato);
+}
+
+.legenda-dot.carreira {
+  background-color: var(--azul-macacao);
+}
+
+.legenda-dot.movimento {
+  background-color: var(--verde-pilar);
+}
+
+.canvas-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background-color: #FAF8F2;
+  background-image: 
+    linear-gradient(to right, rgba(28, 23, 18, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(28, 23, 18, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  overflow: hidden;
+}
+
+#grafoCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: grab;
+}
+
+#grafoCanvas:active {
+  cursor: grabbing;
+}
+
+.grafo-hint {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background-color: var(--branco-papel);
+  border: var(--border-medium);
+  box-shadow: var(--shadow-hard-sm);
+  padding: 8px 14px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  pointer-events: none;
+}
+
+/* Área de Orçamento e Gastos */
+.orcamento-container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.orcamento-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 960px) {
+  .orcamento-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grafico-card {
+  background-color: var(--branco-puro);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-hard);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.grafico-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.grafico-card p.sub {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #56615C;
+  margin-bottom: 20px;
+}
+
+.chart-canvas-wrapper {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  background-color: #FAF8F2;
+  border: var(--border-thin);
+}
+
+.chart-canvas-wrapper canvas {
+  width: 100%;
+  height: 280px;
+  display: block;
+}
+
+/* Simulador do Custo de Oportunidade Popular */
+.simulador-card {
+  background-color: #FFFDF0;
+  border: var(--border-thick);
+  box-shadow: var(--shadow-hard-lg);
+  padding: 28px;
+  position: relative;
+}
+
+.simulador-card::before {
+  content: 'TRADUÇÃO POPULAR DO GASTO';
+  position: absolute;
+  top: -14px;
+  left: 24px;
+  background-color: var(--amarelo-sol);
+  color: var(--preto-tinta);
+  border: var(--border-medium);
+  padding: 2px 10px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.simulador-header {
+  margin-bottom: 20px;
+}
+
+.simulador-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.simulador-select {
+  border: var(--border-medium);
+  box-shadow: var(--shadow-hard-sm);
+  padding: 10px 16px;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: var(--branco-puro);
+  color: var(--preto-tinta);
+  outline: none;
+  width: 100%;
+  max-width: 520px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.alternativas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.card-alternativa {
+  background-color: var(--branco-puro);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-hard);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-alternativa .alt-qtd {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 900;
+  color: var(--verde-pilar);
+  line-height: 1.1;
+}
+
+.card-alternativa .alt-item {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1rem;
+  margin: 6px 0;
+  color: var(--preto-tinta);
+}
+
+.card-alternativa .alt-duracao {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #727c77;
+  margin-bottom: 8px;
+}
+
+.card-alternativa .alt-impacto {
+  font-size: 0.85rem;
+  color: #2b312e;
+  border-top: var(--border-thin);
+  padding-top: 8px;
+}
+
+/* Área de Projetos e Reformas Estruturais */
+.projetos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 600px) {
+  .projetos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card-projeto {
+  background-color: var(--branco-puro);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-hard);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.card-projeto-topo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.projeto-nome {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  color: var(--preto-tinta);
+}
+
+.projeto-orgao {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #56615C;
+  font-weight: 700;
+}
+
+/* Régua dos 5 Critérios do Manifesto */
+.regua-manifesto {
+  background-color: var(--cinza-papel);
+  border: var(--border-medium);
+  padding: 14px 16px;
+}
+
+.regua-titulo {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.criterios-lista {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+@media (max-width: 500px) {
+  .criterios-lista {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.criterio-pill {
+  text-align: center;
+  padding: 6px 4px;
+  border: var(--border-thin);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  background-color: var(--branco-papel);
+  color: #727c77;
+}
+
+.criterio-pill.atendido {
+  background-color: var(--verde-pilar);
+  color: var(--branco-papel);
+  border-color: var(--preto-tinta);
+}
+
+.criterio-pill.nao-atendido {
+  background-color: #F8D7DA;
+  color: var(--vermelho-ato);
+  border-color: var(--vermelho-ato);
+  text-decoration: line-through;
+}
+
+.projeto-posicao {
+  background-color: var(--areia);
+  border: var(--border-thin);
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+
+.projeto-posicao strong {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  color: var(--azul-macacao);
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* Gaveta Lateral (Drawer) de Detalhes de Pessoa ou Licitação */
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(28, 23, 18, 0.65);
+  backdrop-filter: blur(2px);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--trans-fast);
+}
+
+.drawer-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -580px;
+  width: 100%;
+  max-width: 560px;
+  height: 100%;
+  background-color: var(--branco-papel);
+  border-left: var(--border-thick);
+  box-shadow: -8px 0px 0px rgba(28, 23, 18, 0.4);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+}
+
+.drawer.open {
+  right: 0;
+}
+
+.drawer-header {
+  background-color: var(--preto-tinta);
+  color: var(--branco-papel);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: var(--border-thick);
+}
+
+.drawer-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.btn-fechar-drawer {
+  background-color: var(--amarelo-sol);
+  color: var(--preto-tinta);
+  border: var(--border-medium);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+.drawer-body {
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Modal do Tradutor Popular */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(28, 23, 18, 0.7);
+  backdrop-filter: blur(3px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--trans-fast);
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background-color: var(--branco-papel);
+  border: var(--border-thick);
+  box-shadow: 8px 8px 0px var(--preto-tinta);
+  width: 100%;
+  max-width: 760px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  background-color: var(--amarelo-sol);
+  border-bottom: var(--border-thick);
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--preto-tinta);
+}
+
+.modal-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Rodapé Oficial */
+.footer-principal {
+  background-color: var(--preto-tinta);
+  color: var(--branco-papel);
+  border-top: var(--border-thick);
+  padding: 28px 32px;
+  margin-top: auto;
+}
+
+.footer-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-texto p {
+  font-size: 0.85rem;
+  color: #c9d0ca;
+}
+
+.footer-texto strong {
+  color: var(--amarelo-sol);
+}
+
+.footer-links {
+  display: flex;
+  gap: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.footer-links a {
+  color: var(--branco-papel);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.footer-links a:hover {
+  color: var(--amarelo-sol);
+}

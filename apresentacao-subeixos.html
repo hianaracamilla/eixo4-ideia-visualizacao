@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apresentação: Os 5 Sub-eixos do Eixo 4 · Soberania Digital Popular</title>
+  <meta name="description" content="Apresentação oficial da estrutura operacional do Eixo 4: Linhas, sub-eixos, fluxo de trabalho e incidência no Estado.">
+  <link rel="stylesheet" href="css/design-system.css">
+  <style>
+    /* Estilos específicos para a Apresentação de Slides */
+    body {
+      background-color: var(--branco-papel);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    .deck-topbar {
+      background-color: var(--preto-tinta);
+      color: var(--branco-papel);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: var(--border-thick);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .deck-topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-voltar {
+      background-color: var(--amarelo-sol);
+      color: var(--preto-tinta);
+      border: var(--border-medium);
+      padding: 6px 14px;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 2px 2px 0px var(--branco-papel);
+      transition: transform var(--trans-fast);
+    }
+
+    .btn-voltar:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px var(--branco-papel);
+    }
+
+    .deck-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px 40px;
+      max-width: 1280px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* O Slide (Prancha Neobrutalista) */
+    .slide-stage {
+      width: 100%;
+      background-color: var(--branco-puro);
+      border: var(--border-thick);
+      box-shadow: 8px 8px 0px var(--preto-tinta);
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: opacity 0.2s ease;
+    }
+
+    .slide-stage::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: repeating-linear-gradient(
+        45deg,
+        var(--azul-macacao),
+        var(--azul-macacao) 14px,
+        var(--amarelo-sol) 14px,
+        var(--amarelo-sol) 28px
+      );
+    }
+
+    .slide-content {
+      padding: 40px 48px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .slide-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--azul-macacao);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .slide-title {
+      font-family: var(--font-display);
+      font-size: 2.3rem;
+      font-weight: 900;
+      line-height: 1.15;
+      text-transform: uppercase;
+      color: var(--preto-tinta);
+      margin-top: 6px;
+    }
+
+    .slide-subtitle {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--vermelho-ato);
+      margin-top: 4px;
+    }
+
+    .slide-body {
+      font-size: 1.05rem;
+      line-height: 1.5;
+      color: #2b312e;
+    }
+
+    /* Rodapé do Slide */
+    .slide-footer-bar {
+      border-top: var(--border-medium);
+      background-color: var(--areia);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* Barra de Navegação Inferior */
+    .deck-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 24px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      background-color: var(--azul-macacao);
+      color: var(--branco-papel);
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard);
+      padding: 10px 22px;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all var(--trans-fast);
+    }
+
+    .nav-btn:hover:not(:disabled) {
+      background-color: var(--preto-tinta);
+      transform: translate(-2px, -2px);
+      box-shadow: var(--shadow-hard-lg);
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .slide-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .dot-btn {
+      width: 32px;
+      height: 32px;
+      border: var(--border-medium);
+      background-color: var(--branco-papel);
+      color: var(--preto-tinta);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 2px 2px 0px var(--preto-tinta);
+      transition: all var(--trans-fast);
+    }
+
+    .dot-btn.active {
+      background-color: var(--amarelo-sol);
+      color: var(--preto-tinta);
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px var(--preto-tinta);
+      font-weight: 900;
+    }
+
+    /* Grids e Elementos Internos dos Slides */
+    .subeixo-split {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: start;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 860px) {
+      .subeixo-split {
+        grid-template-columns: 1fr;
+      }
+      .slide-title {
+        font-size: 1.7rem;
+      }
+      .slide-content {
+        padding: 24px;
+      }
+    }
+
+    .box-fluxo {
+      background-color: #FFF;
+      border: var(--border-medium);
+      padding: 16px 20px;
+    }
+
+    .box-fluxo.recebe {
+      border-left: 8px solid var(--azul-macacao);
+    }
+
+    .box-fluxo.entrega {
+      border-left: 8px solid var(--verde-pilar);
+    }
+
+    .box-fluxo.regra {
+      border-left: 8px solid var(--vermelho-ato);
+      background-color: #FFF2F1;
+    }
+
+    .fluxo-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .grid-3-col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .grid-3-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card-destaque {
+      background: #FFF;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Faixa de Aviso de Protótipo e Dados Ilustrativos -->
+  <div style="background-color: var(--amarelo-sol); color: var(--preto-tinta); border-bottom: var(--border-medium); padding: 5px 16px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; text-align: center; letter-spacing: 0.02em;">
+    ⚠️ PROTÓTIPO CONCEITUAL DE INTERFACE · Todos os dados e números apresentados são simulados e ilustrativos para fins de demonstração visual.
+  </div>
+
+  <!-- Barra Superior da Apresentação -->
+  <header class="deck-topbar">
+    <div class="deck-topbar-left">
+      <a href="index.html" class="btn-voltar">
+        ← Voltar ao Observatório
+      </a>
+      <span style="font-family: var(--font-display); font-weight: 900; font-size: 0.95rem; text-transform: uppercase;">
+        Eixo 4 · Estrutura Operacional
+      </span>
+    </div>
+
+    <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--amarelo-sol);">
+      Slide <span id="currentSlideNum">1</span> de <span id="totalSlidesNum">9</span>
+    </div>
+  </header>
+
+  <!-- Palco Central dos Slides -->
+  <main class="deck-container">
+    <div class="slide-stage" id="slideStage">
+      <!-- Conteúdo inserido dinamicamente via JS -->
+    </div>
+
+    <!-- Controles de Navegação -->
+    <div class="deck-controls">
+      <button class="nav-btn" id="prevBtn" onclick="Apresentacao.prev()">
+        ← Anterior
+      </button>
+
+      <div class="slide-dots" id="slideDots"></div>
+
+      <button class="nav-btn" id="nextBtn" onclick="Apresentacao.next()">
+        Próximo →
+      </button>
+    </div>
+  </main>
+
+  <script>
+    const SLIDES_DATA = [
+      // Slide 1: Capa
+      {
+        eyebrow: "Movimento pela Soberania Digital Popular · Eixo 4",
+        titulo: "Como o Eixo 4 se Organiza",
+        subtitulo: "Articulação Política e Políticas Públicas no Estado",
+        render: () => `
+          <div style="display: flex; flex-direction: column; justify-content: center; height: 100%; gap: 24px; padding: 20px 0;">
+            <div style="display: flex; align-items: center; gap: 20px;">
+              <svg style="width: 80px; height: 80px; flex-shrink: 0;" viewBox="0 0 100 100" fill="none">
+                <circle cx="78" cy="22" r="14" fill="#FDC303" stroke="#1C1712" stroke-width="3"/>
+                <path d="M10 75 H44 V42 H88 V58 H56 V91 H10 Z" fill="#1243A5" stroke="#1C1712" stroke-width="4"/>
+                <path d="M10 75 L22 67 H54 L44 75 Z" fill="#F3E3B5" stroke="#1C1712" stroke-width="2"/>
+                <path d="M54 67 V34 H98 L88 42 H56 V58 L54 67 Z" fill="#F3E3B5" stroke="#1C1712" stroke-width="2"/>
+              </svg>
+              <div>
+                <span class="badge-versao" style="background: var(--amarelo-sol); color: var(--preto-tinta); font-size: 0.8rem;">
+                  CADERNO OPERACIONAL OFICIAL
+                </span>
+                <h1 class="slide-title" style="font-size: 2.8rem; margin-top: 4px;">Os 5 Sub-eixos do Eixo 4</h1>
+                <p style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--azul-macacao);">
+                  Transformar o acúmulo da luta popular em diretriz de Estado, orçamento e lei
+                </p>
+              </div>
+            </div>
+
+            <div style="background-color: var(--areia); border: var(--border-medium); padding: 22px; margin-top: 10px;">
+              <p style="font-size: 1.15rem; line-height: 1.45; font-weight: 600; color: #1C1712;">
+                "O Eixo 4 leva a luta do movimento para dentro do Estado: transforma as dores dos territórios em propostas com custo e fonte, leva essas propostas a quem decide e acompanha até virarem conquista real."
+              </p>
+            </div>
+
+            <div class="grid-3-col" style="margin-top: 6px;">
+              <div style="background: #FFF; border: var(--border-thin); padding: 14px;">
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: #56615C;">REGRA 1</span>
+                <strong style="display: block; font-size: 0.95rem; margin-top: 2px;">Sem recurso, não há proposta</strong>
+                <p style="font-size: 0.8rem; color: #56615C; margin-top: 4px;">Dizer quanto custa e de onde sai o dinheiro.</p>
+              </div>
+              <div style="background: #FFF; border: var(--border-thin); padding: 14px;">
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: #56615C;">REGRA 2</span>
+                <strong style="display: block; font-size: 0.95rem; margin-top: 2px;">Quatro validações</strong>
+                <p style="font-size: 0.8rem; color: #56615C; margin-top: 4px;">Popular, técnica, jurídica e orçamentária.</p>
+              </div>
+              <div style="background: #FFF; border: var(--border-thin); padding: 14px;">
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: #56615C;">REGRA 3</span>
+                <strong style="display: block; font-size: 0.95rem; margin-top: 2px;">Anúncio não é política pública</strong>
+                <p style="font-size: 0.8rem; color: #56615C; margin-top: 4px;">Norma, orçamento, responsável, indicador e controle social.</p>
+              </div>
+            </div>
+          </div>
+        `,
+        rodape: "Movimento pela Soberania Digital Popular · Apresentação Geral"
+      },
+
+      // Slide 2: O Lugar do Eixo 4 no Movimento
+      {
+        eyebrow: "Parte 1 · Posicionamento Estratégico",
+        titulo: "O Lugar do Eixo 4 no Movimento",
+        subtitulo: "A ponte entre o trabalho de base e as instituições do Estado",
+        render: () => `
+          <div>
+            <p class="slide-body">
+              O movimento organiza sua atuação em quatro eixos integrados. Os três primeiros <strong>revelam</strong>, <strong>constroem</strong> e <strong>formam</strong>. O Eixo 4 junta essa produção e a leva ao Estado. Ele não trabalha isolado: cada passo seu depende dos outros eixos.
+            </p>
+
+            <div class="grid-3-col" style="margin-top: 20px;">
+              <div class="card-destaque">
+                <div>
+                  <span class="badge-versao" style="background: #E8EEFA; color: var(--azul-macacao); margin-bottom: 8px; display: inline-block;">EIXO 1</span>
+                  <h4 style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 900;">Comunicação & Denúncia</h4>
+                  <p style="font-size: 0.85rem; margin-top: 6px; color: #3d4642;">
+                    <strong>Revela a regra:</strong> investiga o abuso das Big Techs, recolhe denúncias e disputa a consciência na sociedade.
+                  </p>
+                </div>
+                <div style="margin-top: 12px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--azul-macacao);">
+                  ↳ Alimenta o Eixo 4 com denúncias
+                </div>
+              </div>
+
+              <div class="card-destaque">
+                <div>
+                  <span class="badge-versao" style="background: #F1FBF2; color: var(--verde-pilar); margin-bottom: 8px; display: inline-block;">EIXO 2</span>
+                  <h4 style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 900;">Tecnologia & Retaguarda</h4>
+                  <p style="font-size: 0.85rem; margin-top: 6px; color: #3d4642;">
+                    <strong>Mostra outra regra:</strong> desenvolve infraestrutura autônoma, servidores e sistemas populares (ex.: Contrate Quem Luta).
+                  </p>
+                </div>
+                <div style="margin-top: 12px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--verde-pilar);">
+                  ↳ Alimenta o Eixo 4 com soluções viáveis
+                </div>
+              </div>
+
+              <div class="card-destaque">
+                <div>
+                  <span class="badge-versao" style="background: #FFFDF0; color: #8A6D00; margin-bottom: 8px; display: inline-block;">EIXO 3</span>
+                  <h4 style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 900;">Base & Formação Técnica</h4>
+                  <p style="font-size: 0.85rem; margin-top: 6px; color: #3d4642;">
+                    <strong>Forma quem decide:</strong> organiza Cozinhas Solidárias, telecentros comunitários e letramento técnico de massa.
+                  </p>
+                </div>
+                <div style="margin-top: 12px; font-family: var(--font-mono); font-size: 0.75rem; color: #8A6D00;">
+                  ↳ Alimenta o Eixo 4 com a força das ruas
+                </div>
+              </div>
+            </div>
+
+            <div style="background-color: var(--vermelho-ato); color: #FFF; border: var(--border-medium); padding: 16px 20px; margin-top: 22px;">
+              <strong style="font-family: var(--font-display); text-transform: uppercase;">A Posição diante do Governo:</strong>
+              <p style="font-size: 0.95rem; margin-top: 4px;">
+                "Aliados do que avança, críticos do que recua, independentes sempre. Ajudamos o governo a acertar e cobramos quando erra. Nossa força nas mesas vem da base organizada fora delas."
+              </p>
+            </div>
+          </div>
+        `,
+        rodape: "Eixo 4 no Movimento · A Articulação das Quatro Forças"
+      },
+
+      // Slide 3: O Fluxo Integrado dos 5 Sub-eixos
+      {
+        eyebrow: "Parte 2 · O Método",
+        titulo: "O Fluxo Integrado dos 5 Sub-eixos",
+        subtitulo: "A engrenagem que transforma denúncia em conquista garantida",
+        render: () => `
+          <div>
+            <p class="slide-body">
+              Cada sub-eixo reúne ações do mesmo tipo de trabalho. Eles formam uma <strong>esteira contínua</strong> de produção política e incidência institucional:
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 16px;">
+              <!-- Passo 1 -->
+              <div style="background: #FFF; border: var(--border-medium); padding: 12px 18px; display: flex; align-items: center; justify-content: space-between; border-left: 8px solid #1C1712;">
+                <div>
+                  <strong style="font-family: var(--font-mono); color: var(--azul-macacao);">4.3 PLANEJAMENTO & BASE</strong>
+                  <p style="font-size: 0.88rem; color: #2b312e;">Ouve as dores dos territórios e define a <em>Agenda Curta de Prioridades</em> com mandato popular.</p>
+                </div>
+                <span style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: #56615C;">PASSO 1 ➔</span>
+              </div>
+
+              <!-- Passo 2 -->
+              <div style="background: #FFF; border: var(--border-medium); padding: 12px 18px; display: flex; align-items: center; justify-content: space-between; border-left: 8px solid var(--azul-macacao);">
+                <div>
+                  <strong style="font-family: var(--font-mono); color: var(--azul-macacao);">4.1 ORÇAMENTO & DESPESAS</strong>
+                  <p style="font-size: 0.88rem; color: #2b312e;">Calcula o custo real na ponta do lápis e carimba a rubrica orçamentária de onde sairá o dinheiro.</p>
+                </div>
+                <span style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: #56615C;">PASSO 2 ➔</span>
+              </div>
+
+              <!-- Passo 3 -->
+              <div style="background: #FFF; border: var(--border-medium); padding: 12px 18px; display: flex; align-items: center; justify-content: space-between; border-left: 8px solid var(--verde-pilar);">
+                <div>
+                  <strong style="font-family: var(--font-mono); color: var(--verde-pilar);">4.4 ELABORAÇÃO NORMATIVA</strong>
+                  <p style="font-size: 0.88rem; color: #2b312e;">Redige a minuta de Projeto de Lei, decreto ou portaria com rigor técnico e validação jurídica.</p>
+                </div>
+                <span style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: #56615C;">PASSO 3 ➔</span>
+              </div>
+
+              <!-- Passo 4 -->
+              <div style="background: #FFF; border: var(--border-medium); padding: 12px 18px; display: flex; align-items: center; justify-content: space-between; border-left: 8px solid var(--vermelho-ato);">
+                <div>
+                  <strong style="font-family: var(--font-mono); color: var(--vermelho-ato);">4.5 INCIDÊNCIA NOS ENTES</strong>
+                  <p style="font-size: 0.88rem; color: #2b312e;">Leva a proposta às mesas de ministérios, Congresso, estados e municípios com pressão de base.</p>
+                </div>
+                <span style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: #56615C;">PASSO 4 ➔</span>
+              </div>
+
+              <!-- Passo 5 (Loop Contínuo) -->
+              <div style="background: #FFFDF0; border: var(--border-medium); padding: 12px 18px; display: flex; align-items: center; justify-content: space-between; border-left: 8px solid var(--amarelo-sol);">
+                <div>
+                  <strong style="font-family: var(--font-mono); color: #8A6D00;">4.2 MONITORAMENTO & CONTROLE</strong>
+                  <p style="font-size: 0.88rem; color: #2b312e;">Acompanha diários oficiais, contratos e votações para cobrar execução e retroalimentar a base.</p>
+                </div>
+                <span style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: #8A6D00;">CICLO CONTÍNUO ↺</span>
+              </div>
+            </div>
+          </div>
+        `,
+        rodape: "Ciclo Operacional · Do Território à Conquista de Estado"
+      },
+
+      // Slide 4: Sub-eixo 4.1
+      {
+        eyebrow: "Sub-eixo 4.1",
+        titulo: "4.1 · Orçamento e Despesas",
+        subtitulo: "“Segue o dinheiro e faz a conta”",
+        render: () => `
+          <div>
+            <div class="subeixo-split">
+              <div>
+                <p class="slide-body">
+                  Lê o orçamento público e os contratos públicos de tecnologia. Calcula o custo de cada proposta e aponta a fonte orçamentária exata. <strong>É aqui que a regra do movimento é aplicada: sem fonte e custo, a proposta não segue.</strong>
+                </p>
+
+                <h4 style="font-family: var(--font-display); font-size: 1.1rem; text-transform: uppercase; margin: 18px 0 8px;">
+                  Principais Frentes de Trabalho:
+                </h4>
+                <ul style="padding-left: 20px; line-height: 1.6; font-size: 0.95rem;">
+                  <li><strong>Auditoria do Elemento 40:</strong> fiscaliza os mais de R$ 10,6 bilhões gastos anualmente em TI pela União.</li>
+                  <li><strong>Rastreamento do Ralo Estrangeiro:</strong> quantifica pagamentos a monopólios como Microsoft, Oracle e Dell.</li>
+                  <li><strong>Cálculo do Custo de Oportunidade:</strong> demonstra quantas creches, bolsas ou cooperativas o dinheiro de uma licença financiaria.</li>
+                  <li><strong>Entrar no Orçamento:</strong> carimba verbas nas emendas de bancada do PPA, LDO e LOA.</li>
+                </ul>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div class="box-fluxo recebe">
+                  <span class="fluxo-tag" style="color: var(--azul-macacao);">📥 O que Recebe:</span>
+                  <p style="font-size: 0.88rem;">Agenda curta de prioridades (do 4.3) e contratos suspeitos identificados pelo monitor (do 4.2).</p>
+                </div>
+
+                <div class="box-fluxo entrega">
+                  <span class="fluxo-tag" style="color: var(--verde-pilar);">📤 O que Entrega:</span>
+                  <p style="font-size: 0.88rem;">Memória de cálculo, dotação orçamentária viável e valores para a redação legislativa (4.4) e incidência (4.5).</p>
+                </div>
+
+                <div class="box-fluxo regra">
+                  <span class="fluxo-tag" style="color: var(--vermelho-ato);">⚠️ Pergunta de Controle:</span>
+                  <p style="font-size: 0.85rem; font-weight: 700;">Sabemos quanto custa e quem paga a manutenção depois da inauguração?</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
+        rodape: "Sub-eixo 4.1 · Orçamento e Despesas"
+      },
+
+      // Slide 5: Sub-eixo 4.2
+      {
+        eyebrow: "Sub-eixo 4.2",
+        titulo: "4.2 · Monitoramento e Instituições",
+        subtitulo: "“Acompanha e cobra”",
+        render: () => `
+          <div>
+            <div class="subeixo-split">
+              <div>
+                <p class="slide-body">
+                  É a inteligência cívica contínua do movimento. Varre portais de compras, diários oficiais, tribunais de contas e comissões do Congresso. Detecta contratos abusivos antes da assinatura e acompanha se as promessas estão virando realidade.
+                </p>
+
+                <h4 style="font-family: var(--font-display); font-size: 1.1rem; text-transform: uppercase; margin: 18px 0 8px;">
+                  Principais Frentes de Trabalho:
+                </h4>
+                <ul style="padding-left: 20px; line-height: 1.6; font-size: 0.95rem;">
+                  <li><strong>Radar de Licitações:</strong> monitora editais federais, estaduais e municipais antes do prazo de abertura.</li>
+                  <li><strong>Alerta de Big Tech Lock-in:</strong> identifica cláusulas direcionadas que barram software livre.</li>
+                  <li><strong>Alerta de Tecnologias de Vigilância:</strong> detecta compras de reconhecimento facial na segurança pública.</li>
+                  <li><strong>Acompanhamento de Votações:</strong> registra votos e posicionamento de parlamentares em pautas digitais.</li>
+                </ul>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div class="box-fluxo recebe">
+                  <span class="fluxo-tag" style="color: var(--azul-macacao);">📥 O que Recebe:</span>
+                  <p style="font-size: 0.88rem;">Contratos, editais, diários oficiais, votações legislativas e decisões tomadas pelos entes federativos.</p>
+                </div>
+
+                <div class="box-fluxo entrega">
+                  <span class="fluxo-tag" style="color: var(--verde-pilar);">📤 O que Entrega:</span>
+                  <p style="font-size: 0.88rem;">Alertas de risco e achados para o 4.1 (orçar), 4.3 (mobilizar a base) e 4.5 (impugnar e pressionar).</p>
+                </div>
+
+                <div class="box-fluxo regra">
+                  <span class="fluxo-tag" style="color: var(--vermelho-ato);">⚠️ Pergunta de Controle:</span>
+                  <p style="font-size: 0.85rem; font-weight: 700;">O que foi prometido virou norma, sistema funcionando e indicador auditável?</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
+        rodape: "Sub-eixo 4.2 · Monitoramento de Políticas e Instituições"
+      },
+
+      // Slide 6: Sub-eixo 4.3
+      {
+        eyebrow: "Sub-eixo 4.3",
+        titulo: "4.3 · Planejamento e Participação Social",
+        subtitulo: "“Ouve e decide com a base”",
+        render: () => `
+          <div>
+            <div class="subeixo-split">
+              <div>
+                <p class="slide-body">
+                  Garante o método democrático do movimento. Toda política pública do Eixo 4 nasce das dores concretas dos territórios populares, entregadores, estudantes e trabalhadores, e não da cabeça de burocratas ou consultores.
+                </p>
+
+                <h4 style="font-family: var(--font-display); font-size: 1.1rem; text-transform: uppercase; margin: 18px 0 8px;">
+                  Principais Frentes de Trabalho:
+                </h4>
+                <ul style="padding-left: 20px; line-height: 1.6; font-size: 0.95rem;">
+                  <li><strong>Escuta nos Territórios:</strong> coleta relatos de bloqueios em aplicativos, apagão de conectividade e racismo algorítmico.</li>
+                  <li><strong>Plenárias Populares de Validação:</strong> submete os textos às categorias antes de enviar ao governo.</li>
+                  <li><strong>Tradução Popular da Burocracia:</strong> desmistifica o 'juridiquês' e o 'economês' para o povo disputar o Estado.</li>
+                  <li><strong>Definição da Agenda Curta:</strong> escolhe quais batalhas prioritárias serão travadas a cada ciclo.</li>
+                </ul>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div class="box-fluxo recebe">
+                  <span class="fluxo-tag" style="color: var(--azul-macacao);">📥 O que Recebe:</span>
+                  <p style="font-size: 0.88rem;">Dores dos territórios, relatos do Eixo 1 (denúncia), protótipos do Eixo 2 e demandas do Eixo 3 (formação).</p>
+                </div>
+
+                <div class="box-fluxo entrega">
+                  <span class="fluxo-tag" style="color: var(--verde-pilar);">📤 O que Entrega:</span>
+                  <p style="font-size: 0.88rem;">A Agenda Curta com mandato popular legítimo para o 4.1 orçar e o 4.4 redigir.</p>
+                </div>
+
+                <div class="box-fluxo regra">
+                  <span class="fluxo-tag" style="color: var(--vermelho-ato);">⚠️ Pergunta de Controle:</span>
+                  <p style="font-size: 0.85rem; font-weight: 700;">Quem será afetado leu, entendeu, mudou e aprovou o texto em plenária popular?</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
+        rodape: "Sub-eixo 4.3 · Planejamento e Participação Social"
+      },
+
+      // Slide 7: Sub-eixo 4.4
+      {
+        eyebrow: "Sub-eixo 4.4",
+        titulo: "4.4 · Elaboração de Políticas e Legislações",
+        subtitulo: "“Escreve a proposta”",
+        render: () => `
+          <div>
+            <div class="subeixo-split">
+              <div>
+                <p class="slide-body">
+                  É a oficina legislativa e normativa do movimento. Escreve minutas de Projetos de Lei (PL), decretos regulamentadores, portarias ministeriais, emendas orçamentárias e notas técnicas de impugnação, com técnica impecável e compatibilidade constitucional.
+                </p>
+
+                <h4 style="font-family: var(--font-display); font-size: 1.1rem; text-transform: uppercase; margin: 18px 0 8px;">
+                  Principais Frentes de Trabalho:
+                </h4>
+                <ul style="padding-left: 20px; line-height: 1.6; font-size: 0.95rem;">
+                  <li><strong>Marco do Cooperativismo de Plataforma:</strong> redação de minutas para fomento e garantia de direitos.</li>
+                  <li><strong>Regulação de Algoritmos Públicos:</strong> redação de exigência de código aberto e auditoria no SUS e CadÚnico.</li>
+                  <li><strong>Banimento do Reconhecimento Facial:</strong> minutas de lei municipais e estaduais contra vigilância racista.</li>
+                  <li><strong>Diretrizes de Compras Públicas:</strong> cláusulas-padrão de preferência a software livre e padrões abertos.</li>
+                </ul>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div class="box-fluxo recebe">
+                  <span class="fluxo-tag" style="color: var(--azul-macacao);">📥 O que Recebe:</span>
+                  <p style="font-size: 0.88rem;">Prioridades votadas pela base (4.3), cálculo orçamentário fechado (4.1) e dados de contexto (4.2).</p>
+                </div>
+
+                <div class="box-fluxo entrega">
+                  <span class="fluxo-tag" style="color: var(--verde-pilar);">📤 O que Entrega:</span>
+                  <p style="font-size: 0.88rem;">Minutas legislativas blindadas, notas técnicas e projetos prontos para o 4.5 levar às mesas.</p>
+                </div>
+
+                <div class="box-fluxo regra">
+                  <span class="fluxo-tag" style="color: var(--vermelho-ato);">⚠️ Pergunta de Controle:</span>
+                  <p style="font-size: 0.85rem; font-weight: 700;">A proposta respeita a competência de quem vai executá-la e a Constituição?</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
+        rodape: "Sub-eixo 4.4 · Elaboração de Políticas e Legislações"
+      },
+
+      // Slide 8: Sub-eixo 4.5
+      {
+        eyebrow: "Sub-eixo 4.5",
+        titulo: "4.5 · Incidência nos Entes Federativos",
+        subtitulo: "“Leva a cada ente e disputa o espaço”",
+        render: () => `
+          <div>
+            <div class="subeixo-split">
+              <div>
+                <p class="slide-body">
+                  É a linha de frente do diálogo e da pressão sobre o poder público. Atua nos três Poderes (Executivo, Legislativo e Judiciário/Controle) e nas três esferas (União, Estados e Municípios). Ocupa conselhos, articula frentes parlamentares e protocola ações civis públicas.
+                </p>
+
+                <h4 style="font-family: var(--font-display); font-size: 1.1rem; text-transform: uppercase; margin: 18px 0 8px;">
+                  Principais Frentes de Trabalho:
+                </h4>
+                <ul style="padding-left: 20px; line-height: 1.6; font-size: 0.95rem;">
+                  <li><strong>Mesas de Negociação no Executivo:</strong> diálogo com MGI, Trabalho, MCTI, Serpro e Dataprev.</li>
+                  <li><strong>Articulação no Congresso:</strong> tramitação de projetos prioritários e pressão em audiências públicas.</li>
+                  <li><strong>Incidência Federativa Rápida:</strong> aprovação de leis municipais e estaduais como laboratório e precedente.</li>
+                  <li><strong>Controle Social e Litígio:</strong> representações no TCU, Ministério Público e Defensorias Públicas.</li>
+                </ul>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div class="box-fluxo recebe">
+                  <span class="fluxo-tag" style="color: var(--azul-macacao);">📥 O que Recebe:</span>
+                  <p style="font-size: 0.88rem;">Propostas prontas e custeadas (do 4.4) e dossiês de pressão (do 4.2).</p>
+                </div>
+
+                <div class="box-fluxo entrega">
+                  <span class="fluxo-tag" style="color: var(--verde-pilar);">📤 O que Entrega:</span>
+                  <p style="font-size: 0.88rem;">Conquistas assinadas, emendas aprovadas e relatórios de decisões para o 4.2 monitorar.</p>
+                </div>
+
+                <div class="box-fluxo regra">
+                  <span class="fluxo-tag" style="color: var(--vermelho-ato);">⚠️ Pergunta de Controle:</span>
+                  <p style="font-size: 0.85rem; font-weight: 700;">A bancada de pressão está mobilizada do lado de fora da sala de negociação?</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
+        rodape: "Sub-eixo 4.5 · Incidência nos Entes Federativos"
+      },
+
+      // Slide 9: Organização em Cebola e Próximos Passos
+      {
+        eyebrow: "Conclusão · A Força Coletiva",
+        titulo: "Organização em Camadas (A Cebola)",
+        subtitulo: "Todo mundo tem lugar em cada sub-eixo do movimento",
+        render: () => `
+          <div>
+            <p class="slide-body">
+              A luta por reformas combina pressão de rua, rigor técnico e articulação institucional. Todas as camadas da militância atuam nos sub-eixos com graus diferentes de responsabilidade e disponibilidade:
+            </p>
+
+            <div class="grid-3-col" style="margin-top: 18px;">
+              <div style="background: #FFF; border: var(--border-thick); box-shadow: var(--shadow-hard); padding: 18px;">
+                <span class="badge-versao" style="background: var(--areia); margin-bottom: 6px; display: inline-block;">CAMADA 1</span>
+                <h4 style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 900;">Simpatizantes & Apoio</h4>
+                <p style="font-size: 0.85rem; margin-top: 8px; line-height: 1.4; color: #3d4642;">
+                  Contam seus relatos nas escutas do 4.3; votam em massa em consultas públicas orçamentárias; assinam petições e compartilham campanhas de pressão.
+                </p>
+              </div>
+
+              <div style="background: #FFF; border: var(--border-thick); box-shadow: var(--shadow-hard); padding: 18px;">
+                <span class="badge-versao" style="background: #F1FBF2; color: var(--verde-pilar); margin-bottom: 6px; display: inline-block;">CAMADA 2</span>
+                <h4 style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 900;">Ativistas</h4>
+                <p style="font-size: 0.85rem; margin-top: 8px; line-height: 1.4; color: #3d4642;">
+                  Mapeiam diários oficiais e licitações no 4.2; ajudam a fazer contas orçamentárias no 4.1; redigem notas técnicas no 4.4 e participam de atos e audiências.
+                </p>
+              </div>
+
+              <div style="background: var(--preto-tinta); color: #FFF; border: var(--border-thick); box-shadow: var(--shadow-hard); padding: 18px;">
+                <span class="badge-versao" style="background: var(--amarelo-sol); color: var(--preto-tinta); margin-bottom: 6px; display: inline-block;">CAMADA 3</span>
+                <h4 style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 900; color: #FFF;">Militantes</h4>
+                <p style="font-size: 0.85rem; margin-top: 8px; line-height: 1.4; color: #d0d6d2;">
+                  Coordenam os sub-eixos; representam o movimento em conselhos no 4.5; sentam nas mesas do orçamento com o governo e sustentam a linha tática unitária.
+                </p>
+              </div>
+            </div>
+
+            <div style="background: var(--areia); border: var(--border-medium); padding: 16px 20px; margin-top: 22px; text-align: center;">
+              <strong style="font-family: var(--font-display); font-size: 1.1rem; text-transform: uppercase; color: var(--preto-tinta);">
+                "Tecnologia não é neutra: ou serve ao capital, ou constrói o poder popular."
+              </strong>
+            </div>
+          </div>
+        `,
+        rodape: "Movimento pela Soberania Digital Popular · Organização em Cebola"
+      }
+    ];
+
+    const Apresentacao = (() => {
+      let currentSlide = 0;
+
+      function renderSlide(index) {
+        if (index < 0 || index >= SLIDES_DATA.length) return;
+        currentSlide = index;
+
+        const data = SLIDES_DATA[index];
+        const stage = document.getElementById("slideStage");
+
+        stage.style.opacity = "0.4";
+        setTimeout(() => {
+          stage.innerHTML = `
+            <div class="slide-content">
+              <div>
+                <div class="slide-eyebrow">
+                  <span>${data.eyebrow}</span>
+                </div>
+                <h2 class="slide-title">${data.titulo}</h2>
+                <div class="slide-subtitle">${data.subtitulo}</div>
+              </div>
+
+              <div class="slide-inner">
+                ${data.render()}
+              </div>
+            </div>
+
+            <div class="slide-footer-bar">
+              <span>${data.rodape}</span>
+              <span>SLIDE ${index + 1} / ${SLIDES_DATA.length}</span>
+            </div>
+          `;
+          stage.style.opacity = "1";
+        }, 100);
+
+        // Atualizar indicadores
+        document.getElementById("currentSlideNum").textContent = index + 1;
+        document.getElementById("totalSlidesNum").textContent = SLIDES_DATA.length;
+
+        document.getElementById("prevBtn").disabled = index === 0;
+        document.getElementById("nextBtn").disabled = index === SLIDES_DATA.length - 1;
+
+        // Atualizar Dots
+        const dotsContainer = document.getElementById("slideDots");
+        dotsContainer.innerHTML = SLIDES_DATA.map((_, i) => `
+          <button class="dot-btn ${i === index ? 'active' : ''}" onclick="Apresentacao.goTo(${i})" title="Ir para o slide ${i + 1}">
+            ${i + 1}
+          </button>
+        `).join("");
+
+        window.location.hash = `slide-${index + 1}`;
+      }
+
+      function next() {
+        if (currentSlide < SLIDES_DATA.length - 1) {
+          renderSlide(currentSlide + 1);
+        }
+      }
+
+      function prev() {
+        if (currentSlide > 0) {
+          renderSlide(currentSlide - 1);
+        }
+      }
+
+      function goTo(index) {
+        renderSlide(index);
+      }
+
+      function init() {
+        // Suporte ao teclado (setas direita e esquerda)
+        window.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " ") {
+            next();
+          } else if (e.key === "ArrowLeft" || e.key === "PageUp") {
+            prev();
+          }
+        });
+
+        // Hash inicial
+        const hashMatch = window.location.hash.match(/slide-(\d+)/);
+        const initialIndex = hashMatch ? parseInt(hashMatch[1], 10) - 1 : 0;
+        renderSlide(initialIndex >= 0 && initialIndex < SLIDES_DATA.length ? initialIndex : 0);
+      }
+
+      return {
+        init,
+        next,
+        prev,
+        goTo
+      };
+    })();
+
+    document.addEventListener("DOMContentLoaded", () => {
+      Apresentacao.init();
+    });
+  </script>
+</body>
+</html>

@@ -12,7 +12,7 @@
 ## 🌐 Demonstração Online (GitHub Pages)
 
 Acesse a demonstração interativa:  
-👉 **[https://odontologia-leal.github.io/eixo4-ideia-visualizacao/](https://odontologia-leal.github.io/eixo4-ideia-visualizacao/)**
+👉 **[https://hianaracamilla.github.io/eixo4-ideia-visualizacao/](https://hianaracamilla.github.io/eixo4-ideia-visualizacao/)**
 
 - **Painel Interativo Completo:** `index.html`
 - **Apresentação em Slides dos 5 Sub-eixos:** `apresentacao-subeixos.html`
@@ -68,7 +68,7 @@ Basta clonar o repositório e abrir com qualquer servidor estático HTTP local:
 
 ```bash
 # Clone o repositório
-git clone https://github.com/odontologia-leal/eixo4-ideia-visualizacao.git
+git clone https://github.com/hianaracamilla/eixo4-ideia-visualizacao.git
 
 # Acesse a pasta
 cd eixo4-ideia-visualizacao

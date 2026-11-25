@@ -25,9 +25,12 @@ const DiagnosticoModule = (() => {
       <!-- Alerta Destacado: O Maior Buraco da Conta -->
       <div class="box-alerta-ralo" style="margin-bottom: 24px; padding: 18px 20px; border-left: 8px solid var(--vermelho-ato);" data-tipo="real">
         <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;">
-          <span class="badge-status badge-status-real" title="Dado comprovado no balanço do Serpro e relatórios do SIOP">
-            🟢 DADO REAL COMPROVADO
-          </span>
+          <div style="display: flex; gap: 6px; align-items: center;">
+            <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('estataisOpacidade')" title="Ver metodologia e auditoria dos repasses">ℹ️ Metodologia & Fonte</button>
+            <span class="badge-status badge-status-real" title="Dado comprovado no balanço do Serpro e relatórios do SIOP">
+              🟢 DADO REAL COMPROVADO
+            </span>
+          </div>
           <span style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: var(--vermelho-ato);">
             FONTE: SIOP, BALANÇO SERPRO 2025 E ACÓRDÃO TCU 1380/2026
           </span>
@@ -49,9 +52,12 @@ const DiagnosticoModule = (() => {
           <div class="card-bloco-partida" data-tipo="real">
             <div class="card-bloco-header">
               <h3>${b.nome}</h3>
-              <span class="badge-status ${b.situacao.includes('Temos') ? 'badge-status-real' : 'badge-status-lacuna'}">
-                ${b.situacao}
-              </span>
+              <div style="display: flex; gap: 4px; align-items: center;">
+                <button class="btn-info-metodologia btn-info-metodologia-sm" onclick="window.abrirModalMetodologia('elemento40')" title="Ver fonte e metodologia">ℹ️</button>
+                <span class="badge-status ${b.situacao.includes('Temos') ? 'badge-status-real' : 'badge-status-lacuna'}">
+                  ${b.situacao}
+                </span>
+              </div>
             </div>
             <div class="card-bloco-body">
               <div class="split-temos-falta">

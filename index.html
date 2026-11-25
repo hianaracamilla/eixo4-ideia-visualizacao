@@ -31,8 +31,9 @@
         <button class="filtro-pill" data-filter="lacuna" title="Destacar lacunas e pedidos via Lei de Acesso à Informação">🟣 Lacunas a Levantar (LAI)</button>
       </div>
     </div>
-    <div style="font-family: var(--font-mono); font-size: 0.74rem; color: #56615C;">
-      Base consultada em 05/11/2026 · Fontes oficiais: SIOP, Compras.gov, Contratos.gov e TCU
+    <div style="font-family: var(--font-mono); font-size: 0.74rem; color: #56615C; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+      <span>Base consultada em 05/11/2026 · Fontes oficiais: SIOP, Compras.gov, Contratos.gov e TCU</span>
+      <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('elemento40')" title="Ver catálogo de fontes e metodologias oficiais">ℹ️ Fontes Oficiais</button>
     </div>
   </aside>
 
@@ -152,14 +153,56 @@
           <div class="orcamento-split">
             <!-- Gráfico 1: Série Histórica Elemento 40 -->
             <div class="grafico-card" data-tipo="real">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap;">
                 <h3>Série Histórica de Serviços de TI (Elemento 40)</h3>
-                <span class="badge-status badge-status-real">🟢 DADO REAL</span>
+                <div style="display: flex; gap: 6px; align-items: center;">
+                  <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('elemento40')" title="Clique para ver a fonte oficial e metodologia">ℹ️ Metodologia & Fonte</button>
+                  <span class="badge-status badge-status-real">🟢 DADO REAL</span>
+                </div>
               </div>
               <p class="sub">Valores anuais em R$ Bilhões (União, 2022 a 2026 parcial)</p>
               <div class="chart-canvas-wrapper">
                 <canvas id="canvasSerieHistorica"></canvas>
               </div>
+
+              <!-- Painel de Recursos Empenhados e Não Pagos no Exercício (Restos a Pagar) -->
+              <div class="painel-dinheiro-nao-usado">
+                <div class="painel-dinheiro-nao-usado-header">
+                  <span>⚠️ Recursos Empenhados e Não Pagos no Exercício (Restos a Pagar):</span>
+                  <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('naoUsado')" title="Entenda o cálculo contábil do dinheiro represado">ℹ️ Como é calculado</button>
+                </div>
+                <div class="painel-dinheiro-grid">
+                  <div class="mini-card-ano">
+                    <span>2022</span>
+                    <strong>R$ 2,81 Bi</strong>
+                    <em>33,3% não pago</em>
+                  </div>
+                  <div class="mini-card-ano">
+                    <span>2023</span>
+                    <strong>R$ 3,15 Bi</strong>
+                    <em>33,2% não pago</em>
+                  </div>
+                  <div class="mini-card-ano">
+                    <span>2024</span>
+                    <strong>R$ 2,84 Bi</strong>
+                    <em>31,5% não pago</em>
+                  </div>
+                  <div class="mini-card-ano destaque">
+                    <span>2025</span>
+                    <strong>R$ 2,86 Bi</strong>
+                    <em>27,0% não pago</em>
+                  </div>
+                  <div class="mini-card-ano">
+                    <span>2026*</span>
+                    <strong>R$ 3,82 Bi</strong>
+                    <em>37,7% parcial</em>
+                  </div>
+                </div>
+                <div class="nota-politica-nao-usado">
+                  <strong>Total Acumulado de Recursos Represados: R$ 15,48 Bilhões.</strong> Em média, <strong>31,3% de todo o orçamento anual de TI da União não é pago dentro do ano civil do empenho</strong>. Esse represamento comprova que há recursos orçamentários disponíveis que poderiam ser carimbados para a transição soberana e desenvolvimento de software livre público.
+                </div>
+              </div>
+
               <div style="margin-top: 14px; font-size: 0.82rem; color: #56615C; border-top: var(--border-thin); padding-top: 8px;">
                 * 2026 parcial até 05/11/2026. Fonte: SIOP, elemento de despesa 40 (três Poderes).
               </div>
@@ -167,9 +210,12 @@
 
             <!-- Gráfico 2: Composição do Núcleo Estrangeiro por Marca -->
             <div class="grafico-card" data-tipo="real">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap;">
                 <h3>Divisão do Núcleo Estrangeiro por Marca</h3>
-                <span class="badge-status badge-status-real">🟢 DADO REAL</span>
+                <div style="display: flex; gap: 6px; align-items: center;">
+                  <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('pisoMarcas')" title="Clique para ver a fonte oficial e metodologia">ℹ️ Metodologia & Fonte</button>
+                  <span class="badge-status badge-status-real">🟢 DADO REAL</span>
+                </div>
               </div>
               <p class="sub">Total de R$ 2,78 Bilhões assinados em contratos identificados (2023-2026)</p>
               <div class="chart-canvas-wrapper">

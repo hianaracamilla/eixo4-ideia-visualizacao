@@ -22,7 +22,7 @@ const OrcamentoModule = (() => {
     return new Intl.NumberFormat("pt-BR").format(val);
   }
 
-  // 1. KPIs do Orçamento com Badges Transparentes
+  // 1. KPIs do Orçamento com Badges Transparentes e Botão de Metodologia Oficial (i-zinho)
   function renderizarKPIsGastos() {
     const container = document.getElementById("orcamentoKPIs");
     if (!container) return;
@@ -31,7 +31,10 @@ const OrcamentoModule = (() => {
       <div class="kpi-card destaque-azul" data-tipo="real">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
           <span class="kpi-titulo">Despesa de Serviços TI (Elemento 40)</span>
-          <span class="badge-status badge-status-real" title="Fonte: SIOP / LOA 2025">🟢 DADO REAL</span>
+          <div style="display: flex; gap: 4px; align-items: center;">
+            <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('elemento40')" title="Clique para ver a fonte oficial e metodologia">ℹ️</button>
+            <span class="badge-status badge-status-real" title="Fonte: SIOP / LOA 2025">🟢 DADO REAL</span>
+          </div>
         </div>
         <div class="kpi-valor">R$ 10,61 Bi</div>
         <p class="kpi-desc">Total empenhado pela União em 2025 (três Poderes). R$ 7,75 Bi efetivamente pagos.</p>
@@ -40,16 +43,34 @@ const OrcamentoModule = (() => {
       <div class="kpi-card destaque-vermelho" data-tipo="real">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
           <span class="kpi-titulo">Piso Comprovado em Marcas Globais</span>
-          <span class="badge-status badge-status-real" title="Fonte: Compras.gov.br e Contratos.gov.br">🟢 DADO REAL</span>
+          <div style="display: flex; gap: 4px; align-items: center;">
+            <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('pisoMarcas')" title="Clique para ver a fonte oficial e metodologia">ℹ️</button>
+            <span class="badge-status badge-status-real" title="Fonte: Compras.gov.br e Contratos.gov.br">🟢 DADO REAL</span>
+          </div>
         </div>
         <div class="kpi-valor">R$ 2,78 Bi</div>
-        <p class="kpi-desc">Valor assinado no núcleo de marcas estrangeiras (2023-2026 parcial). É um piso, não o total.</p>
+        <p class="kpi-desc">Valor assinado no núcleo de marcas estrangeiras (2023-2026 parcial). É um piso mínimo comprovado.</p>
+      </div>
+
+      <div class="kpi-card destaque-laranja" data-tipo="real" style="border-left: 5px solid var(--vermelho-ato); background-color: #FFF8F5;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <span class="kpi-titulo" style="color: var(--vermelho-ato);">Dinheiro Não Pago no Exercício</span>
+          <div style="display: flex; gap: 4px; align-items: center;">
+            <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('naoUsado')" title="Clique para ver a fonte oficial e metodologia">ℹ️</button>
+            <span class="badge-status badge-status-real" title="Fonte: SIOP / Balanço Geral da União">🟢 DADO REAL</span>
+          </div>
+        </div>
+        <div class="kpi-valor" style="color: var(--vermelho-ato);">R$ 2,86 Bi</div>
+        <p class="kpi-desc"><strong>27,0% do orçamento de 2025</strong> não foi pago no ano. Acumulado não pago: <strong>R$ 15,48 Bi</strong> (2022-2026).</p>
       </div>
 
       <div class="kpi-card destaque-amarelo" data-tipo="real">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
           <span class="kpi-titulo">Concentração em 5 Multinacionais</span>
-          <span class="badge-status badge-status-real" title="Microsoft, Oracle, Dell, Red Hat e Lenovo">🟢 DADO REAL</span>
+          <div style="display: flex; gap: 4px; align-items: center;">
+            <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('pisoMarcas')" title="Clique para ver a fonte oficial e metodologia">ℹ️</button>
+            <span class="badge-status badge-status-real" title="Microsoft, Oracle, Dell, Red Hat e Lenovo">🟢 DADO REAL</span>
+          </div>
         </div>
         <div class="kpi-valor">67,2%</div>
         <p class="kpi-desc">Apenas cinco corporações monopolizam dois terços de todo o valor assinado identificado.</p>
@@ -58,7 +79,10 @@ const OrcamentoModule = (() => {
       <div class="kpi-card destaque-verde" data-tipo="real">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
           <span class="kpi-titulo">Revendas e Intermediários</span>
-          <span class="badge-status badge-status-real" title="78,1% passa por revendas como Brasoftware e Lanlink">🟢 DADO REAL</span>
+          <div style="display: flex; gap: 4px; align-items: center;">
+            <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('revendasConcentracao')" title="Clique para ver a fonte oficial e metodologia">ℹ️</button>
+            <span class="badge-status badge-status-real" title="78,1% passa por revendas como Brasoftware e Lanlink">🟢 DADO REAL</span>
+          </div>
         </div>
         <div class="kpi-valor">78,1%</div>
         <p class="kpi-desc">R$ 2,17 Bi passam por terceiras e revendedoras que drenam lucros e royalties ao exterior.</p>
@@ -67,7 +91,10 @@ const OrcamentoModule = (() => {
       <div class="kpi-card destaque-vermelho" data-tipo="lacuna">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
           <span class="kpi-titulo">Ocultação da Marca nos Contratos</span>
-          <span class="badge-status badge-status-lacuna" title="70,2% dos contratos de TI não dizem a marca">🟣 LACUNA REAL</span>
+          <div style="display: flex; gap: 4px; align-items: center;">
+            <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('pisoMarcas')" title="Clique para ver a metodologia">ℹ️</button>
+            <span class="badge-status badge-status-lacuna" title="70,2% dos contratos de TI não dizem a marca">🟣 LACUNA REAL</span>
+          </div>
         </div>
         <div class="kpi-valor">70,2%</div>
         <p class="kpi-desc">Dos contratos com linguagem de TI não informam marca, correspondendo a 79,5% do valor total.</p>
@@ -76,7 +103,10 @@ const OrcamentoModule = (() => {
       <div class="kpi-card destaque-amarelo" data-tipo="lacuna">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
           <span class="kpi-titulo">Empenhos p/ Serpro e Dataprev</span>
-          <span class="badge-status badge-status-lacuna" title="Sem abertura de repasses a nuvens estrangeiras">🟣 OPACIDADE</span>
+          <div style="display: flex; gap: 4px; align-items: center;">
+            <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('estataisOpacidade')" title="Clique para ver a metodologia e fontes">ℹ️</button>
+            <span class="badge-status badge-status-lacuna" title="Sem abertura de repasses a nuvens estrangeiras">🟣 OPACIDADE</span>
+          </div>
         </div>
         <div class="kpi-valor">46,5%</div>
         <p class="kpi-desc">Quase metade do elemento 40 vai para as estatais sem divulgação do repasse a Big Techs.</p>
@@ -147,68 +177,95 @@ const OrcamentoModule = (() => {
     ctx.setLineDash([]);
 
     const numPontos = dados.length;
-    const barWidth = Math.min((chartW / numPontos) * 0.32, 38);
+    const slotW = chartW / numPontos;
+    const barWidth = Math.min(slotW * 0.23, 24);
+    const gap = 2;
 
     dados.forEach((d, i) => {
-      const cx = padX + (i + 0.5) * (chartW / numPontos);
+      const cx = padX + (i + 0.5) * slotW;
+      const valorNaoPago = d.naoPago || +(d.empenhado - d.pago).toFixed(2);
 
-      // Barra Empenhado (Azul)
+      // Barra 1: Empenhado (Azul Macacão)
       const hEmp = Math.max((d.empenhado / maxVal) * chartH, 4);
-      const xEmp = cx - barWidth - 3;
+      const xEmp = cx - barWidth * 1.5 - gap;
       const yEmp = padY + chartH - hEmp;
 
       ctx.fillStyle = "#1C1712";
-      ctx.fillRect(xEmp + 3, yEmp + 3, barWidth, hEmp);
+      ctx.fillRect(xEmp + 2.5, yEmp + 2.5, barWidth, hEmp);
       ctx.fillStyle = "#1243A5";
       ctx.fillRect(xEmp, yEmp, barWidth, hEmp);
       ctx.strokeStyle = "#1C1712";
-      ctx.lineWidth = 1.8;
+      ctx.lineWidth = 1.6;
       ctx.strokeRect(xEmp, yEmp, barWidth, hEmp);
 
-      // Barra Pago (Amarelo)
+      // Barra 2: Pago (Amarelo Sol)
       const hPago = Math.max((d.pago / maxVal) * chartH, 4);
-      const xPago = cx + 3;
+      const xPago = cx - barWidth * 0.5;
       const yPago = padY + chartH - hPago;
 
       ctx.fillStyle = "#1C1712";
-      ctx.fillRect(xPago + 3, yPago + 3, barWidth, hPago);
+      ctx.fillRect(xPago + 2.5, yPago + 2.5, barWidth, hPago);
       ctx.fillStyle = "#FDC303";
       ctx.fillRect(xPago, yPago, barWidth, hPago);
       ctx.strokeStyle = "#1C1712";
-      ctx.lineWidth = 1.8;
+      ctx.lineWidth = 1.6;
       ctx.strokeRect(xPago, yPago, barWidth, hPago);
+
+      // Barra 3: Não Pago no Ano (Vermelho Ato)
+      const hNaoPago = Math.max((valorNaoPago / maxVal) * chartH, 4);
+      const xNaoPago = cx + barWidth * 0.5 + gap;
+      const yNaoPago = padY + chartH - hNaoPago;
+
+      ctx.fillStyle = "#1C1712";
+      ctx.fillRect(xNaoPago + 2.5, yNaoPago + 2.5, barWidth, hNaoPago);
+      ctx.fillStyle = "#C8322A";
+      ctx.fillRect(xNaoPago, yNaoPago, barWidth, hNaoPago);
+      ctx.strokeStyle = "#1C1712";
+      ctx.lineWidth = 1.6;
+      ctx.strokeRect(xNaoPago, yNaoPago, barWidth, hNaoPago);
 
       // Label Ano
       ctx.fillStyle = "#1C1712";
-      ctx.font = "bold 12px 'Archivo', sans-serif";
+      ctx.font = "bold 11px 'Archivo', sans-serif";
       ctx.textAlign = "center";
-      ctx.fillText(`${d.ano}`, cx, padY + chartH + 22);
+      ctx.fillText(`${d.ano}`, cx, padY + chartH + 20);
 
-      // Valores numéricos
-      ctx.font = "bold 9px 'Space Mono', monospace";
+      // Valores numéricos no topo de cada barra
+      ctx.font = "bold 8px 'Space Mono', monospace";
       ctx.fillStyle = "#1243A5";
-      ctx.fillText(`${d.empenhado}B`, xEmp + barWidth / 2, yEmp - 6);
+      ctx.fillText(`${d.empenhado}B`, xEmp + barWidth / 2, yEmp - 4);
+      ctx.fillStyle = "#7F6000";
+      ctx.fillText(`${d.pago}B`, xPago + barWidth / 2, yPago - 4);
       ctx.fillStyle = "#C8322A";
-      ctx.fillText(`${d.pago}B`, xPago + barWidth / 2, yPago - 6);
+      ctx.fillText(`${valorNaoPago}B`, xNaoPago + barWidth / 2, yNaoPago - 4);
     });
 
-    // Legenda superior
+    // Legenda superior tripla
     ctx.textAlign = "left";
-    ctx.font = "bold 11px 'Archivo', sans-serif";
+    ctx.font = "bold 10px 'Archivo', sans-serif";
     
+    // Empenhado
     ctx.fillStyle = "#1243A5";
-    ctx.fillRect(padX + 10, 14, 14, 14);
+    ctx.fillRect(padX + 4, 14, 11, 11);
     ctx.strokeStyle = "#1C1712";
-    ctx.lineWidth = 1.5;
-    ctx.strokeRect(padX + 10, 14, 14, 14);
+    ctx.lineWidth = 1.3;
+    ctx.strokeRect(padX + 4, 14, 11, 11);
     ctx.fillStyle = "#1C1712";
-    ctx.fillText("Empenhado (Decisão de Compra)", padX + 30, 25);
+    ctx.fillText("Empenhado", padX + 19, 23);
 
+    // Pago
     ctx.fillStyle = "#FDC303";
-    ctx.fillRect(padX + 260, 14, 14, 14);
-    ctx.strokeRect(padX + 260, 14, 14, 14);
+    ctx.fillRect(padX + 115, 14, 11, 11);
+    ctx.strokeRect(padX + 115, 14, 11, 11);
     ctx.fillStyle = "#1C1712";
-    ctx.fillText("Efetivamente Pago", padX + 280, 25);
+    ctx.fillText("Pago", padX + 130, 23);
+
+    // Não Pago no Ano
+    ctx.fillStyle = "#C8322A";
+    ctx.fillRect(padX + 190, 14, 11, 11);
+    ctx.strokeRect(padX + 190, 14, 11, 11);
+    ctx.fillStyle = "#1C1712";
+    ctx.fillText("Não Pago (Represado)", padX + 205, 23);
 
     ctx.restore();
   }
@@ -367,7 +424,10 @@ const OrcamentoModule = (() => {
 
       <div class="tabela-search-bar">
         <input type="text" id="buscaFornecedor" class="tabela-input-busca" placeholder="🔍 Filtrar fornecedor por nome ou CNPJ..." />
-        <span class="badge-status badge-status-real" style="align-self: center;">🟢 DADOS REAIS COMPROVADOS (Compras.gov.br)</span>
+        <div style="display: flex; gap: 6px; align-items: center;">
+          <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('revendasConcentracao')" title="Ver metodologia e fonte dos fornecedores">ℹ️ Metodologia & Fonte</button>
+          <span class="badge-status badge-status-real" style="align-self: center;">🟢 DADOS REAIS (Compras.gov.br)</span>
+        </div>
       </div>
 
       <div class="tabela-neobrutalista-wrapper">
@@ -430,7 +490,10 @@ const OrcamentoModule = (() => {
 
       <div class="tabela-search-bar">
         <input type="text" id="buscaOrgao" class="tabela-input-busca" placeholder="🔍 Filtrar órgão público por nome ou código..." />
-        <span class="badge-status badge-status-real" style="align-self: center;">🟢 DADOS REAIS COMPROVADOS (SIOP / Contratos.gov)</span>
+        <div style="display: flex; gap: 6px; align-items: center;">
+          <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('topOrgaos')" title="Ver metodologia e fontes dos órgãos">ℹ️ Metodologia & Fonte</button>
+          <span class="badge-status badge-status-real" style="align-self: center;">🟢 DADOS REAIS (SIOP / Contratos.gov)</span>
+        </div>
       </div>
 
       <div class="tabela-neobrutalista-wrapper">
@@ -493,7 +556,10 @@ const OrcamentoModule = (() => {
 
       <div class="tabela-search-bar">
         <input type="text" id="buscaContrato" class="tabela-input-busca" placeholder="🔍 Filtrar por marca (ex: Microsoft, Oracle, Dell, Red Hat), órgão ou fornecedor..." />
-        <span class="badge-status badge-status-real" style="align-self: center;">🟢 20 MAIORES CONTRATOS DO NÚCLEO (Dados Reais)</span>
+        <div style="display: flex; gap: 6px; align-items: center;">
+          <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('topContratos')" title="Ver metodologia e fontes oficiais dos 20 maiores contratos">ℹ️ Metodologia & Fonte</button>
+          <span class="badge-status badge-status-real" style="align-self: center;">🟢 20 MAIORES CONTRATOS DO NÚCLEO (Dados Reais)</span>
+        </div>
       </div>
 
       <div class="tabela-neobrutalista-wrapper">

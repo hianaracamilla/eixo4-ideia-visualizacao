@@ -28,12 +28,26 @@ const OBSERVATORIO_DATA = {
   orcamento: {
     // Série Histórica do Elemento de Despesa 40 (Serviços de TI - União, três Poderes)
     serieHistoricaElemento40: [
-      { ano: 2022, empenhado: 8.43, pago: 5.62, tipoDado: 'real', fonte: 'SIOP / LOA 2022' },
-      { ano: 2023, empenhado: 9.48, pago: 6.33, tipoDado: 'real', fonte: 'SIOP / LOA 2023' },
-      { ano: 2024, empenhado: 9.03, pago: 6.19, tipoDado: 'real', fonte: 'SIOP / LOA 2024' },
-      { ano: 2025, empenhado: 10.61, pago: 7.75, tipoDado: 'real', fonte: 'SIOP / LOA 2025' },
-      { ano: '2026*', empenhado: 10.14, pago: 6.32, parcial: true, tipoDado: 'real', fonte: 'SIOP (parcial até 05/11/2026)' }
+      { ano: 2022, empenhado: 8.43, pago: 5.62, naoPago: 2.81, pctNaoPago: 33.3, tipoDado: 'real', fonte: 'SIOP / LOA 2022' },
+      { ano: 2023, empenhado: 9.48, pago: 6.33, naoPago: 3.15, pctNaoPago: 33.2, tipoDado: 'real', fonte: 'SIOP / LOA 2023' },
+      { ano: 2024, empenhado: 9.03, pago: 6.19, naoPago: 2.84, pctNaoPago: 31.5, tipoDado: 'real', fonte: 'SIOP / LOA 2024' },
+      { ano: 2025, empenhado: 10.61, pago: 7.75, naoPago: 2.86, pctNaoPago: 27.0, tipoDado: 'real', fonte: 'SIOP / LOA 2025' },
+      { ano: '2026*', empenhado: 10.14, pago: 6.32, naoPago: 3.82, pctNaoPago: 37.7, parcial: true, tipoDado: 'real', fonte: 'SIOP (parcial até 05/11/2026)' }
     ],
+
+    // Mapeamento de Recursos Empenhados e Não Pagos no Exercício (Restos a Pagar / Represamento)
+    dinheiroNaoUsado: {
+      totalNaoPago2022_2025: 11.66, // R$ bilhões (somatório 2022 a 2025 fechados)
+      totalNaoPagoCom2026: 15.48, // R$ bilhões (somatório 2022 a 2026 parcial)
+      mediaAnualNaoPagoPct: 31.3, // Média percentual não desembolsada no ano
+      empenhado2025: 10.61,
+      pago2025: 7.75,
+      naoPago2025: 2.86, // R$ 2,86 bilhões não pagos em 2025
+      pctNaoPago2025: 27.0,
+      tipoDado: 'real',
+      fonte: 'SIOP / SOF / MPO (Balanço Geral da União, Elemento 40)',
+      explicacao: 'Diferença entre o montante empenhado (compromisso contratual assumido) e o valor efetivamente pago no exercício fiscal. Representa recursos de TI represados em restos a pagar ou cancelados, equivalendo a mais de R$ 2,8 bilhões a cada ano.'
+    },
 
     // Núcleo de Marcas Estrangeiras Identificadas (Piso Mínimo Comprovado: R$ 2,78 Bi de 2023 a 2026)
     pisoPorAno: [
@@ -1181,7 +1195,95 @@ const OBSERVATORIO_DATA = {
         justificativa: "A tecnologia pública deve libertar o trabalhador da tirania dos algoritmos punitivos das multinacionais de delivery."
       }
     }
-  ]
+  ],
+
+  // 7. Catálogo Oficial de Metodologias e Fontes dos Dados Reais
+  metodologias: {
+    elemento40: {
+      id: "elemento40",
+      titulo: "Série Histórica de Serviços de TI (Elemento de Despesa 33.90.40)",
+      tipoDado: "real",
+      fonteOficial: "SIOP (Sistema Integrado de Planejamento e Orçamento) / SOF / MPO",
+      periodo: "2022 a 2026 (parcial até novembro/2026)",
+      abrangencia: "Executivo, Legislativo, Judiciário, MPU e DPU (União)",
+      classificacao: "GND 3 (Outras Despesas Correntes) > Modalidade 90 (Aplicações Diretas) > Elemento de Despesa 40 (Serviços de TIC)",
+      metodologiaCalculo: "Extração anual da despesa autorizada na LOA, despesa empenhada (compromissada contratualmente) e despesa liquidada/paga. O montante não desembolsado no ano fiscal é a diferença contábil (Empenhado - Pago), que é represada em Restos a Pagar ou cancelada.",
+      comoAuditar: "Acesse o portal oficial do SIOP (siop.planejamento.gov.br) > Painéis do Orçamento Federal > Filtro: Natureza da Despesa = 33.90.40.",
+      politicaPopular: "Demonstra que a União empenha cerca de R$ 10,6 bilhões por ano em TI, mas entre R$ 2,8 bi e R$ 3,8 bi por ano (cerca de 31%) não são pagos no exercício. Esse dinheiro represado poderia financiar um Fundo Nacional de Soberania Digital e Software Livre."
+    },
+    naoUsado: {
+      id: "naoUsado",
+      titulo: "Dinheiro Empenhado Não Pago no Exercício (Restos a Pagar / Represamento)",
+      tipoDado: "real",
+      fonteOficial: "SIOP (Secretaria de Orçamento Federal) / Balanço Geral da União",
+      periodo: "Série 2022 a 2026",
+      abrangencia: "Elemento de Despesa 40 (Serviços de TIC da União)",
+      classificacao: "Diferença Contábil Anual: Despesa Empenhada menos Despesa Efetivamente Paga",
+      metodologiaCalculo: "Cálculo ano a ano: 2022 = R$ 2,81 bi não pago (33,3%); 2023 = R$ 3,15 bi não pago (33,2%); 2024 = R$ 2,84 bi não pago (31,5%); 2025 = R$ 2,86 bi não pago (27,0%); 2026 (parcial) = R$ 3,82 bi ainda não pago (37,7%). Acumulado de R$ 15,48 bilhões em recursos represados.",
+      comoAuditar: "SIOP > Consulta da Execução Orçamentária > Comparar colunas 'Empenhado' e 'Pago' para a Natureza 33.90.40.",
+      politicaPopular: "Cerca de um terço de todo o orçamento de tecnologia pública da União não vira entrega real dentro do ano civil em que foi contratado, comprovando ineficiência e abrindo espaço orçamentário para transição tecnológica soberana."
+    },
+    pisoMarcas: {
+      id: "pisoMarcas",
+      titulo: "Piso Mínimo de R$ 2,78 Bilhões em Marcas Estrangeiras",
+      tipoDado: "real",
+      fonteOficial: "Compras.gov.br, Contratos.gov.br e Portal Nacional de Contratações Públicas (PNCP)",
+      periodo: "Janeiro de 2023 a Novembro de 2026",
+      abrangencia: "19.688 contratos federais de TI analisados",
+      classificacao: "Contratos vigentes com fornecimento de Microsoft, Oracle, Dell, Red Hat e Lenovo",
+      metodologiaCalculo: "Extração estruturada de contratos federais. Aplicação de filtros semânticos e busca booleana por marcas e termos nos campos 'Objeto' e 'Itens do Contrato'. Eliminação de duplicidades por termo aditivo e agregação do valor global homologado.",
+      comoAuditar: "Acesse contratos.comprasnet.gov.br ou pncp.gov.br > Pesquisa de Contratos > Filtrar pelas empresas fornecedoras homologadas (ex: Brasoftware, Lanlink, Dell, Oracle).",
+      politicaPopular: "É um PISO MÍNIMO conservador: 70,2% dos contratos da União não identificam a marca no objeto e 46,5% vai para Serpro/Dataprev sem discriminação imediata de fornecedor subjacente."
+    },
+    revendasConcentracao: {
+      id: "revendasConcentracao",
+      titulo: "Canal de Intermediação e Concentração em Revendas (78,1%)",
+      tipoDado: "real",
+      fonteOficial: "Receita Federal (CNPJ), Compras.gov.br e Portal da Transparência da CGU",
+      periodo: "2023 a 2026",
+      abrangencia: "Fornecedores contratados para fornecimento de software e hardware estrangeiro",
+      classificacao: "CNAE e objeto social: Revendas de software, integradoras e canais autorizados de Big Techs",
+      metodologiaCalculo: "Cruzamento cadastral dos CNPJs contratados. Classificação entre: (1) Fabricantes com filial direta no Brasil (ex: Dell Computadores Ltda, Oracle do Brasil Ltda - 20,3%) e (2) Canais e Revendedoras credenciadas (ex: Brasoftware Informática Ltda, Lanlink, Alltech - 78,1%).",
+      comoAuditar: "No Portal da Transparência da CGU > Despesas Públicas > Favorecidos > Consultar CNPJs 57.142.978/0001-05 (Brasoftware) e 19.467.228/0001-44 (Lanlink).",
+      politicaPopular: "78,1% do dinheiro público destinado a Big Techs não é pago diretamente à matriz, mas a revendas intermediárias que retêm margens e repassam a maior fatia em royalties ao exterior."
+    },
+    estataisOpacidade: {
+      id: "estataisOpacidade",
+      titulo: "Opacidade e Concentração em Estatais (46,5%)",
+      tipoDado: "real",
+      fonteOficial: "SIOP, Acórdão TCU 1380/2026 e Relatórios Anuais de Gestão Serpro e Dataprev",
+      periodo: "Exercício 2023 a 2025",
+      abrangencia: "Empenhos federais do Elemento 40 destinados a empresas públicas de TI",
+      classificacao: "Dispensa de licitação (Art. 75, VIII da Lei 14.133/2021) em favor de Serpro e Dataprev",
+      metodologiaCalculo: "Soma de todos os empenhos da União no Elemento 40 cujo credor é SERPRO (CNPJ 33.683.111/0001-07) ou DATAPREV (CNPJ 42.422.253/0001-01), totalizando R$ 4,93 bilhões em 2025 (46,5% do total). Comparação com a receita do programa 'Serpro MultiCloud', que saltou de R$ 41,4 mi (2023) para R$ 370,4 mi (2025).",
+      comoAuditar: "SIOP > Consulta de Favorecido > CNPJ Serpro e Dataprev no Elemento 40. Conferir Demonstrações Financeiras do Serpro (Notas Explicativas - Serviços em Nuvem MultiCloud).",
+      politicaPopular: "As estatais funcionam como intermediadoras que compram nuvem de AWS, Google, Huawei e Oracle sem abrir a despesa individualizada por ministério."
+    },
+    topOrgaos: {
+      id: "topOrgaos",
+      titulo: "Top 10 Órgãos Compradores de TI Estrangeira",
+      tipoDado: "real",
+      fonteOficial: "SIOP e Contratos.gov.br",
+      periodo: "2023 a 2026",
+      abrangencia: "Ministérios, Tribunais Superiores e Autarquias Federais",
+      classificacao: "Unidades Orçamentárias (UO) com maior volume empenhado nas 5 marcas",
+      metodologiaCalculo: "Agrupamento dos contratos de tecnologia proprietária pela Unidade Gestora (UG) e Ministério supervisor. O MGI lidera com R$ 622,7 milhões devido à realização de Atas de Registro de Preços centralizadas para todo o SISP.",
+      comoAuditar: "Portal da Transparência > Órgãos > MGI, TSE, TST, MJSP, STJ > Despesas com TI.",
+      politicaPopular: "A centralização no MGI gera economia de escala aparente para o governo, mas aprofunda o aprisionamento (vendor lock-in) sistêmico de toda a máquina federal em uma única suíte proprietária."
+    },
+    topContratos: {
+      id: "topContratos",
+      titulo: "Os 20 Maiores Contratos do Núcleo",
+      tipoDado: "real",
+      fonteOficial: "Contratos.gov.br, Compras.gov.br e Diário Oficial da União (DOU)",
+      periodo: "Vigentes no período 2023-2029",
+      abrangencia: "20 maiores valores unitários homologados nas marcas mapeadas",
+      classificacao: "Contratos administrativos com número de registro, processo SEI e publicação no DOU",
+      metodologiaCalculo: "Classificação decrescente por valor total contratado. Exibição de órgão, fornecedor, CNPJ, vigência, marca atendida e número oficial de controle.",
+      comoAuditar: "Pesquisa por número do contrato no portal oficial Contratos.gov.br ou busca no Diário Oficial da União.",
+      politicaPopular: "Apenas o contrato central nº 19/2024 do MGI com a Brasoftware soma R$ 606,5 milhões para licenças Microsoft até 2029."
+    }
+  }
 };
 
 // Exportar globalmente para os outros scripts

@@ -1200,6 +1200,250 @@ body {
   box-shadow: 1.5px 1.5px 0px #4C1130;
 }
 
+/* Botão de Metodologia e Fonte (i-zinho) */
+.btn-info-metodologia {
+  background-color: var(--amarelo-sol);
+  color: var(--preto-tinta);
+  border: 1.5px solid var(--preto-tinta);
+  box-shadow: 1.5px 1.5px 0px var(--preto-tinta);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: var(--radius-sm);
+  transition: transform var(--trans-fast), box-shadow var(--trans-fast);
+  text-decoration: none;
+  line-height: 1.2;
+  vertical-align: middle;
+}
+
+.btn-info-metodologia:hover {
+  transform: translateY(-1px);
+  box-shadow: 2px 2px 0px var(--preto-tinta);
+  background-color: #ffe066;
+}
+
+.btn-info-metodologia:active {
+  transform: translate(1px, 1px);
+  box-shadow: none;
+}
+
+.btn-info-metodologia-sm {
+  font-size: 0.65rem;
+  padding: 0 4px;
+}
+
+/* Painel de Recursos Não Pagos / Represados (Elemento 40) */
+.painel-dinheiro-nao-usado {
+  margin-top: 14px;
+  background-color: #FFF9E6;
+  border: var(--border-medium);
+  box-shadow: var(--shadow-hard-sm);
+  padding: 12px 14px;
+  font-size: 0.85rem;
+}
+
+.painel-dinheiro-nao-usado-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1.5px dashed var(--preto-tinta);
+  padding-bottom: 6px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--vermelho-ato);
+}
+
+.painel-dinheiro-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.mini-card-ano {
+  background-color: var(--branco-puro);
+  border: var(--border-thin);
+  padding: 5px 8px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: 1px 1px 0px var(--preto-tinta);
+}
+
+.mini-card-ano.destaque {
+  background-color: #FFE6E6;
+  border: 1.5px solid var(--vermelho-ato);
+}
+
+.mini-card-ano span {
+  font-size: 0.68rem;
+  color: #56615C;
+  font-weight: 700;
+}
+
+.mini-card-ano strong {
+  font-size: 0.92rem;
+  color: var(--vermelho-ato);
+}
+
+.mini-card-ano em {
+  font-size: 0.65rem;
+  font-style: normal;
+  color: #56615C;
+}
+
+.nota-politica-nao-usado {
+  font-size: 0.78rem;
+  color: var(--preto-tinta);
+  line-height: 1.4;
+  background-color: var(--branco-papel);
+  border-left: 3.5px solid var(--vermelho-ato);
+  padding: 6px 10px;
+}
+
+/* Modal Neobrutalista de Metodologia e Fonte */
+.modal-metodologia-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(28, 23, 18, 0.72);
+  backdrop-filter: blur(2px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.modal-metodologia-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-metodologia-card {
+  background-color: var(--branco-papel);
+  border: var(--border-thick);
+  box-shadow: 8px 8px 0px var(--preto-tinta);
+  max-width: 680px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateY(12px);
+  transition: transform 0.2s ease-out;
+}
+
+.modal-metodologia-backdrop.active .modal-metodologia-card {
+  transform: translateY(0);
+}
+
+.modal-metodologia-header {
+  background-color: var(--amarelo-sol);
+  color: var(--preto-tinta);
+  border-bottom: var(--border-thick);
+  padding: 12px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal-metodologia-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 900;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-fechar-modal {
+  background-color: var(--preto-tinta);
+  color: var(--branco-papel);
+  border: var(--border-thin);
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color var(--trans-fast);
+}
+
+.btn-fechar-modal:hover {
+  background-color: var(--vermelho-ato);
+}
+
+.modal-metodologia-body {
+  padding: 18px;
+  overflow-y: auto;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-campo {
+  border: var(--border-thin);
+  background-color: var(--branco-puro);
+  padding: 10px 12px;
+  box-shadow: 2px 2px 0px var(--preto-tinta);
+}
+
+.modal-campo-label {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #56615C;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.modal-campo-valor {
+  color: var(--preto-tinta);
+  font-size: 0.88rem;
+}
+
+.modal-campo-valor.mono {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  background-color: var(--cinza-papel);
+  padding: 6px 8px;
+  border-left: 3px solid var(--azul-macacao);
+}
+
+.modal-metodologia-footer {
+  background-color: var(--cinza-papel);
+  border-top: var(--border-medium);
+  padding: 10px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 /* Barra de Filtro de Dados Global */
 .filtro-dados-container {
   background-color: var(--cinza-papel);

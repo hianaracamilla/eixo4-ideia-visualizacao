@@ -434,14 +434,14 @@
         <div style="font-family: var(--font-display); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; margin-bottom: 2px;">
           Ramos do Eixo 4:
         </div>
-        <div class="mindmap-legend-item"><span class="mindmap-legend-color" style="background: #1243A5;"></span> 1. Orçamento e Compras Públicas</div>
-        <div class="mindmap-legend-item"><span class="mindmap-legend-color" style="background: #21672A;"></span> 2. Instituições e Estatais</div>
-        <div class="mindmap-legend-item"><span class="mindmap-legend-color" style="background: #C8322A;"></span> 3. Participação Popular (11 Conselhos)</div>
-        <div class="mindmap-legend-item"><span class="mindmap-legend-color" style="background: #ED8D1F;"></span> 4. Políticas, Normas e Legislações</div>
-        <div class="mindmap-legend-item"><span class="mindmap-legend-color" style="background: #3B7B27;"></span> 5. Governança Multinível (Global-Local)</div>
-        <div class="mindmap-legend-item"><span class="mindmap-legend-color" style="background: #1C1712;"></span> 6. Organizativo e Integração</div>
+        <div class="mindmap-legend-item"><span class="mindmap-legend-color" style="background: #1243A5;"></span> 1. Orçamento, despesas e compras públicas</div>
+        <div class="mindmap-legend-item"><span class="mindmap-legend-color" style="background: #21672A;"></span> 2. Instituições, autarquias e empresas públicas</div>
+        <div class="mindmap-legend-item"><span class="mindmap-legend-color" style="background: #C8322A;"></span> 3. Participação popular nas políticas digitais</div>
+        <div class="mindmap-legend-item"><span class="mindmap-legend-color" style="background: #ED8D1F;"></span> 4. Políticas públicas, normas e legislações</div>
+        <div class="mindmap-legend-item"><span class="mindmap-legend-color" style="background: #3B7B27;"></span> 5. Governança multinível (global- local)</div>
+        <div class="mindmap-legend-item"><span class="mindmap-legend-color" style="background: #1C1712;"></span> Organizativo</div>
         <div style="font-size: 0.72rem; color: #56615C; margin-top: 4px; border-top: var(--border-thin); padding-top: 4px;">
-          💡 <em>Arraste para navegar · Roda do mouse para zoom · Clique no nó para detalhes</em>
+          💡 <em>Arraste para navegar · Roda do mouse para zoom · Clique no nó ou botão para expandir</em>
         </div>
       </div>
 
@@ -544,95 +544,56 @@
         const container = document.getElementById("fichasContainer");
         if (!container) return;
 
-        const raw = window.OBSERVATORIO_DATA.mapaMental;
-        if (!raw) return;
+        const raw = window.OBSERVATORIO_DATA && window.OBSERVATORIO_DATA.mapaMental;
+        if (!raw || !raw.filhos) return;
 
-        container.innerHTML = raw.subeixos.map(s => `
+        function renderSubItensRecursivo(itens) {
+          if (!itens || itens.length === 0) return '';
+          return `
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px; padding-left: 12px; margin-top: 6px; border-left: 2px solid #56615C;">
+              ${itens.map(item => `
+                <li style="font-size: 0.82rem; line-height: 1.4; color: #1C1712;">
+                  <strong style="color: #1C1712;">${item.titulo}</strong>
+                  ${item.filhos && item.filhos.length > 0 ? renderSubItensRecursivo(item.filhos) : ''}
+                </li>
+              `).join('')}
+            </ul>
+          `;
+        }
+
+        container.innerHTML = raw.filhos.map(b => `
           <div style="background-color: var(--branco-puro); border: var(--border-thick); box-shadow: var(--shadow-hard); display: flex; flex-direction: column;">
-            <div style="padding: 14px 18px; background-color: ${s.cor}; color: #FFF; border-bottom: var(--border-medium); display: flex; justify-content: space-between; align-items: center;">
+            <div style="padding: 14px 18px; background-color: ${b.cor || '#1243A5'}; color: #FFF; border-bottom: var(--border-medium); display: flex; justify-content: space-between; align-items: center;">
               <h3 style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 900;">
-                ${s.icone} ${s.titulo}
+                ${b.titulo}
               </h3>
-              <span style="font-family: var(--font-mono); font-size: 0.75rem; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: var(--radius-sm);">
-                SUB-EIXO ${s.numero}
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: var(--radius-sm); text-transform: uppercase;">
+                ${b.numero ? `SUB-EIXO ${b.numero}` : 'ORGANIZATIVO'}
               </span>
             </div>
 
-            <div style="padding: 20px; display: flex; flex-direction: column; gap: 16px; flex: 1;">
-              ${s.responsaveis && s.responsaveis.length > 0 ? `
-                <div style="background: #FAF8F2; border: var(--border-thin); padding: 10px 14px;">
-                  <strong style="font-family: var(--font-display); font-size: 0.85rem; text-transform: uppercase;">👤 Responsáveis:</strong>
-                  <div style="margin-top: 4px; display: flex; gap: 6px; flex-wrap: wrap;">
-                    ${s.responsaveis.map(r => `<span class="badge-status badge-status-real">${r}</span>`).join('')}
-                  </div>
-                </div>
-              ` : ''}
-
-              ${s.questoesCentrais && s.questoesCentrais.length > 0 ? `
-                <div>
-                  <h4 style="font-family: var(--font-display); font-size: 0.95rem; font-weight: 800; color: ${s.cor}; margin-bottom: 6px;">
-                    ❓ Questões Centrais:
+            <div style="padding: 20px; display: flex; flex-direction: column; gap: 14px; flex: 1;">
+              ${(b.filhos || []).map(cat => `
+                <div style="border: var(--border-thin); background: #FAF8F2; padding: 12px; box-shadow: 2px 2px 0px #1C1712;">
+                  <h4 style="font-family: var(--font-display); font-size: 0.95rem; font-weight: 800; color: ${b.cor || '#1243A5'}; margin-bottom: 8px; text-transform: uppercase;">
+                    ${cat.titulo}
                   </h4>
-                  <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px;">
-                    ${s.questoesCentrais.map((q, idx) => `
-                      <li style="border-left: 3px solid ${s.cor}; padding-left: 8px; font-size: 0.85rem; line-height: 1.4;">
-                        <strong>${idx + 1}.</strong> ${q}
-                      </li>
-                    `).join('')}
-                  </ul>
+                  ${cat.filhos && cat.filhos.length > 0 ? `
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                      ${cat.filhos.map(item => `
+                        <div style="border: var(--border-thin); background: var(--branco-puro); padding: 9px 12px; font-size: 0.85rem; box-shadow: 1px 1px 0px #1C1712;">
+                          <div style="font-weight: 700; color: #1C1712; line-height: 1.35;">
+                            ${item.titulo}
+                          </div>
+                          ${item.filhos && item.filhos.length > 0 ? renderSubItensRecursivo(item.filhos) : ''}
+                        </div>
+                      `).join('')}
+                    </div>
+                  ` : `
+                    <div style="font-size: 0.8rem; font-style: italic; color: #56615C; padding: 4px;">(Item sem subdivisões adicionais no documento original)</div>
+                  `}
                 </div>
-              ` : ''}
-
-              ${s.projetosPrincipais && s.projetosPrincipais.length > 0 ? `
-                <div>
-                  <h4 style="font-family: var(--font-display); font-size: 0.95rem; font-weight: 800; color: var(--preto-tinta); margin-bottom: 6px;">
-                    🚀 Projetos Principais:
-                  </h4>
-                  <div style="display: flex; flex-direction: column; gap: 6px;">
-                    ${s.projetosPrincipais.map(p => `
-                      <div style="border: var(--border-thin); background: var(--branco-puro); padding: 8px 10px; font-size: 0.84rem;">
-                        <strong>${p.nome}</strong>
-                        <span style="display: block; font-family: var(--font-mono); font-size: 0.72rem; color: #56615C;">Status: ${p.status}</span>
-                      </div>
-                    `).join('')}
-                  </div>
-                </div>
-              ` : ''}
-
-              ${s.necessidadesOrganizacionais && s.necessidadesOrganizacionais.length > 0 ? `
-                <div>
-                  <h4 style="font-family: var(--font-display); font-size: 0.95rem; font-weight: 800; color: var(--verde-pilar); margin-bottom: 4px;">
-                    🛠️ Necessidades de Equipe / Papéis:
-                  </h4>
-                  <ul style="margin-left: 20px; font-size: 0.84rem; color: #2b312e;">
-                    ${s.necessidadesOrganizacionais.map(n => `<li>${n}</li>`).join('')}
-                  </ul>
-                </div>
-              ` : ''}
-
-              ${s.instanciasMapeadas && s.instanciasMapeadas.length > 0 ? `
-                <div>
-                  <h4 style="font-family: var(--font-display); font-size: 0.95rem; font-weight: 800; color: var(--vermelho-ato); margin-bottom: 4px;">
-                    🏛️ As 11 Instâncias Públicas Mapeadas:
-                  </h4>
-                  <div style="display: flex; flex-direction: column; gap: 4px; font-size: 0.8rem;">
-                    ${s.instanciasMapeadas.map(inst => `
-                      <div style="border-left: 3px solid var(--vermelho-ato); padding: 3px 6px; background: #FAF8F2;">${inst}</div>
-                    `).join('')}
-                  </div>
-                </div>
-              ` : ''}
-
-              ${s.diretrizesGerais && s.diretrizesGerais.length > 0 ? `
-                <div>
-                  <h4 style="font-family: var(--font-display); font-size: 0.95rem; font-weight: 800; color: var(--preto-tinta); margin-bottom: 4px;">
-                    📋 Diretrizes e Instrumentos:
-                  </h4>
-                  <ul style="margin-left: 20px; font-size: 0.84rem; line-height: 1.45;">
-                    ${s.diretrizesGerais.map(d => `<li>${d}</li>`).join('')}
-                  </ul>
-                </div>
-              ` : ''}
+              `).join('')}
             </div>
           </div>
         `).join('');
@@ -665,221 +626,242 @@
       const SLIDES_DATA = [
         {
           eyebrow: "Estrutura Oficial do Eixo 4",
-          titulo: "Incidência no Estado e Reformas Estruturais",
-          subtitulo: "Os 5 Sub-eixos de Ação e o Ramo Organizativo",
+          titulo: "Eixo 4 - Incidência no Estado",
+          subtitulo: "Estrutura completa e exata extraída de 'Eixo 4 - Incidência no Estado.pdf'",
           render: () => `
             <div>
-              <p class="slide-body" style="font-size: 1.2rem; font-weight: 600; margin-bottom: 24px;">
-                Tecnologia não é neutra: ou serve ao capital, ou constrói o poder popular. Esta apresentação estrutura a máquina política e técnica de intervenção do Eixo 4 no Estado brasileiro.
+              <p class="slide-body" style="font-size: 1.15rem; font-weight: 600; margin-bottom: 24px;">
+                Mapeamento conceitual e operacional com os 5 sub-eixos centrais e o ramo organizativo da intervenção no Estado:
               </p>
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;">
                 <div style="border: var(--border-medium); padding: 12px; background: #FAF8F2; border-left: 6px solid #1243A5;">
-                  <strong style="color: #1243A5;">4.1 Orçamento & Compras</strong>
-                  <p style="font-size: 0.85rem;">Segue o dinheiro, rastreia o piso estrangeiro e calcula custos.</p>
+                  <strong style="color: #1243A5;">1. Orçamento, despesas e compras públicas</strong>
+                  <p style="font-size: 0.85rem;">Gastos digitais, LOA, PPA, emendas e monitoramento de compras.</p>
                 </div>
                 <div style="border: var(--border-medium); padding: 12px; background: #FAF8F2; border-left: 6px solid #21672A;">
-                  <strong style="color: #21672A;">4.2 Instituições & Estatais</strong>
-                  <p style="font-size: 0.85rem;">Quem-é-quem do digital, Serpro, Dataprev e ministérios.</p>
+                  <strong style="color: #21672A;">2. Instituições, autarquias e empresas públicas</strong>
+                  <p style="font-size: 0.85rem;">Pastas digitais, mapa dinâmico do quem-é-quem e observatório das estatais.</p>
                 </div>
                 <div style="border: var(--border-medium); padding: 12px; background: #FAF8F2; border-left: 6px solid #C8322A;">
-                  <strong style="color: #C8322A;">4.3 Participação Popular</strong>
-                  <p style="font-size: 0.85rem;">Incidência nos 11 conselhos públicos e agentes de soberania.</p>
+                  <strong style="color: #C8322A;">3. Participação popular nas políticas digitais</strong>
+                  <p style="font-size: 0.85rem;">Instâncias de participação social (11 conselhos mapeados) e agentes populares.</p>
                 </div>
                 <div style="border: var(--border-medium); padding: 12px; background: #FAF8F2; border-left: 6px solid #ED8D1F;">
-                  <strong style="color: #ED8D1F;">4.4 Normas & Legislações</strong>
-                  <p style="font-size: 0.85rem;">Monitor de leis, editais e enfrentamento ao lobby das Big Techs.</p>
+                  <strong style="color: #ED8D1F;">4. Políticas públicas, normas e legislações</strong>
+                  <p style="font-size: 0.85rem;">Leis, lobby de bigtechs (ALAI, Camara e.net) e monitor de políticas e editais.</p>
                 </div>
                 <div style="border: var(--border-medium); padding: 12px; background: #FAF8F2; border-left: 6px solid #3B7B27;">
-                  <strong style="color: #3B7B27;">4.5 Governança Multinível</strong>
-                  <p style="font-size: 0.85rem;">26 estados, 5.569 municípios e política externa digital.</p>
+                  <strong style="color: #3B7B27;">5. Governança multinível (global- local)</strong>
+                  <p style="font-size: 0.85rem;">26 estados + DF, 5569 municípios, empresas de TI e política externa digital.</p>
+                </div>
+                <div style="border: var(--border-medium); padding: 12px; background: #FAF8F2; border-left: 6px solid #1C1712;">
+                  <strong style="color: #1C1712;">Organizativo</strong>
+                  <p style="font-size: 0.85rem;">Diretrizes gerais, advocacy, reuniões, pastas, integração e formação.</p>
                 </div>
               </div>
             </div>
           `,
-          rodape: "Eixo 4 · Organização e Método"
+          rodape: "Eixo 4 - Incidência no Estado"
         },
         {
-          eyebrow: "Sub-eixo 4.1",
-          titulo: "4.1 · Orçamento, Despesas e Compras",
-          subtitulo: "Responsáveis: Hiana Camilla e Thiago",
+          eyebrow: "Ramo 1",
+          titulo: "1. Orçamento, despesas e compras públicas",
+          subtitulo: "Responsáveis: Hiana Camilla, Thiago",
           render: () => `
             <div class="subeixo-split">
               <div>
-                <p class="slide-body">
-                  Fiscaliza o Elemento 40 (mais de R$ 10,6 bilhões) e os contratos federais de TI. Quantifica o piso de dependência estrangeira (R$ 2,78 bi) e carimba verbas nas leis orçamentárias (PPA, LDO e LOA).
-                </p>
-                <h4 style="margin: 16px 0 8px; font-family: var(--font-display);">Questões Centrais:</h4>
-                <ul style="padding-left: 20px; font-size: 0.9rem; line-height: 1.5;">
-                  <li>Quanto o Estado gasta em TI estrangeira? (> 50% concentrado na Microsoft)</li>
-                  <li>De que forma é feita essa contratação? Há transparência efetiva?</li>
-                  <li>O que está previsto na LOA e no PPA? Como estão as emendas parlamentares?</li>
+                <h4 style="margin: 0 0 8px; font-family: var(--font-display); color: var(--azul-macacao);">1. Questões centrais:</h4>
+                <ul style="padding-left: 20px; font-size: 0.88rem; line-height: 1.5;">
+                  <li>1. Quanto o Estado gasta com tecnologias digitais?
+                    <ul style="padding-left: 16px; font-size: 0.82rem; color: #56615C;">
+                      <li>↳ 1. Quanto gasta em tecnologia estrangeira? (1. > 50% com a Microsoft)</li>
+                    </ul>
+                  </li>
+                  <li>2. De que forma é feita essa contratação? Há transparência?</li>
+                  <li>3. O que está previsto na LOA e no PPA?</li>
+                  <li>4. Como estão as definições das emendas parlamentares?
+                    <ul style="padding-left: 16px; font-size: 0.82rem; color: #56615C;">
+                      <li>↳ 1. Quais são os recursos? · 2. Quaissão os parlamentares?</li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
               <div style="display: flex; flex-direction: column; gap: 12px;">
                 <div class="box-fluxo recebe">
-                  <span class="fluxo-tag" style="color: var(--azul-macacao);">🚀 Projetos Principais:</span>
-                  <p style="font-size: 0.88rem;">Monitoramento de gastos e investimentos; Monitoramento de compras públicas.</p>
+                  <span class="fluxo-tag" style="color: var(--azul-macacao);">2. Projetos principais:</span>
+                  <p style="font-size: 0.86rem;">1. Monitoramento de gastos e investimentos<br>2. Monitoramento de compras públicas (1. Qual instrumento?)</p>
                 </div>
                 <div class="box-fluxo entrega">
-                  <span class="fluxo-tag" style="color: var(--verde-pilar);">🛠️ Necessidades de Equipe:</span>
-                  <p style="font-size: 0.88rem;">PO (Product Owner), Cientista de dados e Especialista em orçamento público.</p>
+                  <span class="fluxo-tag" style="color: var(--verde-pilar);">4. Necessidades organizacionais:</span>
+                  <p style="font-size: 0.86rem;">1. PO<br>2. Cientista dados<br>3. Especialista em orçamento público</p>
                 </div>
               </div>
             </div>
           `,
-          rodape: "Sub-eixo 4.1 · Orçamento e Despesas"
+          rodape: "1. Orçamento, despesas e compras públicas"
         },
         {
-          eyebrow: "Sub-eixo 4.2",
-          titulo: "4.2 · Instituições, Autarquias e Estatais",
-          subtitulo: "Mapeamento da máquina pública e estatais de TI",
+          eyebrow: "Ramo 2",
+          titulo: "2. Instituições, autarquias e empresas públicas",
+          subtitulo: "Responsáveis: (Aberto no documento original)",
           render: () => `
             <div class="subeixo-split">
               <div>
-                <p class="slide-body">
-                  Mapeia quem decide os rumos da tecnologia governamental. Conecta secretarias ministeriais (SGD/MGI, SEIDIGI/MS) e empresas estatais de tecnologia da informação (Serpro, Dataprev, Telebras).
-                </p>
-                <h4 style="margin: 16px 0 8px; font-family: var(--font-display);">Questões Centrais:</h4>
+                <h4 style="margin: 0 0 8px; font-family: var(--font-display); color: var(--verde-pilar);">1. Questões centrais:</h4>
                 <ul style="padding-left: 20px; font-size: 0.9rem; line-height: 1.5;">
-                  <li>Quais são as pastas que tratam do digital e como elas se relacionam?</li>
-                  <li>Qual o papel das estatais na nuvem soberana e onde estão os dados críticos?</li>
+                  <li>1. Quais são as pastas que tratam do digital?</li>
+                  <li>2. Como elas se relacionam?</li>
                 </ul>
               </div>
               <div style="display: flex; flex-direction: column; gap: 12px;">
                 <div class="box-fluxo recebe">
-                  <span class="fluxo-tag" style="color: var(--verde-pilar);">🚀 Projetos Principais:</span>
-                  <p style="font-size: 0.88rem;">Árvore/Mapa dinâmico do quem-é-quem do digital; Observatório das estatais.</p>
+                  <span class="fluxo-tag" style="color: var(--verde-pilar);">2. Projetos principais:</span>
+                  <p style="font-size: 0.88rem;">1. Árvore\\Mapa dinâmico do quem-é-quem do digital<br>2. Observatório das estatais</p>
                 </div>
                 <div class="box-fluxo entrega">
-                  <span class="fluxo-tag" style="color: var(--azul-macacao);">🛠️ Necessidades:</span>
-                  <p style="font-size: 0.88rem;">Especialistas em privacidade e proteção de dados (LGPD).</p>
+                  <span class="fluxo-tag" style="color: var(--azul-macacao);">4. Necessidades organizacionais:</span>
+                  <p style="font-size: 0.88rem;">1. Questões de privacidade e proteção de dados</p>
                 </div>
               </div>
             </div>
           `,
-          rodape: "Sub-eixo 4.2 · Instituições e Empresas Públicas"
+          rodape: "2. Instituições, autarquias e empresas públicas"
         },
         {
-          eyebrow: "Sub-eixo 4.3",
-          titulo: "4.3 · Participação Popular nas Políticas Digitais",
-          subtitulo: "Responsável: Hernán Efrón",
+          eyebrow: "Ramo 3",
+          titulo: "3. Participação popular nas políticas digitais",
+          subtitulo: "Responsáveis: Hernán Efrón",
           render: () => `
             <div class="subeixo-split">
               <div>
-                <p class="slide-body">
-                  Garante a representação e ocupação da classe trabalhadora nos espaços decisórios de tecnologia. Mapeia e disputa os conselhos consultivos e deliberativos da República.
-                </p>
-                <h4 style="margin: 16px 0 8px; font-family: var(--font-display);">11 Instâncias Públicas Mapeadas:</h4>
-                <p style="font-size: 0.82rem; line-height: 1.4; color: #3d4642;">
-                  CNPD, CNCT, CGFUST, CITDigital, Comitê Gov Digital, Fórum Pix, CNCiber, CCGD, CDESS (Conselhão), CIMCE e CGI.br.
-                </p>
+                <h4 style="margin: 0 0 8px; font-family: var(--font-display); color: var(--vermelho-ato);">1. Questões centrais:</h4>
+                <ul style="padding-left: 20px; font-size: 0.85rem; line-height: 1.45;">
+                  <li><strong>1. Quais são as instâncias de participação social? Onde se localizam? Como funcionam?</strong>
+                    <div style="font-size: 0.78rem; color: #56615C; margin-top: 4px; line-height: 1.4;">
+                      Conselhos listados: CNPD; CNCT; CGFUST; CITDigital; Comitê Consultivo da Estratégia Nacional de Governo Digital; Fórum Pix; CNCiber; CCGD; Coordenadoria da Comissão de Tecnologia, Inovação e Transformação Digital do CDESS; CIMCE; CGI.br.
+                    </div>
+                  </li>
+                  <li style="margin-top: 6px;">2. Quem nos representa nesses espaços?</li>
+                  <li>3. Como a participação se concretiza nas decisões?</li>
+                  <li>4. Como as políticas digitais contribuem para a soberania popular?</li>
+                </ul>
               </div>
               <div style="display: flex; flex-direction: column; gap: 12px;">
                 <div class="box-fluxo recebe">
-                  <span class="fluxo-tag" style="color: var(--vermelho-ato);">🚀 Projeto Estruturante:</span>
-                  <p style="font-size: 0.88rem;"><strong>Agentes Populares de Soberania Digital:</strong> formação de lideranças de base para atuar nos conselhos.</p>
+                  <span class="fluxo-tag" style="color: var(--vermelho-ato);">2. Projetos principais:</span>
+                  <p style="font-size: 0.88rem;">1. Agentes populares de soberania digital</p>
+                </div>
+                <div class="box-fluxo entrega">
+                  <span class="fluxo-tag" style="color: var(--preto-tinta);">3. Responsáveis:</span>
+                  <p style="font-size: 0.88rem;">1. Hernán Efrón</p>
+                </div>
+              </div>
+            </div>
+          `,
+          rodape: "3. Participação popular nas políticas digitais"
+        },
+        {
+          eyebrow: "Ramo 4",
+          titulo: "4. Políticas públicas, normas e legislações",
+          subtitulo: "Responsáveis: Marina Méraki, Leopoldo Neto",
+          render: () => `
+            <div class="subeixo-split">
+              <div>
+                <h4 style="margin: 0 0 8px; font-family: var(--font-display); color: var(--urucum);">1. Questões centrais:</h4>
+                <ul style="padding-left: 20px; font-size: 0.88rem; line-height: 1.5;">
+                  <li>1. Quais são as leis e projetos de leis que tratam do digital vigentes? A autoria é de quem?</li>
+                  <li>2. Como se dá o lobby das bigtechs e midtechs? (1. ALAI, 2. Camara e.net)</li>
+                  <li>3. Quais são outros instrumentos normativos? Planos, Estratégias, Portarias, Resoluções, Decretos, etc.</li>
+                  <li>4. Como categorizar as políticas digitais?</li>
+                  <li>5. Quais políticas podemos elaborar para a soberania digital popular?</li>
+                </ul>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div class="box-fluxo recebe">
+                  <span class="fluxo-tag" style="color: var(--urucum);">2. Projetos principais:</span>
+                  <p style="font-size: 0.88rem;">1. Monitor de  políticas digitais (1. Normas vigentes, 2. Normas em tramitação)<br>2. Monitor de editais e chamamentos públicos</p>
+                </div>
+                <div class="box-fluxo entrega">
+                  <span class="fluxo-tag" style="color: var(--verde-pilar);">3. Responsáveis:</span>
+                  <p style="font-size: 0.88rem;">1. Marina Méraki<br>2. Leopoldo Neto</p>
+                </div>
+              </div>
+            </div>
+          `,
+          rodape: "4. Políticas públicas, normas e legislações"
+        },
+        {
+          eyebrow: "Ramo 5",
+          titulo: "5. Governança multinível (global- local)",
+          subtitulo: "Responsáveis: Gleice Barros",
+          render: () => `
+            <div class="subeixo-split">
+              <div>
+                <h4 style="margin: 0 0 8px; font-family: var(--font-display); color: var(--verde-morro);">1. Questões centrais:</h4>
+                <ul style="padding-left: 20px; font-size: 0.88rem; line-height: 1.5;">
+                  <li>1. Como os demais sub-eixos se manifestam nos estados e nos municípios?
+                    <ul style="padding-left: 16px; font-size: 0.82rem; color: #56615C;">
+                      <li>↳ 1. 26 estados + DF · 2. 5569 municípios · 3. ~ 50 municípios com mais de 500 mil habitantes · 4. Quais podem ser pilotos-modelos? Por que?</li>
+                    </ul>
+                  </li>
+                  <li>2. Quais possuem empresa pública de TI?</li>
+                  <li>3. Como funciona a política externa digital? (1. Parcerias bilaterais/multilaterais · 2. Posicionamento do Itamaraty)</li>
+                  <li>4. Como estruturar um modelo transversal de análise que é escalável no eixo particular-universal?</li>
+                </ul>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div class="box-fluxo recebe">
+                  <span class="fluxo-tag" style="color: var(--verde-pilar);">2. Projetos principais:</span>
+                  <p style="font-size: 0.88rem;">1. Monitor da política externa digital<br>2. Monitor dos entes federativos</p>
                 </div>
                 <div class="box-fluxo regra">
-                  <span class="fluxo-tag" style="color: var(--vermelho-ato);">⚠️ Questão Central:</span>
-                  <p style="font-size: 0.85rem; font-weight: 700;">Quem nos representa nesses espaços e como a participação se concretiza nas decisões?</p>
+                  <span class="fluxo-tag" style="color: var(--azul-macacao);">3. Responsáveis:</span>
+                  <p style="font-size: 0.88rem;">1. Gleice Barros</p>
                 </div>
               </div>
             </div>
           `,
-          rodape: "Sub-eixo 4.3 · Participação Popular nas Políticas Digitais"
+          rodape: "5. Governança multinível (global- local)"
         },
         {
-          eyebrow: "Sub-eixo 4.4",
-          titulo: "4.4 · Políticas Públicas, Normas e Legislações",
-          subtitulo: "Responsáveis: Marina Méraki e Leopoldo Neto",
-          render: () => `
-            <div class="subeixo-split">
-              <div>
-                <p class="slide-body">
-                  Acompanha a disputa normativa no Congresso e no Poder Executivo. Enfrenta o lobby pesado das Big Techs e Mid Techs (ALAI, Camara-e.net) e redige minutas para a soberania digital popular.
-                </p>
-                <h4 style="margin: 16px 0 8px; font-family: var(--font-display);">Questões Centrais:</h4>
-                <ul style="padding-left: 20px; font-size: 0.9rem; line-height: 1.5;">
-                  <li>Quais são as leis e PLs vigentes e quem são os autores reais?</li>
-                  <li>Como opera o lobby corporativo das plataformas no parlamento?</li>
-                  <li>Quais políticas públicas podemos elaborar e apresentar em conjunto com os movimentos?</li>
-                </ul>
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 12px;">
-                <div class="box-fluxo recebe">
-                  <span class="fluxo-tag" style="color: var(--urucum);\">🚀 Projetos Principais:</span>
-                  <p style="font-size: 0.88rem;">Monitor de Políticas Digitais (Normas vigentes e em tramitação); Monitor de Editais Públicos.</p>
-                </div>
-                <div class="box-fluxo entrega">
-                  <span class="fluxo-tag" style="color: var(--verde-pilar);\">🛠️ Instrumentos:</span>
-                  <p style="font-size: 0.88rem;">Elaboração de minutas de leis, emendas parlamentares e pareceres técnicos populares.</p>
-                </div>
-              </div>
-            </div>
-          `,
-          rodape: "Sub-eixo 4.4 · Políticas Públicas, Normas e Legislações"
-        },
-        {
-          eyebrow: "Sub-eixo 4.5",
-          titulo: "4.5 · Governança Multinível (Global-Local)",
-          subtitulo: "Responsável: Gleice Barros",
-          render: () => `
-            <div class="subeixo-split">
-              <div>
-                <p class="slide-body">
-                  Articula a luta pelos 26 estados + DF e 5.569 municípios brasileiros, conectando os territórios às disputas geopolíticas globais e à atuação do Itamaraty.
-                </p>
-                <h4 style="margin: 16px 0 8px; font-family: var(--font-display);">Questões Centrais:</h4>
-                <ul style="padding-left: 20px; font-size: 0.9rem; line-height: 1.5;">
-                  <li>Quais dos ~50 municípios com mais de 500 mil habitantes podem ser pilotos-modelo?</li>
-                  <li>Quais entes possuem empresa pública própria de TI?</li>
-                  <li>Qual é o posicionamento do Itamaraty em foros multilaterais e acordos de IA?</li>
-                </ul>
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 12px;">
-                <div class="box-fluxo recebe">
-                  <span class="fluxo-tag" style="color: var(--verde-pilar);">🚀 Projetos Principais:</span>
-                  <p style="font-size: 0.88rem;">Monitor da Política Externa Digital; Monitor dos Entes Federativos.</p>
-                </div>
-                <div class="box-fluxo regra">
-                  <span class="fluxo-tag" style="color: var(--azul-macacao);">🎯 Objetivo:</span>
-                  <p style="font-size: 0.85rem; font-weight: 700;">Estruturar um modelo transversal de análise escalável do particular ao universal.</p>
-                </div>
-              </div>
-            </div>
-          `,
-          rodape: "Sub-eixo 4.5 · Governança Multinível (Global-Local)"
-        },
-        {
-          eyebrow: "Ramo Organizativo",
-          titulo: "Organizativo: Diretrizes, Instrumentos e Integração",
-          subtitulo: "O método rigoroso de trabalho do Eixo 4",
+          eyebrow: "Ramo 6",
+          titulo: "Organizativo",
+          subtitulo: "Diretrizes gerais, advocacy, reuniões, pastas, integração e formação",
           render: () => `
             <div>
-              <p class="slide-body" style="margin-bottom: 20px;">
-                Para que a incidência no Estado tenha força real, o Eixo 4 atua baseado em rigor analítico, transparência de dados, respeito estrito à LGPD e integração orgânica com os demais eixos do movimento:
-              </p>
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;">
                 <div style="border: var(--border-thin); padding: 12px; background: #FAF8F2;">
-                  <strong style="color: #1243A5;">🔗 Integração Eixo 1</strong>
-                  <p style="font-size: 0.84rem;">Boletins semanais com Jane para municiar a denúncia pública das Big Techs.</p>
+                  <strong style="color: #1243A5;">Diretrizes gerais e instrumentos</strong>
+                  <p style="font-size: 0.82rem; line-height: 1.4; margin-top: 4px;">
+                    Rigor analítico (Revisão humana e por pares); Transparência nos dados; Privacidade e proteção de dados; Explicação metodológica clara; Pedidos de LAI (Padrão de requisição); Mapeamentos e visualizações; Transversalidade e matriz analítica.
+                  </p>
                 </div>
                 <div style="border: var(--border-thin); padding: 12px; background: #FAF8F2;">
-                  <strong style="color: #21672A;">🔗 Integração Eixo 2</strong>
-                  <p style="font-size: 0.84rem;">Diálogo com Guilherme para traduzir infraestruturas autônomas em políticas de fomento.</p>
+                  <strong style="color: #ED8D1F;">Advocacy, Reuniões e Pastas</strong>
+                  <p style="font-size: 0.82rem; line-height: 1.4; margin-top: 4px;">
+                    Advocacy: Atos em casas legislativas, Estabelecer posicionamentos públicos.<br>
+                    Reuniões: 1 · Pastas: 4
+                  </p>
                 </div>
                 <div style="border: var(--border-thin); padding: 12px; background: #FAF8F2;">
-                  <strong style="color: #C8322A;">🔗 Integração Eixo 3</strong>
-                  <p style="font-size: 0.84rem;">Letramento crítico e laboratórios populares nos territórios de base.</p>
+                  <strong style="color: #21672A;">Integração com outros eixos</strong>
+                  <p style="font-size: 0.82rem; line-height: 1.4; margin-top: 4px;">
+                    Eixo 1 (Boletins semanais, Jane)<br>
+                    Eixo 2 (Guilherme)<br>
+                    Eixo 3
+                  </p>
                 </div>
                 <div style="border: var(--border-thin); padding: 12px; background: #FAF8F2;">
-                  <strong style="color: #ED8D1F;">⚖️ Advocacy & LAI</strong>
-                  <p style="font-size: 0.84rem;">Atos em casas legislativas, padrão de requisições de LAI e posicionamentos públicos.</p>
+                  <strong style="color: #C8322A;">Formação e letramento</strong>
+                  <p style="font-size: 0.82rem; line-height: 1.4; margin-top: 4px;">
+                    Grupos de estudos · Seminários<br>
+                    Ciência de dados (O que demandar)
+                  </p>
                 </div>
               </div>
             </div>
           `,
-          rodape: "Ramo Organizativo · Diretrizes e Integração"
+          rodape: "Organizativo"
         }
       ];
 

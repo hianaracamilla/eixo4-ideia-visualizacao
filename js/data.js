@@ -589,176 +589,1494 @@ const OBSERVATORIO_DATA = {
     }
   },
 
-  // 3. Mapa Mental Completo do Eixo 4 (Estruturado a partir do PDF 'Eixo 4 - Incidência no Estado.pdf')
+  // 3. Mapa Mental Completo do Eixo 4 (Estrutura e palavras exatamente idênticas ao PDF 'Eixo 4 - Incidência no Estado.pdf')
   mapaMental: {
-    id: "eixo4-raiz",
-    titulo: "Eixo 4: Incidência no Estado e Lutar por Reformas Estruturais",
-    subtitulo: "Articulação política, inteligência cívica e tradução popular do orçamento público de TI",
-    tipo: "raiz",
-    cor: "#1243A5",
-    subeixos: [
-      {
-        numero: 1,
-        id: "subeixo-1",
-        titulo: "1. Orçamento, Despesas e Compras Públicas",
-        sigla: "Orçamento & Compras",
-        cor: "#1243A5",
-        icone: "💰",
-        questoesCentrais: [
-          "Quanto o Estado gasta com tecnologias digitais?",
-          "Quanto desse gasto vai para tecnologia sob controle estrangeiro? (> 50% concentrado na Microsoft)",
-          "De que forma é feita essa contratação? Há transparência efetiva e auditoria popular?",
-          "O que está previsto na Lei Orçamentária Anual (LOA) e no Plano Plurianual (PPA)?",
-          "Como estão as definições das emendas parlamentares? Quais são os recursos e quem são os parlamentares?"
-        ],
-        projetosPrincipais: [
-          { nome: "Monitoramento de Gastos e Investimentos Públicos em TI", status: "Em desenvolvimento contínuo" },
-          { nome: "Monitoramento de Compras Públicas (Qual instrumento e quais editais priorizar?)", status: "Planejamento" }
-        ],
-        responsaveis: ["Hiana Camilla", "Thiago"],
-        necessidadesOrganizacionais: [
-          "Product Owner (PO) dedicado",
-          "Cientista de dados para tratamento das bases do SIOP e Compras.gov",
-          "Especialista em orçamento público e direito financeiro"
-        ]
-      },
-      {
-        numero: 2,
-        id: "subeixo-2",
-        titulo: "2. Instituições, Autarquias e Empresas Públicas",
-        sigla: "Instituições & Estatais",
-        cor: "#21672A",
-        icone: "🏛️",
-        questoesCentrais: [
-          "Quais são as pastas governamentais que tratam do digital?",
-          "Como essas secretarias, ministérios e estatais se relacionam entre si?",
-          "Qual o papel do Serpro, Dataprev, Telebras e RNP na custódia dos dados soberanos?"
-        ],
-        projetosPrincipais: [
-          { nome: "Árvore / Mapa Dinâmico do Quem-é-Quem do Digital", status: "Protótipo no Observatório" },
-          { nome: "Observatório das Empresas Estatais de TI", status: "Fase de pesquisa" }
-        ],
-        responsaveis: ["GT Instituições / Aberto a colaboradores"],
-        necessidadesOrganizacionais: [
-          "Articulação com especialistas em privacidade e proteção de dados (LGPD)",
-          "Mapeamento de relações de tutela e supervisão ministerial"
-        ]
-      },
-      {
-        numero: 3,
-        id: "subeixo-3",
-        titulo: "3. Participação Popular nas Políticas Digitais",
-        sigla: "Participação & Conselhos",
-        cor: "#C8322A",
-        icone: "✊",
-        questoesCentrais: [
-          "Quais são as instâncias de participação social vigentes? Onde se localizam e como funcionam?",
-          "Quem nos representa nesses conselhos e comitês?",
-          "Como a participação se concretiza nas decisões reais sobre tecnologia pública?",
-          "Como as políticas digitais contribuem para a soberania popular concreta dos territórios?"
-        ],
-        instanciasMapeadas: [
-          "Conselho Nacional de Proteção de Dados Pessoais (CNPD)",
-          "Conselho Nacional de Ciência e Tecnologia (CNCT)",
-          "Conselho-Gestor do Fust (CGFUST)",
-          "Comitê Interministerial para a Transformação Digital (CITDigital)",
-          "Comitê Consultivo da Estratégia Nacional de Governo Digital",
-          "Fórum Pix (Banco Central)",
-          "Comitê Nacional de Cibersegurança (CNCiber)",
-          "Comitê Central de Governança de Dados (CCGD)",
-          "Comissão de Tecnologia, Inovação e Transf. Digital do CDESS (Conselhão)",
-          "Conselho Nacional para Industrialização de Minerais Críticos e Estratégicos (CIMCE)",
-          "Comitê Gestor da Internet no Brasil (CGI.br)"
-        ],
-        projetosPrincipais: [
-          { nome: "Agentes Populares de Soberania Digital", status: "Projeto estruturante" }
-        ],
-        responsaveis: ["Hernán Efrón"],
-        necessidadesOrganizacionais: [
-          "Formação continuada de lideranças comunitárias para incidência em conselhos",
-          "Articulação com bancadas populares e movimentos sociais de base"
-        ]
-      },
-      {
-        numero: 4,
-        id: "subeixo-4",
-        titulo: "4. Políticas Públicas, Normas e Legislações",
-        sigla: "Normas & Legislação",
-        cor: "#ED8D1F",
-        icone: "📜",
-        questoesCentrais: [
-          "Quais são as leis e projetos de lei que tratam do digital vigentes? Qual a autoria de cada um?",
-          "Como se dá o lobby das Big Techs e Mid Techs no Congresso e no Executivo? (ex: ALAI, Camara-e.net)",
-          "Quais são outros instrumentos normativos? Planos, Estratégias, Portarias, Resoluções e Decretos",
-          "Como categorizar as políticas digitais brasileiras?",
-          "Quais políticas normativas podemos elaborar e propor para a soberania digital popular?"
-        ],
-        projetosPrincipais: [
-          { nome: "Monitor de Políticas Digitais (Normas vigentes e Normas em tramitação)", status: "Em desenvolvimento" },
-          { nome: "Monitor de Editais e Chamamentos Públicos", status: "Em desenvolvimento" }
-        ],
-        responsaveis: ["Marina Méraki", "Leopoldo Neto"],
-        necessidadesOrganizacionais: [
-          "Assessoria jurídica militante para elaboração de minutas de leis",
-          "Acompanhamento diário da tramitação de projetos na Câmara e Senado"
-        ]
-      },
-      {
-        numero: 5,
-        id: "subeixo-5",
-        titulo: "5. Governança Multinível (Global-Local)",
-        sigla: "Federativo & Internacional",
-        cor: "#3B7B27",
-        icone: "🌎",
-        questoesCentrais: [
-          "Como os demais sub-eixos se manifestam nos estados e nos 5.569 municípios brasileiros?",
-          "Quais municípios (ex: cerca de 50 cidades com mais de 500 mil habitantes) podem ser pilotos-modelo e por quê?",
-          "Quais entes subnacionais possuem empresas públicas de TI (ex: Prodam, Emprel, Prodemge, Coderp)?",
-          "Como funciona a política externa digital brasileira? Quais são as parcerias bilaterais e multilaterais?",
-          "Qual é o posicionamento do Itamaraty nos foros e instâncias internacionais de governança digital?",
-          "Como estruturar um modelo transversal de análise que é escalável no eixo particular-universal?"
-        ],
-        projetosPrincipais: [
-          { nome: "Monitor da Política Externa Digital", status: "Planejamento" },
-          { nome: "Monitor dos Entes Federativos (Estados e Municípios Piloto)", status: "Planejamento" }
-        ],
-        responsaveis: ["Gleice Barros"],
-        necessidadesOrganizacionais: [
-          "Rede de correspondentes e articulação com movimentos regionais",
-          "Acompanhamento das reuniões do G20, BRICS e foros da ONU"
-        ]
-      },
-      {
-        numero: 6,
-        id: "subeixo-organizativo",
-        titulo: "Organizativo: Diretrizes, Instrumentos e Integração",
-        sigla: "Organizativo & Método",
-        cor: "#1C1712",
-        icone: "⚙️",
-        questoesCentrais: [
-          "Como garantir o rigor metodológico e a sustentação técnica do Eixo 4?",
-          "Como integrar os dados do Eixo 4 com a comunicação de massa e a formação de base dos outros eixos?"
-        ],
-        diretrizesGerais: [
-          "Rigor analítico: revisão humana rigorosa e revisão por pares em cada dado publicado",
-          "Transparência radical nos dados: fontes abertas, reprodutibilidade e códigos públicos",
-          "Privacidade e proteção de dados: respeito estrito à LGPD (dados de pessoas físicas fora da base)",
-          "Explicação metodológica clara: tradução popular sem jargões inacessíveis",
-          "Pedidos de LAI padronizados com acompanhamento e recursos sistemáticos",
-          "Mapeamentos e visualizações táteis e de alto impacto público",
-          "Transversalidade e matriz analítica articulada",
-          "Advocacy combativo: presença em atos nas casas legislativas e posicionamentos públicos firmes"
-        ],
-        integracaoEixos: [
-          { eixo: "Eixo 1 (Desmascarar Big Techs)", canal: "Boletins semanais", responsavel: "Jane" },
-          { eixo: "Eixo 2 (Infraestrutura Autônoma)", canal: "Demandas técnicas e plataformas livres", responsavel: "Guilherme" },
-          { eixo: "Eixo 3 (Educação Popular)", canal: "Oficinas territoriais e laboratórios cívicos", responsavel: "Articulação com territórios" }
-        ],
-        formacaoLetramento: ["Grupos de estudos contínuos", "Seminários temáticos abertos"],
-        cienciaDados: ["Definição clara do que demandar das bases governamentais e raspagem ética"]
-      }
+    "id": "raiz",
+    "titulo": "Eixo 4 - Incidência no Estado",
+    "nivel": 0,
+    "filhos": [
+        {
+            "id": "sub-1",
+            "numero": 1,
+            "titulo": "1. Orçamento, despesas e compras públicas",
+            "cor": "#1243A5",
+            "nivel": 1,
+            "filhos": [
+                {
+                    "id": "sub-1-qc",
+                    "titulo": "1. Questões centrais",
+                    "nivel": 2,
+                    "filhos": [
+                        {
+                            "id": "sub-1-qc-1",
+                            "titulo": "1. Quanto o Estado gasta com tecnologias digitais?",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-1-qc-1-1",
+                                    "titulo": "1. Quanto gasta em tecnologia estrangeira?",
+                                    "nivel": 4,
+                                    "filhos": [
+                                        {
+                                            "id": "sub-1-qc-1-1-1",
+                                            "titulo": "1. > 50% com a Microsoft",
+                                            "nivel": 5,
+                                            "filhos": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sub-1-qc-2",
+                            "titulo": "2. De que forma é feita essa contratação? Há transparência?",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-1-qc-3",
+                            "titulo": "3. O que está previsto na LOA e no PPA?",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-1-qc-4",
+                            "titulo": "4. Como estão as definições das emendas parlamentares?",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-1-qc-4-1",
+                                    "titulo": "1. Quais são os recursos?",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-1-qc-4-2",
+                                    "titulo": "2. Quaissão os parlamentares?",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "sub-1-pp",
+                    "titulo": "2. Projetos principais",
+                    "nivel": 2,
+                    "filhos": [
+                        {
+                            "id": "sub-1-pp-1",
+                            "titulo": "1. Monitoramento de gastos e investimentos",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-1-pp-2",
+                            "titulo": "2. Monitoramento de compras públicas",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-1-pp-2-1",
+                                    "titulo": "1. Qual instrumento?",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "sub-1-resp",
+                    "titulo": "3. Responsáveis",
+                    "nivel": 2,
+                    "filhos": [
+                        {
+                            "id": "sub-1-resp-1",
+                            "titulo": "1. Hiana Camilla",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-1-resp-2",
+                            "titulo": "2. Thiago",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "id": "sub-1-nec",
+                    "titulo": "4. Necessidades organizacionais",
+                    "nivel": 2,
+                    "filhos": [
+                        {
+                            "id": "sub-1-nec-1",
+                            "titulo": "1. PO",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-1-nec-2",
+                            "titulo": "2. Cientista dados",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-1-nec-3",
+                            "titulo": "3. Especialista em orçamento público",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sub-2",
+            "numero": 2,
+            "titulo": "2. Instituições, autarquias e empresas públicas",
+            "cor": "#21672A",
+            "nivel": 1,
+            "filhos": [
+                {
+                    "id": "sub-2-qc",
+                    "titulo": "1. Questões centrais",
+                    "nivel": 2,
+                    "filhos": [
+                        {
+                            "id": "sub-2-qc-1",
+                            "titulo": "1. Quais são as pastas que tratam do digital?",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-2-qc-2",
+                            "titulo": "2. Como elas se relacionam?",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "id": "sub-2-pp",
+                    "titulo": "2. Projetos principais",
+                    "nivel": 2,
+                    "filhos": [
+                        {
+                            "id": "sub-2-pp-1",
+                            "titulo": "1. Árvore\\Mapa dinâmico do quem-é-quem do digital",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-2-pp-2",
+                            "titulo": "2. Observatório das estatais",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "id": "sub-2-resp",
+                    "titulo": "3. Responsáveis",
+                    "nivel": 2,
+                    "filhos": []
+                },
+                {
+                    "id": "sub-2-nec",
+                    "titulo": "4. Necessidades organizacionais",
+                    "nivel": 2,
+                    "filhos": [
+                        {
+                            "id": "sub-2-nec-1",
+                            "titulo": "1. Questões de privacidade e proteção de dados",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sub-3",
+            "numero": 3,
+            "titulo": "3. Participação popular nas políticas digitais",
+            "cor": "#C8322A",
+            "nivel": 1,
+            "filhos": [
+                {
+                    "id": "sub-3-qc",
+                    "titulo": "1. Questões centrais",
+                    "nivel": 2,
+                    "filhos": [
+                        {
+                            "id": "sub-3-qc-1",
+                            "titulo": "1. Quais são as instâncias de participação social? Onde se localizam? Como funcionam?",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-3-inst-1",
+                                    "titulo": "Conselho Nacional de Proteção de Dados Pessoais (CNPD);",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-3-inst-2",
+                                    "titulo": "Conselho Nacional de Ciência e Tecnologia (CNCT);",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-3-inst-3",
+                                    "titulo": "Conselho-Gestor do Fust (CGFUST);",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-3-inst-4",
+                                    "titulo": "Comitê Interministerial para a Transformação Digital (CITDigital);",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-3-inst-5",
+                                    "titulo": "Comitê Consultivo da Estratégia Nacional de Governo Digital;",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-3-inst-6",
+                                    "titulo": "Fórum Pix;",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-3-inst-7",
+                                    "titulo": "Comitê Nacional de Cibersegurança (CNCiber);",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-3-inst-8",
+                                    "titulo": "Comitê Central de Governança de Dados (CCGD);",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-3-inst-9",
+                                    "titulo": "Coordenadoria da Comissão de Tecnologia, Inovação e Transformação Digital do Conselho de Desenvolvimento Econômico Social Sustentável (CDESS);",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-3-inst-10",
+                                    "titulo": "Conselho Nacional para Industrialização de Minerais Críticos e Estratégicos (CIMCE);",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-3-inst-11",
+                                    "titulo": "Comitê Gestor da Internet no Brasil (CGI.br).",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sub-3-qc-2",
+                            "titulo": "2. Quem nos representa nesses espaços?",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-3-qc-3",
+                            "titulo": "3. Como a participação se concretiza nas decisões?",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-3-qc-4",
+                            "titulo": "4. Como as políticas digitais contribuem para a soberania popular?",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "id": "sub-3-pp",
+                    "titulo": "2. Projetos principais",
+                    "nivel": 2,
+                    "filhos": [
+                        {
+                            "id": "sub-3-pp-1",
+                            "titulo": "1. Agentes populares de soberania digital",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "id": "sub-3-resp",
+                    "titulo": "3. Responsáveis",
+                    "nivel": 2,
+                    "filhos": [
+                        {
+                            "id": "sub-3-resp-1",
+                            "titulo": "1. Hernán Efrón",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "id": "sub-3-nec",
+                    "titulo": "4. Necessidades organizacionais",
+                    "nivel": 2,
+                    "filhos": []
+                }
+            ]
+        },
+        {
+            "id": "sub-4",
+            "numero": 4,
+            "titulo": "4. Políticas públicas, normas e legislações",
+            "cor": "#ED8D1F",
+            "nivel": 1,
+            "filhos": [
+                {
+                    "id": "sub-4-qc",
+                    "titulo": "1. Questões centrais",
+                    "nivel": 2,
+                    "filhos": [
+                        {
+                            "id": "sub-4-qc-1",
+                            "titulo": "1. Quais são as leis e projetos de leis que tratam do digital vigentes? A autoria é de quem?",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-4-qc-2",
+                            "titulo": "2. Como se dá o lobby das bigtechs e midtechs?",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-4-qc-2-1",
+                                    "titulo": "1. ALAI",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-4-qc-2-2",
+                                    "titulo": "2. Camara e.net",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sub-4-qc-3",
+                            "titulo": "3. Quais são outros instrumentos normativos? Planos, Estratégias, Portarias, Resoluções, Decretos, etc.",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-4-qc-4",
+                            "titulo": "4. Como categorizar as políticas digitais?",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-4-qc-5",
+                            "titulo": "5. Quais políticas podemos elaborar para a soberania digital popular?",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "id": "sub-4-pp",
+                    "titulo": "2. Projetos principais",
+                    "nivel": 2,
+                    "filhos": [
+                        {
+                            "id": "sub-4-pp-1",
+                            "titulo": "1. Monitor de  políticas digitais",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-4-pp-1-1",
+                                    "titulo": "1. Normas vigentes",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-4-pp-1-2",
+                                    "titulo": "2. Normas em tramitação",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sub-4-pp-2",
+                            "titulo": "2. Monitor de editais e chamamentos públicos",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "id": "sub-4-resp",
+                    "titulo": "3. Responsáveis",
+                    "nivel": 2,
+                    "filhos": [
+                        {
+                            "id": "sub-4-resp-1",
+                            "titulo": "1. Marina Méraki",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-4-resp-2",
+                            "titulo": "2. Leopoldo Neto",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "id": "sub-4-nec",
+                    "titulo": "4. Necessidades organizacionais",
+                    "nivel": 2,
+                    "filhos": []
+                }
+            ]
+        },
+        {
+            "id": "sub-5",
+            "numero": 5,
+            "titulo": "5. Governança multinível (global- local)",
+            "cor": "#3B7B27",
+            "nivel": 1,
+            "filhos": [
+                {
+                    "id": "sub-5-qc",
+                    "titulo": "1. Questões centrais",
+                    "nivel": 2,
+                    "filhos": [
+                        {
+                            "id": "sub-5-qc-1",
+                            "titulo": "1. Como os demais sub-eixos se manifestam nos estados e nos municípios?",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-5-qc-1-1",
+                                    "titulo": "1. 26 estados + DF",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-5-qc-1-2",
+                                    "titulo": "2. 5569 municípios",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-5-qc-1-3",
+                                    "titulo": "3. ~ 50 municípios com mais de 500 mil habitantes",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-5-qc-1-4",
+                                    "titulo": "4. Quais podem ser pilotos-modelos? Por que?",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sub-5-qc-2",
+                            "titulo": "2. Quais possuem empresa pública de TI?",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-5-qc-3",
+                            "titulo": "3. Como funciona a política externa digital?",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-5-qc-3-1",
+                                    "titulo": "1. Quais são as parcerias bilaterais e multilaterais?",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-5-qc-3-2",
+                                    "titulo": "2. Qual é o posicionamento do Itamaraty nos foros e instâncias da governança digital?",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sub-5-qc-4",
+                            "titulo": "4. Como estruturar um modelo transversal de análise que é escalável no eixo particular-universal?",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "id": "sub-5-pp",
+                    "titulo": "2. Projetos principais",
+                    "nivel": 2,
+                    "filhos": [
+                        {
+                            "id": "sub-5-pp-1",
+                            "titulo": "1. Monitor da política externa digital",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-5-pp-2",
+                            "titulo": "2. Monitor dos entes federativos",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "id": "sub-5-resp",
+                    "titulo": "3. Responsáveis",
+                    "nivel": 2,
+                    "filhos": [
+                        {
+                            "id": "sub-5-resp-1",
+                            "titulo": "1. Gleice Barros",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "id": "sub-5-nec",
+                    "titulo": "4. Necessidades organizacionais",
+                    "nivel": 2,
+                    "filhos": []
+                }
+            ]
+        },
+        {
+            "id": "sub-org",
+            "numero": 6,
+            "titulo": "Organizativo",
+            "cor": "#1C1712",
+            "nivel": 1,
+            "filhos": [
+                {
+                    "id": "sub-org-dg",
+                    "titulo": "Diretrizes gerais e instrumentos",
+                    "nivel": 2,
+                    "filhos": [
+                        {
+                            "id": "sub-org-dg-1",
+                            "titulo": "Rigor analítico",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-org-dg-1-1",
+                                    "titulo": "Revisão humana e por pares",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sub-org-dg-2",
+                            "titulo": "Transparência nos dados",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-org-dg-3",
+                            "titulo": "Privacidade e proteção de dados",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-org-dg-4",
+                            "titulo": "Explicação metodológica clara",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-org-dg-5",
+                            "titulo": "Pedidos de LAI",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-org-dg-5-1",
+                                    "titulo": "Padrão de requisição",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sub-org-dg-6",
+                            "titulo": "Mapeamentos e visualizações",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-org-dg-7",
+                            "titulo": "Transversalidade e matriz analítica",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "id": "sub-org-adv",
+                    "titulo": "Advocacy",
+                    "nivel": 2,
+                    "filhos": [
+                        {
+                            "id": "sub-org-adv-1",
+                            "titulo": "Atos em casas legislativas",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-org-adv-2",
+                            "titulo": "Estabelecer posicionamentos públicos",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "id": "sub-org-reu",
+                    "titulo": "Reuniões",
+                    "nivel": 2,
+                    "filhos": [
+                        {
+                            "id": "sub-org-reu-1",
+                            "titulo": "1",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "id": "sub-org-pas",
+                    "titulo": "Pastas",
+                    "nivel": 2,
+                    "filhos": [
+                        {
+                            "id": "sub-org-pas-1",
+                            "titulo": "4",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "id": "sub-org-int",
+                    "titulo": "Integração com outros eixos",
+                    "nivel": 2,
+                    "filhos": [
+                        {
+                            "id": "sub-org-int-1",
+                            "titulo": "Eixo 1",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-org-int-1-1",
+                                    "titulo": "Boletins semanais",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-org-int-1-2",
+                                    "titulo": "Jane",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sub-org-int-2",
+                            "titulo": "Eixo 2",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-org-int-2-1",
+                                    "titulo": "Guilherme",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sub-org-int-3",
+                            "titulo": "Eixo 3",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "id": "sub-org-for",
+                    "titulo": "Formação e letramento",
+                    "nivel": 2,
+                    "filhos": [
+                        {
+                            "id": "sub-org-for-1",
+                            "titulo": "Grupos de estudos",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-org-for-2",
+                            "titulo": "Seminários",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-org-for-3",
+                            "titulo": "Ciência de dados",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-org-for-3-1",
+                                    "titulo": "O que demandar",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "subeixos": [
+        {
+            "id": "sub-1",
+            "numero": 1,
+            "titulo": "1. Orçamento, despesas e compras públicas",
+            "cor": "#1243A5",
+            "categorias": [
+                {
+                    "titulo": "1. Questões centrais",
+                    "filhos": [
+                        {
+                            "id": "sub-1-qc-1",
+                            "titulo": "1. Quanto o Estado gasta com tecnologias digitais?",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-1-qc-1-1",
+                                    "titulo": "1. Quanto gasta em tecnologia estrangeira?",
+                                    "nivel": 4,
+                                    "filhos": [
+                                        {
+                                            "id": "sub-1-qc-1-1-1",
+                                            "titulo": "1. > 50% com a Microsoft",
+                                            "nivel": 5,
+                                            "filhos": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sub-1-qc-2",
+                            "titulo": "2. De que forma é feita essa contratação? Há transparência?",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-1-qc-3",
+                            "titulo": "3. O que está previsto na LOA e no PPA?",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-1-qc-4",
+                            "titulo": "4. Como estão as definições das emendas parlamentares?",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-1-qc-4-1",
+                                    "titulo": "1. Quais são os recursos?",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-1-qc-4-2",
+                                    "titulo": "2. Quaissão os parlamentares?",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "titulo": "2. Projetos principais",
+                    "filhos": [
+                        {
+                            "id": "sub-1-pp-1",
+                            "titulo": "1. Monitoramento de gastos e investimentos",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-1-pp-2",
+                            "titulo": "2. Monitoramento de compras públicas",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-1-pp-2-1",
+                                    "titulo": "1. Qual instrumento?",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "titulo": "3. Responsáveis",
+                    "filhos": [
+                        {
+                            "id": "sub-1-resp-1",
+                            "titulo": "1. Hiana Camilla",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-1-resp-2",
+                            "titulo": "2. Thiago",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "titulo": "4. Necessidades organizacionais",
+                    "filhos": [
+                        {
+                            "id": "sub-1-nec-1",
+                            "titulo": "1. PO",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-1-nec-2",
+                            "titulo": "2. Cientista dados",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-1-nec-3",
+                            "titulo": "3. Especialista em orçamento público",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sub-2",
+            "numero": 2,
+            "titulo": "2. Instituições, autarquias e empresas públicas",
+            "cor": "#21672A",
+            "categorias": [
+                {
+                    "titulo": "1. Questões centrais",
+                    "filhos": [
+                        {
+                            "id": "sub-2-qc-1",
+                            "titulo": "1. Quais são as pastas que tratam do digital?",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-2-qc-2",
+                            "titulo": "2. Como elas se relacionam?",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "titulo": "2. Projetos principais",
+                    "filhos": [
+                        {
+                            "id": "sub-2-pp-1",
+                            "titulo": "1. Árvore\\Mapa dinâmico do quem-é-quem do digital",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-2-pp-2",
+                            "titulo": "2. Observatório das estatais",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "titulo": "3. Responsáveis",
+                    "filhos": []
+                },
+                {
+                    "titulo": "4. Necessidades organizacionais",
+                    "filhos": [
+                        {
+                            "id": "sub-2-nec-1",
+                            "titulo": "1. Questões de privacidade e proteção de dados",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sub-3",
+            "numero": 3,
+            "titulo": "3. Participação popular nas políticas digitais",
+            "cor": "#C8322A",
+            "categorias": [
+                {
+                    "titulo": "1. Questões centrais",
+                    "filhos": [
+                        {
+                            "id": "sub-3-qc-1",
+                            "titulo": "1. Quais são as instâncias de participação social? Onde se localizam? Como funcionam?",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-3-inst-1",
+                                    "titulo": "Conselho Nacional de Proteção de Dados Pessoais (CNPD);",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-3-inst-2",
+                                    "titulo": "Conselho Nacional de Ciência e Tecnologia (CNCT);",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-3-inst-3",
+                                    "titulo": "Conselho-Gestor do Fust (CGFUST);",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-3-inst-4",
+                                    "titulo": "Comitê Interministerial para a Transformação Digital (CITDigital);",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-3-inst-5",
+                                    "titulo": "Comitê Consultivo da Estratégia Nacional de Governo Digital;",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-3-inst-6",
+                                    "titulo": "Fórum Pix;",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-3-inst-7",
+                                    "titulo": "Comitê Nacional de Cibersegurança (CNCiber);",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-3-inst-8",
+                                    "titulo": "Comitê Central de Governança de Dados (CCGD);",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-3-inst-9",
+                                    "titulo": "Coordenadoria da Comissão de Tecnologia, Inovação e Transformação Digital do Conselho de Desenvolvimento Econômico Social Sustentável (CDESS);",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-3-inst-10",
+                                    "titulo": "Conselho Nacional para Industrialização de Minerais Críticos e Estratégicos (CIMCE);",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-3-inst-11",
+                                    "titulo": "Comitê Gestor da Internet no Brasil (CGI.br).",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sub-3-qc-2",
+                            "titulo": "2. Quem nos representa nesses espaços?",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-3-qc-3",
+                            "titulo": "3. Como a participação se concretiza nas decisões?",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-3-qc-4",
+                            "titulo": "4. Como as políticas digitais contribuem para a soberania popular?",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "titulo": "2. Projetos principais",
+                    "filhos": [
+                        {
+                            "id": "sub-3-pp-1",
+                            "titulo": "1. Agentes populares de soberania digital",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "titulo": "3. Responsáveis",
+                    "filhos": [
+                        {
+                            "id": "sub-3-resp-1",
+                            "titulo": "1. Hernán Efrón",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "titulo": "4. Necessidades organizacionais",
+                    "filhos": []
+                }
+            ]
+        },
+        {
+            "id": "sub-4",
+            "numero": 4,
+            "titulo": "4. Políticas públicas, normas e legislações",
+            "cor": "#ED8D1F",
+            "categorias": [
+                {
+                    "titulo": "1. Questões centrais",
+                    "filhos": [
+                        {
+                            "id": "sub-4-qc-1",
+                            "titulo": "1. Quais são as leis e projetos de leis que tratam do digital vigentes? A autoria é de quem?",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-4-qc-2",
+                            "titulo": "2. Como se dá o lobby das bigtechs e midtechs?",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-4-qc-2-1",
+                                    "titulo": "1. ALAI",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-4-qc-2-2",
+                                    "titulo": "2. Camara e.net",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sub-4-qc-3",
+                            "titulo": "3. Quais são outros instrumentos normativos? Planos, Estratégias, Portarias, Resoluções, Decretos, etc.",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-4-qc-4",
+                            "titulo": "4. Como categorizar as políticas digitais?",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-4-qc-5",
+                            "titulo": "5. Quais políticas podemos elaborar para a soberania digital popular?",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "titulo": "2. Projetos principais",
+                    "filhos": [
+                        {
+                            "id": "sub-4-pp-1",
+                            "titulo": "1. Monitor de  políticas digitais",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-4-pp-1-1",
+                                    "titulo": "1. Normas vigentes",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-4-pp-1-2",
+                                    "titulo": "2. Normas em tramitação",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sub-4-pp-2",
+                            "titulo": "2. Monitor de editais e chamamentos públicos",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "titulo": "3. Responsáveis",
+                    "filhos": [
+                        {
+                            "id": "sub-4-resp-1",
+                            "titulo": "1. Marina Méraki",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-4-resp-2",
+                            "titulo": "2. Leopoldo Neto",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "titulo": "4. Necessidades organizacionais",
+                    "filhos": []
+                }
+            ]
+        },
+        {
+            "id": "sub-5",
+            "numero": 5,
+            "titulo": "5. Governança multinível (global- local)",
+            "cor": "#3B7B27",
+            "categorias": [
+                {
+                    "titulo": "1. Questões centrais",
+                    "filhos": [
+                        {
+                            "id": "sub-5-qc-1",
+                            "titulo": "1. Como os demais sub-eixos se manifestam nos estados e nos municípios?",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-5-qc-1-1",
+                                    "titulo": "1. 26 estados + DF",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-5-qc-1-2",
+                                    "titulo": "2. 5569 municípios",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-5-qc-1-3",
+                                    "titulo": "3. ~ 50 municípios com mais de 500 mil habitantes",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-5-qc-1-4",
+                                    "titulo": "4. Quais podem ser pilotos-modelos? Por que?",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sub-5-qc-2",
+                            "titulo": "2. Quais possuem empresa pública de TI?",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-5-qc-3",
+                            "titulo": "3. Como funciona a política externa digital?",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-5-qc-3-1",
+                                    "titulo": "1. Quais são as parcerias bilaterais e multilaterais?",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-5-qc-3-2",
+                                    "titulo": "2. Qual é o posicionamento do Itamaraty nos foros e instâncias da governança digital?",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sub-5-qc-4",
+                            "titulo": "4. Como estruturar um modelo transversal de análise que é escalável no eixo particular-universal?",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "titulo": "2. Projetos principais",
+                    "filhos": [
+                        {
+                            "id": "sub-5-pp-1",
+                            "titulo": "1. Monitor da política externa digital",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-5-pp-2",
+                            "titulo": "2. Monitor dos entes federativos",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "titulo": "3. Responsáveis",
+                    "filhos": [
+                        {
+                            "id": "sub-5-resp-1",
+                            "titulo": "1. Gleice Barros",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "titulo": "4. Necessidades organizacionais",
+                    "filhos": []
+                }
+            ]
+        },
+        {
+            "id": "sub-org",
+            "numero": 6,
+            "titulo": "Organizativo",
+            "cor": "#1C1712",
+            "categorias": [
+                {
+                    "titulo": "Diretrizes gerais e instrumentos",
+                    "filhos": [
+                        {
+                            "id": "sub-org-dg-1",
+                            "titulo": "Rigor analítico",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-org-dg-1-1",
+                                    "titulo": "Revisão humana e por pares",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sub-org-dg-2",
+                            "titulo": "Transparência nos dados",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-org-dg-3",
+                            "titulo": "Privacidade e proteção de dados",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-org-dg-4",
+                            "titulo": "Explicação metodológica clara",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-org-dg-5",
+                            "titulo": "Pedidos de LAI",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-org-dg-5-1",
+                                    "titulo": "Padrão de requisição",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sub-org-dg-6",
+                            "titulo": "Mapeamentos e visualizações",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-org-dg-7",
+                            "titulo": "Transversalidade e matriz analítica",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "titulo": "Advocacy",
+                    "filhos": [
+                        {
+                            "id": "sub-org-adv-1",
+                            "titulo": "Atos em casas legislativas",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-org-adv-2",
+                            "titulo": "Estabelecer posicionamentos públicos",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "titulo": "Reuniões",
+                    "filhos": [
+                        {
+                            "id": "sub-org-reu-1",
+                            "titulo": "1",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "titulo": "Pastas",
+                    "filhos": [
+                        {
+                            "id": "sub-org-pas-1",
+                            "titulo": "4",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "titulo": "Integração com outros eixos",
+                    "filhos": [
+                        {
+                            "id": "sub-org-int-1",
+                            "titulo": "Eixo 1",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-org-int-1-1",
+                                    "titulo": "Boletins semanais",
+                                    "nivel": 4,
+                                    "filhos": []
+                                },
+                                {
+                                    "id": "sub-org-int-1-2",
+                                    "titulo": "Jane",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sub-org-int-2",
+                            "titulo": "Eixo 2",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-org-int-2-1",
+                                    "titulo": "Guilherme",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sub-org-int-3",
+                            "titulo": "Eixo 3",
+                            "nivel": 3,
+                            "filhos": []
+                        }
+                    ]
+                },
+                {
+                    "titulo": "Formação e letramento",
+                    "filhos": [
+                        {
+                            "id": "sub-org-for-1",
+                            "titulo": "Grupos de estudos",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-org-for-2",
+                            "titulo": "Seminários",
+                            "nivel": 3,
+                            "filhos": []
+                        },
+                        {
+                            "id": "sub-org-for-3",
+                            "titulo": "Ciência de dados",
+                            "nivel": 3,
+                            "filhos": [
+                                {
+                                    "id": "sub-org-for-3-1",
+                                    "titulo": "O que demandar",
+                                    "nivel": 4,
+                                    "filhos": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
     ]
-  },
+},
 
   // 4. Mapeamento de Licitações (Federal, Estadual, Municipal)
   licitacoes: [

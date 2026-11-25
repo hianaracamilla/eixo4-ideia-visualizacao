@@ -1159,3 +1159,519 @@ body {
 .footer-links a:hover {
   color: var(--amarelo-sol);
 }
+
+/* ==========================================================================
+   SINALIZAÇÃO DE DADOS: REAL vs SIMULAÇÃO vs A LEVANTAR
+   ========================================================================== */
+.badge-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  border: var(--border-thin);
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.badge-status-real {
+  background-color: #E2F0D9;
+  color: #1E4620;
+  border-color: #1E4620;
+  box-shadow: 1.5px 1.5px 0px #1E4620;
+}
+
+.badge-status-simulacao {
+  background-color: #FFF2CC;
+  color: #7F6000;
+  border-color: #7F6000;
+  box-shadow: 1.5px 1.5px 0px #7F6000;
+}
+
+.badge-status-lacuna {
+  background-color: #EAD1DC;
+  color: #4C1130;
+  border-color: #4C1130;
+  box-shadow: 1.5px 1.5px 0px #4C1130;
+}
+
+/* Barra de Filtro de Dados Global */
+.filtro-dados-container {
+  background-color: var(--cinza-papel);
+  border-bottom: var(--border-medium);
+  padding: 8px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.85rem;
+}
+
+.filtro-dados-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filtro-dados-label {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--preto-tinta);
+  letter-spacing: 0.04em;
+}
+
+.filtro-pill-group {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.filtro-pill {
+  background-color: var(--branco-puro);
+  border: var(--border-thin);
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--trans-fast);
+  box-shadow: 1px 1px 0px var(--preto-tinta);
+}
+
+.filtro-pill:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 2px 2px 0px var(--preto-tinta);
+}
+
+.filtro-pill.active {
+  background-color: var(--preto-tinta);
+  color: var(--branco-papel);
+  box-shadow: none;
+}
+
+.filtro-pill[data-filter="real"].active {
+  background-color: #1E4620;
+  color: #E2F0D9;
+  border-color: #1E4620;
+}
+
+.filtro-pill[data-filter="simulacao"].active {
+  background-color: #7F6000;
+  color: #FFF2CC;
+  border-color: #7F6000;
+}
+
+.filtro-pill[data-filter="lacuna"].active {
+  background-color: #4C1130;
+  color: #EAD1DC;
+  border-color: #4C1130;
+}
+
+/* ==========================================================================
+   SUB-ABAS DO MAPA DO DINHEIRO
+   ========================================================================== */
+.subtabs-nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 20px 0 24px;
+  border-bottom: var(--border-medium);
+  padding-bottom: 12px;
+}
+
+.subtab-btn {
+  background-color: var(--cinza-papel);
+  border: var(--border-medium);
+  padding: 8px 16px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px var(--preto-tinta);
+  transition: all var(--trans-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.subtab-btn:hover {
+  background-color: var(--amarelo-sol);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px var(--preto-tinta);
+}
+
+.subtab-btn.active {
+  background-color: var(--azul-macacao);
+  color: var(--branco-papel);
+  box-shadow: 3px 3px 0px var(--preto-tinta);
+}
+
+/* Tabelas Neobrutalistas do Mapa do Dinheiro */
+.tabela-neobrutalista-wrapper {
+  background-color: var(--branco-puro);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-hard);
+  overflow-x: auto;
+  margin-top: 16px;
+}
+
+.tabela-neobrutalista {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.tabela-neobrutalista th {
+  background-color: var(--preto-tinta);
+  color: var(--branco-papel);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 12px 14px;
+  border-right: 1px solid #444;
+}
+
+.tabela-neobrutalista td {
+  padding: 12px 14px;
+  border-bottom: var(--border-thin);
+  border-right: 1px solid var(--cinza-borda);
+  vertical-align: top;
+}
+
+.tabela-neobrutalista tr:nth-child(even) td {
+  background-color: #FAF8F2;
+}
+
+.tabela-neobrutalista tr:hover td {
+  background-color: #FFF9E6;
+}
+
+.tabela-search-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.tabela-input-busca {
+  flex: 1;
+  min-width: 240px;
+  padding: 8px 12px;
+  border: var(--border-medium);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  background-color: var(--branco-puro);
+  box-shadow: 2px 2px 0px var(--preto-tinta);
+}
+
+.tabela-input-busca:focus {
+  outline: none;
+  background-color: #FFFDF0;
+  box-shadow: 3px 3px 0px var(--azul-macacao);
+}
+
+/* ==========================================================================
+   MÓDULO DIAGNÓSTICO (#partida): O QUE TEMOS vs O QUE FALTA
+   ========================================================================== */
+.matriz-partida-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card-bloco-partida {
+  background-color: var(--branco-puro);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-hard);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-bloco-header {
+  padding: 14px 18px;
+  background-color: var(--cinza-papel);
+  border-bottom: var(--border-medium);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-bloco-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--preto-tinta);
+}
+
+.card-bloco-body {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+
+.split-temos-falta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 640px) {
+  .split-temos-falta {
+    grid-template-columns: 1fr;
+  }
+}
+
+.box-temos {
+  background-color: #F0F7ED;
+  border: 1.5px solid #21672A;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+}
+
+.box-falta {
+  background-color: #FDF1F0;
+  border: 1.5px solid #C8322A;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+}
+
+.box-temos-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  color: #21672A;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.box-falta-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  color: #C8322A;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.box-temos-body, .box-falta-body {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #2b312e;
+}
+
+.box-alerta-ralo {
+  background-color: var(--amarelo-sol);
+  color: var(--preto-tinta);
+  border: var(--border-medium);
+  box-shadow: 2px 2px 0px var(--preto-tinta);
+  padding: 12px 14px;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   ÍNDICE DE DEPENDÊNCIA TECNOLÓGICA (5 DIMENSÕES)
+   ========================================================================== */
+.indice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+
+.indice-card {
+  background-color: var(--branco-puro);
+  border: var(--border-medium);
+  box-shadow: 3px 3px 0px var(--preto-tinta);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.indice-d-sigla {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--azul-macacao);
+}
+
+.indice-d-nome {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  margin: 4px 0 6px;
+}
+
+.indice-d-desc {
+  font-size: 0.82rem;
+  color: #56615C;
+  line-height: 1.35;
+}
+
+.indice-d-status {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: var(--border-thin);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ==========================================================================
+   ESTILOS PARA O MAPA MENTAL DINÂMICO
+   ========================================================================== */
+.mindmap-viewport {
+  position: relative;
+  width: 100%;
+  height: 650px;
+  background-color: var(--branco-puro);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-hard-lg);
+  overflow: hidden;
+  cursor: grab;
+  background-image: 
+    radial-gradient(var(--cinza-borda) 1px, transparent 1px),
+    linear-gradient(to right, rgba(28,23,18,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(28,23,18,0.03) 1px, transparent 1px);
+  background-size: 24px 24px, 120px 120px, 120px 120px;
+}
+
+.mindmap-viewport:active {
+  cursor: grabbing;
+}
+
+.mindmap-controls {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.mindmap-btn {
+  background-color: var(--branco-papel);
+  border: var(--border-medium);
+  box-shadow: 2px 2px 0px var(--preto-tinta);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all var(--trans-fast);
+}
+
+.mindmap-btn:hover {
+  background-color: var(--amarelo-sol);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px var(--preto-tinta);
+}
+
+.mindmap-legend {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  background-color: rgba(255, 253, 247, 0.95);
+  border: var(--border-medium);
+  box-shadow: 3px 3px 0px var(--preto-tinta);
+  padding: 10px 14px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 300px;
+}
+
+.mindmap-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.mindmap-legend-color {
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--preto-tinta);
+}
+
+/* Gaveta Lateral de Detalhes do Nó */
+.mindmap-drawer {
+  position: fixed;
+  top: 0;
+  right: -480px;
+  width: 460px;
+  max-width: 90vw;
+  height: 100vh;
+  background-color: var(--branco-puro);
+  border-left: var(--border-thick);
+  box-shadow: -8px 0px 0px rgba(28,23,18,0.2);
+  z-index: 200;
+  transition: right 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.mindmap-drawer.open {
+  right: 0;
+}
+
+.mindmap-drawer-header {
+  padding: 20px 24px;
+  background-color: var(--preto-tinta);
+  color: var(--branco-papel);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.mindmap-drawer-close {
+  background-color: var(--amarelo-sol);
+  color: var(--preto-tinta);
+  border: var(--border-medium);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px var(--branco-papel);
+}
+
+.mindmap-drawer-body {
+  padding: 24px;
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}

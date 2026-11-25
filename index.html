@@ -20,10 +20,21 @@
     </div>
   </aside>
 
-  <!-- Faixa de Aviso de Protótipo e Dados Ilustrativos -->
-  <div style="background-color: var(--amarelo-sol); color: var(--preto-tinta); border-bottom: var(--border-medium); padding: 6px 16px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; text-align: center; letter-spacing: 0.02em;">
-    ⚠️ PROTÓTIPO CONCEITUAL DE INTERFACE · Todos os dados, valores, números e nomes apresentados nesta plataforma são simulados e ilustrativos para fins de demonstração visual.
-  </div>
+  <!-- Faixa de Aviso e Filtro de Confiança dos Dados -->
+  <aside class="filtro-dados-container" aria-label="Filtro de status dos dados">
+    <div class="filtro-dados-left">
+      <span class="filtro-dados-label">🔍 Filtrar por Confiança dos Dados:</span>
+      <div class="filtro-pill-group">
+        <button class="filtro-pill active" data-filter="todos" title="Exibir todos os dados com sinalização individual">🌐 Todos os Dados</button>
+        <button class="filtro-pill" data-filter="real" title="Destacar apenas dados oficiais comprovados (SIOP, Compras.gov, PNCP e TCU)">🟢 Dados Reais Comprovados</button>
+        <button class="filtro-pill" data-filter="simulacao" title="Destacar simulações metodológicas e cenários hipotéticos">🟡 Simulações & Modelagens</button>
+        <button class="filtro-pill" data-filter="lacuna" title="Destacar lacunas e pedidos via Lei de Acesso à Informação">🟣 Lacunas a Levantar (LAI)</button>
+      </div>
+    </div>
+    <div style="font-family: var(--font-mono); font-size: 0.74rem; color: #56615C;">
+      Base consultada em 05/11/2026 · Fontes oficiais: SIOP, Compras.gov, Contratos.gov e TCU
+    </div>
+  </aside>
 
   <!-- Cabeçalho Principal com Marca Oficial A Dobra -->
   <header class="header-principal">
@@ -49,8 +60,8 @@
     </a>
 
     <div class="header-actions">
-      <a href="apresentacao-subeixos.html" class="btn-tradutor-popular" style="background-color: var(--azul-macacao); color: var(--branco-papel); text-decoration: none;" title="Abrir apresentação de slides dos 5 sub-eixos">
-        <span>📽️ Apresentação dos Sub-eixos</span>
+      <a href="apresentacao-subeixos.html" class="btn-tradutor-popular" style="background-color: var(--azul-macacao); color: var(--branco-papel); text-decoration: none;" title="Abrir Mapa Mental Dinâmico do Eixo 4: Incidência no Estado">
+        <span>🧠 Mapa Mental dos Sub-eixos</span>
       </a>
       <button class="btn-tradutor-popular" id="btnAbrirTradutor" title="Abrir glossário explicativo para outros eixos">
         <span>📖 Tradutor Popular</span>
@@ -63,7 +74,7 @@
   <nav class="nav-prototipos" aria-label="Navegação entre protótipos de visualização">
     <button class="tab-btn active" data-tab="orcamento" id="tabBtnOrcamento">
       <span class="tab-icon">1</span>
-      <span>Orçamento & Gastos</span>
+      <span>Orçamento & Mapa do Dinheiro</span>
     </button>
     <button class="tab-btn" data-tab="pessoas-grafo" id="tabBtnGrafo">
       <span class="tab-icon">2</span>
@@ -81,6 +92,10 @@
       <span class="tab-icon">5</span>
       <span>Mapeamento de Licitações</span>
     </button>
+    <button class="tab-btn" data-tab="diagnostico" id="tabBtnDiagnostico">
+      <span class="tab-icon">6</span>
+      <span>Diagnóstico & Lacunas (#partida)</span>
+    </button>
   </nav>
 
   <!-- Área Central de Conteúdo -->
@@ -91,67 +106,104 @@
          ====================================================================== -->
     <section class="tab-content" id="tab-orcamento">
       <div class="secao-header">
-        <span class="meta-tag">Módulo 1 · Onde Vai o Dinheiro Público</span>
-        <h2>Análise de Orçamento e Gastos com Tecnologia Estrangeira</h2>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
+          <span class="meta-tag">Módulo 1 · Onde Vai o Dinheiro Público</span>
+          <span class="badge-status badge-status-real">🟢 BASE OFICIAL CONSOLIDADA (Compras.gov, SIOP, TCU)</span>
+        </div>
+        <h2>Mapa do Dinheiro: Gastos Federais com Tecnologia Estrangeira</h2>
         <p>
-          Evidências públicas dos gastos federais em TI. Análise histórica do <strong>Elemento de Despesa 40</strong> (mais de R$ 10,6 bilhões empenhados) e o ralo de dependência em marcas estrangeiras como Microsoft, Oracle, Dell e Red Hat.
+          Investigação pioneira sobre o <strong>Elemento de Despesa 40</strong> (R$ 10,61 bilhões empenhados em 2025) e o núcleo de contratos com marcas estrangeiras (ao menos R$ 2,78 bilhões de 2023 a 2026). Explore abaixo os fluxos financeiros, maiores revendas, órgãos contratantes e simulações de custo:
         </p>
 
         <div class="box-traducao-rapida">
           <span class="tag-pop">Para que serve?</span>
           <div>
-            <strong>Tradução Popular:</strong> O governo federal gasta bilhões todo ano alugando licenças de software estrangeiro em vez de desenvolver tecnologia nacional. Esta tela mostra para onde o dinheiro está indo e usa o <em>Simulador de Custo de Oportunidade</em> para demonstrar quantas bolsas de pesquisa ou cooperativas populares poderiam ser bancadas com esse mesmo recurso.
+            <strong>Tradução Popular:</strong> Ninguém sabia ao certo quanto o governo gastava com tecnologia estrangeira porque não havia número oficial auditado. Este painel reuniu os pedaços da conta espalhados no SIOP, Compras.gov.br e Portal da Transparência, mostrando quem vende, quem compra e onde está o maior ralo do dinheiro público.
           </div>
         </div>
       </div>
 
-      <!-- KPIs do Orçamento -->
-      <div class="kpi-grid" id="orcamentoKPIs"></div>
+      <!-- Navegação por Sub-abas do Mapa do Dinheiro -->
+      <div class="subtabs-nav" role="tablist" aria-label="Sub-abas do Mapa do Dinheiro">
+        <button class="subtab-btn active" data-subtab="visao-geral">
+          <span>📊 Visão Geral & Marcas</span>
+        </button>
+        <button class="subtab-btn" data-subtab="fornecedores">
+          <span>🏢 Top 10 Fornecedores & Revendas</span>
+        </button>
+        <button class="subtab-btn" data-subtab="orgaos">
+          <span>🏛️ Top 10 Órgãos Compradores</span>
+        </button>
+        <button class="subtab-btn" data-subtab="contratos">
+          <span>📑 20 Maiores Contratos (Base Real)</span>
+        </button>
+        <button class="subtab-btn" data-subtab="tco">
+          <span>⚖️ Simulação TCO 5 Anos & Custo Social</span>
+        </button>
+      </div>
 
-      <!-- Split de Gráficos -->
-      <div class="orcamento-container">
-        <div class="orcamento-split">
-          <!-- Gráfico 1: Série Histórica Elemento 40 -->
-          <div class="grafico-card">
-            <h3>Série Histórica de Serviços de TI (Elemento 40)</h3>
-            <p class="sub">Valores anuais em R$ Bilhões (União, 2022 a 2026)</p>
-            <div class="chart-canvas-wrapper">
-              <canvas id="canvasSerieHistorica"></canvas>
+      <!-- Painel 1: Visão Geral, Série Histórica e Donut de Marcas -->
+      <div class="subtab-painel active" id="subtab-visao-geral">
+        <!-- KPIs do Orçamento -->
+        <div class="kpi-grid" id="orcamentoKPIs"></div>
+
+        <!-- Split de Gráficos -->
+        <div class="orcamento-container">
+          <div class="orcamento-split">
+            <!-- Gráfico 1: Série Histórica Elemento 40 -->
+            <div class="grafico-card" data-tipo="real">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3>Série Histórica de Serviços de TI (Elemento 40)</h3>
+                <span class="badge-status badge-status-real">🟢 DADO REAL</span>
+              </div>
+              <p class="sub">Valores anuais em R$ Bilhões (União, 2022 a 2026 parcial)</p>
+              <div class="chart-canvas-wrapper">
+                <canvas id="canvasSerieHistorica"></canvas>
+              </div>
+              <div style="margin-top: 14px; font-size: 0.82rem; color: #56615C; border-top: var(--border-thin); padding-top: 8px;">
+                * 2026 parcial até 05/11/2026. Fonte: SIOP, elemento de despesa 40 (três Poderes).
+              </div>
             </div>
-            <div style="margin-top: 14px; font-size: 0.82rem; color: #56615C; border-top: var(--border-thin); padding-top: 8px;">
-              * 2026 parcial. Fontes: SIOP, Contratos.gov.br e Compras.gov.br.
+
+            <!-- Gráfico 2: Composição do Núcleo Estrangeiro por Marca -->
+            <div class="grafico-card" data-tipo="real">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3>Divisão do Núcleo Estrangeiro por Marca</h3>
+                <span class="badge-status badge-status-real">🟢 DADO REAL</span>
+              </div>
+              <p class="sub">Total de R$ 2,78 Bilhões assinados em contratos identificados (2023-2026)</p>
+              <div class="chart-canvas-wrapper">
+                <canvas id="canvasMarcasDonut"></canvas>
+              </div>
+              <div style="margin-top: 14px; font-size: 0.82rem; color: #56615C; border-top: var(--border-thin); padding-top: 8px;">
+                Apenas 5 marcas monopolizam 67,2% do valor assinado do núcleo (Microsoft lidera com 55,4%).
+              </div>
             </div>
           </div>
 
-          <!-- Gráfico 2: Composição do Núcleo Estrangeiro por Marca -->
-          <div class="grafico-card">
-            <h3>Divisão do Núcleo Estrangeiro por Marca</h3>
-            <p class="sub">Total de R$ 2,78 Bilhões assinados em contratos identificados (2023-2026)</p>
-            <div class="chart-canvas-wrapper">
-              <canvas id="canvasMarcasDonut"></canvas>
-            </div>
-            <div style="margin-top: 14px; font-size: 0.82rem; color: #56615C; border-top: var(--border-thin); padding-top: 8px;">
-              Apenas 5 marcas monopolizam 67,2% do valor assinado do núcleo.
-            </div>
-          </div>
+          <!-- Container dos Canais de Distribuição -->
+          <div id="orcamentoCanaisContainer" style="margin-top: 24px;"></div>
         </div>
+      </div>
 
-        <!-- Simulador Interativo do Custo de Oportunidade Popular -->
-        <div class="simulador-card">
-          <div class="simulador-header">
-            <h3>Simulador do Custo de Oportunidade Popular</h3>
-            <p style="margin-top: 4px; color: #3d4642;">
-              Selecione um contrato ou gasto com Big Techs e veja o que esse mesmo dinheiro faria se fosse investido na soberania do povo brasileiro:
-            </p>
+      <!-- Painel 2: Top Fornecedores e Revendas -->
+      <div class="subtab-painel" id="subtab-fornecedores" style="display: none;">
+        <div id="subtabContentFornecedores"></div>
+      </div>
 
-            <select id="simuladorContratoSelect" class="simulador-select" aria-label="Selecione o contrato para simulação">
-              <option value="0">Contrato MGI-Microsoft (R$ 606,5 Milhões - vigência até 2029)</option>
-              <option value="1">Total em Licenças Estrangeiras Identificadas (R$ 2,78 Bilhões)</option>
-            </select>
-          </div>
+      <!-- Painel 3: Top Órgãos Compradores -->
+      <div class="subtab-painel" id="subtab-orgaos" style="display: none;">
+        <div id="subtabContentOrgaos"></div>
+      </div>
 
-          <div class="alternativas-grid" id="simuladorResultados"></div>
-        </div>
+      <!-- Painel 4: 20 Maiores Contratos do Núcleo -->
+      <div class="subtab-painel" id="subtab-contratos" style="display: none;">
+        <div id="subtabContentContratos"></div>
+      </div>
+
+      <!-- Painel 5: TCO 5 Anos e Custo de Oportunidade Social -->
+      <div class="subtab-painel" id="subtab-tco" style="display: none;">
+        <div id="subtabContentTCO"></div>
       </div>
     </section>
 
@@ -341,6 +393,37 @@
       <div class="licitacoes-grid" id="licitacoesGrid"></div>
     </section>
 
+    <!-- ======================================================================
+         6. DIAGNÓSTICO: O QUE TEMOS vs O QUE FALTA (#partida)
+         ====================================================================== -->
+    <section class="tab-content" id="tab-diagnostico" style="display: none;">
+      <div class="secao-header">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
+          <span class="meta-tag">Módulo 6 · Ponto de Partida (#partida)</span>
+          <span class="badge-status badge-status-real">🟢 PLANO DE LEVANTAMENTO OFICIAL</span>
+        </div>
+        <h2>Diagnóstico de Dados: O Que Já Temos vs. O Que Falta</h2>
+        <p>
+          Para medir a dependência tecnológica, precisamos juntar cinco blocos: orçamento, contratos, capacidade instalada, atenção política e comparação federativa. Hoje temos apenas uma fração federal dos dois primeiros. Este painel organiza a matriz de lacunas, a metodologia do <strong>Índice de Dependência</strong> e o modelo de <strong>pedido via LAI</strong>.
+        </p>
+
+        <div class="box-traducao-rapida">
+          <span class="tag-pop">Para que serve?</span>
+          <div>
+            <strong>Tradução Popular:</strong> Não adianta denunciar a dependência sem mostrar exatamente quais dados já temos provados e quais o governo ainda esconde sob sigilo ou falta de preenchimento. Esta tela é o mapa de batalha técnico do Eixo 4 até fevereiro de 2027 (etapa Custear da Ação Zero).
+          </div>
+        </div>
+      </div>
+
+      <!-- Matriz dos 5 Blocos e Maior Buraco -->
+      <div id="diagnosticoMatrizContainer"></div>
+
+      <!-- Calculadora / Simulador do Índice de Dependência -->
+      <div id="calculadoraIndiceContainer" style="margin-top: 30px;"></div>
+
+      <!-- Calendário de Entregas e Minuta de Pedido LAI -->
+      <div id="diagnosticoCalendarioContainer"></div>
+    </section>
   </main>
 
   <!-- Gaveta Lateral Deslizante (Drawer) para Dossiês e Perfis -->
@@ -423,6 +506,7 @@
         <a href="#projetos" onclick="App.navegarPara('projetos')">3. Projetos de Tech Pública</a>
         <a href="#consultas" onclick="App.navegarPara('consultas')">4. Consultas Públicas</a>
         <a href="#licitacoes" onclick="App.navegarPara('licitacoes')">5. Mapeamento de Licitações</a>
+        <a href="#diagnostico" onclick="App.navegarPara('diagnostico')">6. Diagnóstico & Lacunas (#partida)</a>
       </div>
     </div>
   </footer>
@@ -434,6 +518,7 @@
   <script src="js/orcamento.js"></script>
   <script src="js/projetos.js"></script>
   <script src="js/consultas.js"></script>
+  <script src="js/diagnostico.js"></script>
   <script src="js/main.js"></script>
 
 </body>

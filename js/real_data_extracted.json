@@ -1,0 +1,348 @@
+{
+  "fornecedores": [
+    {
+      "codigo": "57142978",
+      "nome": "BRASOFTWARE INFORMATICA LTDA",
+      "contratos": 89,
+      "valorGlobal": 1037162987.0,
+      "percentual": 37.25
+    },
+    {
+      "codigo": "19877285",
+      "nome": "LANLINK SOLUCOES E COMERCIALIZACAO EM INFORMATICA S/A",
+      "contratos": 38,
+      "valorGlobal": 284058068.0,
+      "percentual": 10.2
+    },
+    {
+      "codigo": "72381189",
+      "nome": "DELL COMPUTADORES DO BRASIL LTDA",
+      "contratos": 168,
+      "valorGlobal": 211549513.7,
+      "percentual": 7.6
+    },
+    {
+      "codigo": "59456277",
+      "nome": "ORACLE DO BRASIL SISTEMAS LTDA",
+      "contratos": 56,
+      "valorGlobal": 193704260.7,
+      "percentual": 6.96
+    },
+    {
+      "codigo": "21547011",
+      "nome": "ALLTECH - SOLUCOES EM TECNOLOGIA LTDA",
+      "contratos": 19,
+      "valorGlobal": 143876690.0,
+      "percentual": 5.17
+    },
+    {
+      "codigo": "02558157",
+      "nome": "TELEFONICA BRASIL S.A.",
+      "contratos": 19,
+      "valorGlobal": 122197123.7,
+      "percentual": 4.39
+    },
+    {
+      "codigo": "07275920",
+      "nome": "LENOVO TECNOLOGIA (BRASIL) LIMITADA",
+      "contratos": 48,
+      "valorGlobal": 100839533.1,
+      "percentual": 3.62
+    },
+    {
+      "codigo": "03263975",
+      "nome": "SYSTECH SISTEMAS E TECNOLOGIA EM INFORMATICA LTDA",
+      "contratos": 9,
+      "valorGlobal": 57736804.0,
+      "percentual": 2.07
+    },
+    {
+      "codigo": "73514382",
+      "nome": "2R DATATEL TELEINFORMATICA LTDA",
+      "contratos": 6,
+      "valorGlobal": 33906414.0,
+      "percentual": 1.22
+    },
+    {
+      "codigo": "94316916",
+      "nome": "LTA-RH INFORMATICA, COMERCIO, REPRESENTACOES LTDA",
+      "contratos": 4,
+      "valorGlobal": 31268460.0,
+      "percentual": 1.12
+    }
+  ],
+  "orgaos": [
+    {
+      "codigo": "48002",
+      "nome": "MINISTÉRIO DA GESTÃO E INOVAÇÃO EM SERVIÇOS PÚBLICOS - MGI",
+      "contratos": 2,
+      "valorGlobal": 622129188.8,
+      "percentual": 22.34
+    },
+    {
+      "codigo": "14000",
+      "nome": "JUSTICA ELEITORAL",
+      "contratos": 180,
+      "valorGlobal": 220999280.2,
+      "percentual": 7.94
+    },
+    {
+      "codigo": "15000",
+      "nome": "JUSTICA DO TRABALHO",
+      "contratos": 114,
+      "valorGlobal": 195761584.8,
+      "percentual": 7.03
+    },
+    {
+      "codigo": "30000",
+      "nome": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+      "contratos": 11,
+      "valorGlobal": 146073112.3,
+      "percentual": 5.25
+    },
+    {
+      "codigo": "11000",
+      "nome": "SUPERIOR TRIBUNAL DE JUSTICA",
+      "contratos": 17,
+      "valorGlobal": 131533525.6,
+      "percentual": 4.72
+    },
+    {
+      "codigo": "63000",
+      "nome": "ADVOCACIA-GERAL DA UNIAO",
+      "contratos": 5,
+      "valorGlobal": 125715846.3,
+      "percentual": 4.51
+    },
+    {
+      "codigo": "40000",
+      "nome": "MINISTERIO DO TRABALHO E PREVIDENCIA",
+      "contratos": 3,
+      "valorGlobal": 107274175.8,
+      "percentual": 3.85
+    },
+    {
+      "codigo": "30108",
+      "nome": "POLICIA FEDERAL/MJSP",
+      "contratos": 38,
+      "valorGlobal": 104046727.5,
+      "percentual": 3.74
+    },
+    {
+      "codigo": "41000",
+      "nome": "MINISTERIO DAS COMUNICACOES",
+      "contratos": 2,
+      "valorGlobal": 100057717.8,
+      "percentual": 3.59
+    },
+    {
+      "codigo": "25205",
+      "nome": "FUND.INST.BRASILEIRO DE GEOG.E ESTATISTICA",
+      "contratos": 23,
+      "valorGlobal": 74439592.79,
+      "percentual": 2.67
+    }
+  ],
+  "maioresContratos": [
+    {
+      "id": "403698",
+      "ano": 2025,
+      "orgao": "MINISTÉRIO DA GESTÃO E INOVAÇÃO EM SERVIÇOS PÚBLICOS - MGI",
+      "fornecedor": "BRASOFTWARE INFORMATICA LTDA",
+      "marcas": "Microsoft",
+      "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA O FORNECIMENTO DE LICENÇAS DE SOFTWARES, APLICATIVOS E SISTEMAS OPERACIONAIS MICR",
+      "valorGlobal": 606451766.4,
+      "conferir": null
+    },
+    {
+      "id": "329402",
+      "ano": 2024,
+      "orgao": "JUSTICA DO TRABALHO",
+      "fornecedor": "DELL COMPUTADORES DO BRASIL LTDA",
+      "marcas": "Dell",
+      "objeto": "SUPORTE TÉCNICO PARA O SOFTWARE GERENCIADOR DA BACKUP DELL NETWORKER",
+      "valorGlobal": 106907460.0,
+      "conferir": "Valor alto para o objeto: conferir no contrato"
+    },
+    {
+      "id": "843312",
+      "ano": 2026,
+      "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+      "fornecedor": "LANLINK SOLUCOES E COMERCIALIZACAO EM INFORMATICA S/A",
+      "marcas": "Microsoft;Oracle",
+      "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SERVIÇOS DE COMPUTAÇÃO EM NUVEM DOS PROVEDORES MICROSOFT AZURE E ORACLE CLOUD INFRAESTRUCTURE NO MODELO NUVE",
+      "valorGlobal": 105198452.6,
+      "conferir": null
+    },
+    {
+      "id": "431150",
+      "ano": 2025,
+      "orgao": "MINISTERIO DO TRABALHO E PREVIDENCIA",
+      "fornecedor": "BRASOFTWARE INFORMATICA LTDA",
+      "marcas": "Microsoft",
+      "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA O FORNECIMENTO DE LICENÇAS DE SOFTWARES, APLICATIVOS E SISTEMAS OPERACIONAIS MICROSOFT, DESTINADOS AOS USUÁRIOS FINAIS",
+      "valorGlobal": 104990771.0,
+      "conferir": null
+    },
+    {
+      "id": "235012",
+      "ano": 2023,
+      "orgao": "MINISTERIO DAS COMUNICACOES",
+      "fornecedor": "ALLTECH - SOLUCOES EM TECNOLOGIA LTDA",
+      "marcas": "Red Hat",
+      "objeto": "O PRESENTE CONTRATO TEM POR OBJETO A IMPLANTAÇÃO, SUPORTE E TREINAMENTO NAS SOLUÇÕES RED HAT E VEEAM, DE ACORDO COM AS ESPECIFICAÇÕES E CONDIÇÕES NO TERMO DE RE",
+      "valorGlobal": 97055660.0,
+      "conferir": "Valor global 5 vezes ou mais acima do inicial"
+    },
+    {
+      "id": "794095",
+      "ano": 2026,
+      "orgao": "ADVOCACIA-GERAL DA UNIAO",
+      "fornecedor": "LANLINK SOLUCOES E COMERCIALIZACAO EM INFORMATICA S/A",
+      "marcas": "Microsoft",
+      "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE FORNECIMENTO DE SUBSCRIÇÃO DE LICENÇAS DE USO DE SOFTWARES DO TIPO SUÍTE DE ESCRITÓRIO E DE",
+      "valorGlobal": 94537488.0,
+      "conferir": null
+    },
+    {
+      "id": "196671",
+      "ano": 2023,
+      "orgao": "JUSTICA ELEITORAL",
+      "fornecedor": "ORACLE DO BRASIL SISTEMAS LTDA",
+      "marcas": "Oracle",
+      "objeto": "PRESTAÇÃO DE SERVIÇO DE PROCESSAMENTO DE BANCO DE DADOS ORACLE EM NÚVEM PRIVADA NA PLATAFORMA EXADATA CLOUD AT CUSTOMER EM DOIS EQUIPAMENTOS, SENDO UM X9M OU SU",
+      "valorGlobal": 62236023.27,
+      "conferir": null
+    },
+    {
+      "id": "594321",
+      "ano": 2025,
+      "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
+      "fornecedor": "BRASOFTWARE INFORMATICA LTDA",
+      "marcas": "Microsoft",
+      "objeto": "FORNECIMENTO DE USO DE LICENÇAS DE SOFTWARES MICROSOFT, NA MODALIDADE \"ENTERPRISE AGREEMENT FOR GOVERNMENT\" (EA) E \"ENTERPRISE AGREEMENT SUBSCRIPTION FOR GOVERN",
+      "valorGlobal": 57394435.32,
+      "conferir": null
+    },
+    {
+      "id": "238220",
+      "ano": 2023,
+      "orgao": "EMPRESA BRASILEIRA DE SERVICOS HOSPITALARES",
+      "fornecedor": "TELEFONICA BRASIL S.A.",
+      "marcas": "Microsoft",
+      "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA PRESTAÇÃO DE SERVIÇO DE LICENCIAMENTO DE SOFTWARES MICROSOFT PARA SISTEMA OPERACIONAL CLIENTE E SERVIDOR, SOFTWARES DE",
+      "valorGlobal": 42672047.35,
+      "conferir": null
+    },
+    {
+      "id": "451427",
+      "ano": 2025,
+      "orgao": "BANCO CENTRAL DO BRASIL-ORC.FISCAL/SEG.SOCIAL",
+      "fornecedor": "SYSTECH SISTEMAS E TECNOLOGIA EM INFORMATICA LTDA",
+      "marcas": "VMware/Broadcom",
+      "objeto": "CONTRATAÇÃO DE SUBSCRIÇÕES VMWARE COM SERVIÇOS DE CONVERSÃO DE LICENCIAMENTO EM SUBSCRIÇÕES, RENOVAÇÃO DA SUBSCRIÇÃO TAM E DEFINIÇÃO DE PREÇOS PARA EVENTUAL CON",
+      "valorGlobal": 34925000.0,
+      "conferir": null
+    },
+    {
+      "id": "222116",
+      "ano": 2023,
+      "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
+      "fornecedor": "LENOVO TECNOLOGIA (BRASIL) LIMITADA",
+      "marcas": "Lenovo",
+      "objeto": "FORNECIMENTO DE ESTAÇÕES DE TRABALHO (MICROCOMPUTADOR, TECLADO, MOUSE) E MONITORES DE VÍDEO DE 23\" COM GARANTIA DE ASSISTÊNCIA TÉCNICA.",
+      "valorGlobal": 30301442.0,
+      "conferir": null
+    },
+    {
+      "id": "318672",
+      "ano": 2024,
+      "orgao": "JUSTICA ELEITORAL",
+      "fornecedor": "CHAIN TECNOLOGIA E SERVICOS LTDA",
+      "marcas": "Red Hat",
+      "objeto": "PRESTAÇÃO DE SERVIÇOS DE LICENÇA DE USO DE SOFTWARES, GERENCIAMENTO TÉCNICO, CONSULTORIA E CAPACITAÇÃO DA MARCA RED HAT, PELO PERÍODO DE 24 (VINTE E QUATRO) MES",
+      "valorGlobal": 24168803.21,
+      "conferir": null
+    },
+    {
+      "id": "311218",
+      "ano": 2024,
+      "orgao": "POLICIA FEDERAL/MJSP",
+      "fornecedor": "ORACLE DO BRASIL SISTEMAS LTDA",
+      "marcas": "Oracle",
+      "objeto": "CONTRATAÇÃO DE SERVIÇOS DE SOLUÇÃO ORACLE EXADATA DESTINADA A CONTER OS BANCOS DE DADOS ORACLE DAS APLICAÇÕES MAIS CRÍTICAS DA POLÍCIA FEDERAL. GEN2 EXADATA CLO",
+      "valorGlobal": 20696212.79,
+      "conferir": null
+    },
+    {
+      "id": "268690",
+      "ano": 2024,
+      "orgao": "ADVOCACIA-GERAL DA UNIAO",
+      "fornecedor": "TAREA GERENCIAMENTO LTDA",
+      "marcas": "Oracle",
+      "objeto": "PRESTAÇÃO DE SERVIÇOS DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE SOLUÇÃO REDUNDANTE DE NUVEM PRIVADA ORACLE EXADATA CLOUD AT CUSTOMER (EXACC), NA V",
+      "valorGlobal": 20320718.32,
+      "conferir": null
+    },
+    {
+      "id": "853708",
+      "ano": 2026,
+      "orgao": "POLICIA FEDERAL/MJSP",
+      "fornecedor": "LENOVO TECNOLOGIA (BRASIL) LIMITADA",
+      "marcas": "Lenovo",
+      "objeto": "AQUISIÇÃO DE EQUIPAMENTOS DE INFORMÁTICA, NOTEBOOKS AVANÇADOS E DOCK STATION, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+      "valorGlobal": 20216494.0,
+      "conferir": null
+    },
+    {
+      "id": "219018",
+      "ano": 2023,
+      "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
+      "fornecedor": "ORACLE DO BRASIL SISTEMAS LTDA",
+      "marcas": "Oracle",
+      "objeto": "PRESTAÇÃO DE SERVIÇO CONTÍNUO DE BANCO DE DADOS ORACLE EXADATA COMO INFRAESTRUTURA, EM NUVEM PRIVADA, PARA APLICAÇÕES DE MISSÃO CRÍTICA DO CONTRATANTE, INCLUIND",
+      "valorGlobal": 20030551.51,
+      "conferir": null
+    },
+    {
+      "id": "208193",
+      "ano": 2023,
+      "orgao": "CONTROLADORIA-GERAL DA UNIAO",
+      "fornecedor": "BRASOFTWARE INFORMATICA LTDA",
+      "marcas": "Microsoft",
+      "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SUBSCRIÇÃO DE LICENÇAS DE USO DE SOFTWARES DO FABRICANTE MICROSOFT, PELA CONTROLADORIA-GERAL DA UNIÃO - CGU,",
+      "valorGlobal": 19483776.0,
+      "conferir": null
+    },
+    {
+      "id": "825733",
+      "ano": 2025,
+      "orgao": "POLICIA FEDERAL/MJSP",
+      "fornecedor": "DELL COMPUTADORES DO BRASIL LTDA",
+      "marcas": "Dell",
+      "objeto": "AQUISIÇÃO DE WORKSTATIONS DA DELL.",
+      "valorGlobal": 19010340.0,
+      "conferir": null
+    },
+    {
+      "id": "238372",
+      "ano": 2023,
+      "orgao": "COMANDO DA AERONAUTICA",
+      "fornecedor": "2R DATATEL TELEINFORMATICA LTDA",
+      "marcas": "Palo Alto",
+      "objeto": "SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO DE\nSERVIÇOS DE SUPORTE PREMIUM PALO ALTO E LICENÇAS DE PREVENÇÃO DE MALWARE E FILTRO DE URL PARA ATUALIZAÇÃO DO SOFTWARE DO",
+      "valorGlobal": 18989550.0,
+      "conferir": null
+    },
+    {
+      "id": "240589",
+      "ano": 2023,
+      "orgao": "AGENCIA NACIONAL DE AVIACAO CIVIL",
+      "fornecedor": "TELEFONICA BRASIL S.A.",
+      "marcas": "Microsoft",
+      "objeto": "CONTRATAÇÃO DE SERVIÇOS DE LICENÇAS DE SOFTWARE E DIREITOS DE ATUALIZAÇÃO PARA PRODUTOS MICROSOFT UTILIZADOS EM ESTAÇÕES DE TRABALHO, EQUIPAMENTOS SERVIDORES E",
+      "valorGlobal": 18483540.03,
+      "conferir": null
+    }
+  ]
+}

@@ -1,10 +1,11 @@
 /**
  * Controlador Principal do Observatório do Eixo 4
- * Gerencia navegação entre protótipos, hash de URL, drawer e modal do tradutor popular.
+ * Gerencia navegação entre protótipos, hash de URL, filtro de status de dados, drawer e modal.
  */
 
 const App = (() => {
   let abaAtiva = "orcamento";
+  let filtroDadosAtivo = "todos";
 
   function navegarPara(idAba) {
     abaAtiva = idAba;
@@ -33,21 +34,62 @@ const App = (() => {
 
     // Inicializar módulo correspondente
     if (idAba === "orcamento") {
-      window.OrcamentoModule.init();
+      if (window.OrcamentoModule) window.OrcamentoModule.init();
       setTimeout(() => {
-        if (window.OrcamentoModule.redraw) window.OrcamentoModule.redraw();
+        if (window.OrcamentoModule && window.OrcamentoModule.redraw) {
+          window.OrcamentoModule.redraw();
+        }
       }, 50);
     } else if (idAba === "pessoas-grafo") {
       setTimeout(() => {
-        window.GrafoModule.init();
+        if (window.GrafoModule) window.GrafoModule.init();
       }, 50);
     } else if (idAba === "projetos") {
-      window.ProjetosModule.init();
+      if (window.ProjetosModule) window.ProjetosModule.init();
     } else if (idAba === "consultas") {
-      window.ConsultasModule.init();
+      if (window.ConsultasModule) window.ConsultasModule.init();
     } else if (idAba === "licitacoes") {
-      window.LicitacoesModule.init();
+      if (window.LicitacoesModule) window.LicitacoesModule.init();
+    } else if (idAba === "diagnostico") {
+      if (window.DiagnosticoModule) window.DiagnosticoModule.init();
     }
+
+    aplicarFiltroDados(filtroDadosAtivo);
+  }
+
+  function aplicarFiltroDados(tipo) {
+    filtroDadosAtivo = tipo;
+
+    // Atualizar botões de filtro
+    document.querySelectorAll(".filtro-pill").forEach(btn => {
+      if (btn.getAttribute("data-filter") === tipo) {
+        btn.classList.add("active");
+      } else {
+        btn.classList.remove("active");
+      }
+    });
+
+    // Elementos marcados com data-tipo
+    const elementosComTipo = document.querySelectorAll("[data-tipo]");
+
+    if (tipo === "todos") {
+      elementosComTipo.forEach(el => {
+        el.style.opacity = "1";
+        el.style.filter = "none";
+      });
+      return;
+    }
+
+    elementosComTipo.forEach(el => {
+      const elTipo = el.getAttribute("data-tipo");
+      if (elTipo === tipo) {
+        el.style.opacity = "1";
+        el.style.filter = "none";
+      } else {
+        el.style.opacity = "0.35";
+        el.style.filter = "grayscale(60%)";
+      }
+    });
   }
 
   function abrirDrawer(titulo, conteudoHtml) {
@@ -93,6 +135,14 @@ const App = (() => {
       });
     });
 
+    // Filtros de tipo de dado
+    document.querySelectorAll(".filtro-pill[data-filter]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const filtro = btn.getAttribute("data-filter");
+        aplicarFiltroDados(filtro);
+      });
+    });
+
     // Drawer events
     const overlay = document.getElementById("drawerOverlay");
     const fecharBtn = document.getElementById("btnFecharDrawer");
@@ -122,7 +172,7 @@ const App = (() => {
 
     // Ler hash inicial da URL
     const hash = window.location.hash.replace("#", "");
-    const abasValidas = ["orcamento", "pessoas-grafo", "projetos", "consultas", "licitacoes"];
+    const abasValidas = ["orcamento", "pessoas-grafo", "projetos", "consultas", "licitacoes", "diagnostico"];
     if (abasValidas.includes(hash)) {
       navegarPara(hash);
     } else {
@@ -133,6 +183,7 @@ const App = (() => {
   return {
     init,
     navegarPara,
+    aplicarFiltroDados,
     abrirDrawer,
     fecharDrawer,
     abrirTradutorPopular,

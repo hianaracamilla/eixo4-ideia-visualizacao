@@ -26,13 +26,11 @@ const DiagnosticoModule = (() => {
       <div class="box-alerta-ralo" style="margin-bottom: 24px; padding: 18px 20px; border-left: 8px solid var(--vermelho-ato);" data-tipo="real">
         <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;">
           <div style="display: flex; gap: 6px; align-items: center;">
-            <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('estataisOpacidade')" title="Ver metodologia e auditoria dos repasses">ℹ️ Metodologia & Fonte</button>
-            <span class="badge-status badge-status-real" title="Dado comprovado no balanço do Serpro e relatórios do SIOP">
-              🟢 DADO REAL COMPROVADO
-            </span>
+            <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('estataisOpacidade')" title="🟢 Dado Real Comprovado · Fonte Oficial: SIOP, Balanço Serpro e Acórdão TCU 1380/2026 (Clique para auditar)">i</button>
+            <span style="font-family: var(--font-mono); font-size: 0.76rem; color: #56615C;">SIOP / Serpro / TCU</span>
           </div>
-          <span style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: var(--vermelho-ato);">
-            FONTE: SIOP, BALANÇO SERPRO 2025 E ACÓRDÃO TCU 1380/2026
+          <span style="font-family: var(--font-mono); font-size: 0.76rem; font-weight: 700; color: var(--vermelho-ato);">
+            ACÓRDÃO TCU 1380/2026
           </span>
         </div>
         <h3 style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; text-transform: uppercase; color: var(--preto-tinta);">

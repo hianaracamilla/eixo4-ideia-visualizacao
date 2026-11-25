@@ -31,10 +31,7 @@ const OrcamentoModule = (() => {
       <div class="kpi-card destaque-azul" data-tipo="real">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
           <span class="kpi-titulo">Despesa de Serviços TI (Elemento 40)</span>
-          <div style="display: flex; gap: 4px; align-items: center;">
-            <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('elemento40')" title="Clique para ver a fonte oficial e metodologia">ℹ️</button>
-            <span class="badge-status badge-status-real" title="Fonte: SIOP / LOA 2025">🟢 DADO REAL</span>
-          </div>
+          <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('elemento40')" title="🟢 Dado Real Comprovado · Fonte Oficial: SIOP / LOA 2025 (Clique para auditar metodologia)">i</button>
         </div>
         <div class="kpi-valor">R$ 10,61 Bi</div>
         <p class="kpi-desc">Total empenhado pela União em 2025 (três Poderes). R$ 7,75 Bi efetivamente pagos.</p>
@@ -43,10 +40,7 @@ const OrcamentoModule = (() => {
       <div class="kpi-card destaque-vermelho" data-tipo="real">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
           <span class="kpi-titulo">Piso Comprovado em Marcas Globais</span>
-          <div style="display: flex; gap: 4px; align-items: center;">
-            <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('pisoMarcas')" title="Clique para ver a fonte oficial e metodologia">ℹ️</button>
-            <span class="badge-status badge-status-real" title="Fonte: Compras.gov.br e Contratos.gov.br">🟢 DADO REAL</span>
-          </div>
+          <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('pisoMarcas')" title="🟢 Dado Real Comprovado · Fonte Oficial: Compras.gov.br e Contratos.gov.br (Clique para auditar metodologia)">i</button>
         </div>
         <div class="kpi-valor">R$ 2,78 Bi</div>
         <p class="kpi-desc">Valor assinado no núcleo de marcas estrangeiras (2023-2026 parcial). É um piso mínimo comprovado.</p>
@@ -55,10 +49,7 @@ const OrcamentoModule = (() => {
       <div class="kpi-card destaque-laranja" data-tipo="real" style="border-left: 5px solid var(--vermelho-ato); background-color: #FFF8F5;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
           <span class="kpi-titulo" style="color: var(--vermelho-ato);">Dinheiro Não Pago no Exercício</span>
-          <div style="display: flex; gap: 4px; align-items: center;">
-            <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('naoUsado')" title="Clique para ver a fonte oficial e metodologia">ℹ️</button>
-            <span class="badge-status badge-status-real" title="Fonte: SIOP / Balanço Geral da União">🟢 DADO REAL</span>
-          </div>
+          <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('naoUsado')" title="🟢 Dado Real Comprovado · Fonte Oficial: SIOP / Balanço Geral da União (Clique para auditar metodologia)">i</button>
         </div>
         <div class="kpi-valor" style="color: var(--vermelho-ato);">R$ 2,86 Bi</div>
         <p class="kpi-desc"><strong>27,0% do orçamento de 2025</strong> não foi pago no ano. Acumulado não pago: <strong>R$ 15,48 Bi</strong> (2022-2026).</p>
@@ -67,10 +58,7 @@ const OrcamentoModule = (() => {
       <div class="kpi-card destaque-amarelo" data-tipo="real">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
           <span class="kpi-titulo">Concentração em 5 Multinacionais</span>
-          <div style="display: flex; gap: 4px; align-items: center;">
-            <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('pisoMarcas')" title="Clique para ver a fonte oficial e metodologia">ℹ️</button>
-            <span class="badge-status badge-status-real" title="Microsoft, Oracle, Dell, Red Hat e Lenovo">🟢 DADO REAL</span>
-          </div>
+          <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('pisoMarcas')" title="🟢 Dado Real Comprovado · Microsoft, Oracle, Dell, Red Hat e Lenovo (Clique para auditar metodologia)">i</button>
         </div>
         <div class="kpi-valor">67,2%</div>
         <p class="kpi-desc">Apenas cinco corporações monopolizam dois terços de todo o valor assinado identificado.</p>
@@ -79,10 +67,7 @@ const OrcamentoModule = (() => {
       <div class="kpi-card destaque-verde" data-tipo="real">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
           <span class="kpi-titulo">Revendas e Intermediários</span>
-          <div style="display: flex; gap: 4px; align-items: center;">
-            <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('revendasConcentracao')" title="Clique para ver a fonte oficial e metodologia">ℹ️</button>
-            <span class="badge-status badge-status-real" title="78,1% passa por revendas como Brasoftware e Lanlink">🟢 DADO REAL</span>
-          </div>
+          <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('revendasConcentracao')" title="🟢 Dado Real Comprovado · 78,1% passa por revendas como Brasoftware e Lanlink (Clique para auditar metodologia)">i</button>
         </div>
         <div class="kpi-valor">78,1%</div>
         <p class="kpi-desc">R$ 2,17 Bi passam por terceiras e revendedoras que drenam lucros e royalties ao exterior.</p>
@@ -91,10 +76,7 @@ const OrcamentoModule = (() => {
       <div class="kpi-card destaque-vermelho" data-tipo="lacuna">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
           <span class="kpi-titulo">Ocultação da Marca nos Contratos</span>
-          <div style="display: flex; gap: 4px; align-items: center;">
-            <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('pisoMarcas')" title="Clique para ver a metodologia">ℹ️</button>
-            <span class="badge-status badge-status-lacuna" title="70,2% dos contratos de TI não dizem a marca">🟣 LACUNA REAL</span>
-          </div>
+          <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('pisoMarcas')" title="🟣 Lacuna Real · 70,2% dos contratos de TI não dizem a marca no objeto">i</button>
         </div>
         <div class="kpi-valor">70,2%</div>
         <p class="kpi-desc">Dos contratos com linguagem de TI não informam marca, correspondendo a 79,5% do valor total.</p>
@@ -103,10 +85,7 @@ const OrcamentoModule = (() => {
       <div class="kpi-card destaque-amarelo" data-tipo="lacuna">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
           <span class="kpi-titulo">Empenhos p/ Serpro e Dataprev</span>
-          <div style="display: flex; gap: 4px; align-items: center;">
-            <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('estataisOpacidade')" title="Clique para ver a metodologia e fontes">ℹ️</button>
-            <span class="badge-status badge-status-lacuna" title="Sem abertura de repasses a nuvens estrangeiras">🟣 OPACIDADE</span>
-          </div>
+          <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('estataisOpacidade')" title="🟣 Opacidade · Sem abertura de repasses a nuvens estrangeiras">i</button>
         </div>
         <div class="kpi-valor">46,5%</div>
         <p class="kpi-desc">Quase metade do elemento 40 vai para as estatais sem divulgação do repasse a Big Techs.</p>
@@ -424,9 +403,9 @@ const OrcamentoModule = (() => {
 
       <div class="tabela-search-bar">
         <input type="text" id="buscaFornecedor" class="tabela-input-busca" placeholder="🔍 Filtrar fornecedor por nome ou CNPJ..." />
-        <div style="display: flex; gap: 6px; align-items: center;">
-          <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('revendasConcentracao')" title="Ver metodologia e fonte dos fornecedores">ℹ️ Metodologia & Fonte</button>
-          <span class="badge-status badge-status-real" style="align-self: center;">🟢 DADOS REAIS (Compras.gov.br)</span>
+        <div style="display: flex; gap: 8px; align-items: center;">
+          <span style="font-size: 0.74rem; font-family: var(--font-mono); color: #56615C;">Compras.gov.br</span>
+          <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('revendasConcentracao')" title="🟢 Dados Reais Comprovados · Fonte Oficial: Compras.gov.br (Clique para auditar metodologia)">i</button>
         </div>
       </div>
 
@@ -490,9 +469,9 @@ const OrcamentoModule = (() => {
 
       <div class="tabela-search-bar">
         <input type="text" id="buscaOrgao" class="tabela-input-busca" placeholder="🔍 Filtrar órgão público por nome ou código..." />
-        <div style="display: flex; gap: 6px; align-items: center;">
-          <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('topOrgaos')" title="Ver metodologia e fontes dos órgãos">ℹ️ Metodologia & Fonte</button>
-          <span class="badge-status badge-status-real" style="align-self: center;">🟢 DADOS REAIS (SIOP / Contratos.gov)</span>
+        <div style="display: flex; gap: 8px; align-items: center;">
+          <span style="font-size: 0.74rem; font-family: var(--font-mono); color: #56615C;">SIOP / Contratos.gov</span>
+          <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('topOrgaos')" title="🟢 Dados Reais Comprovados · Fonte Oficial: SIOP e Contratos.gov (Clique para auditar metodologia)">i</button>
         </div>
       </div>
 
@@ -556,9 +535,9 @@ const OrcamentoModule = (() => {
 
       <div class="tabela-search-bar">
         <input type="text" id="buscaContrato" class="tabela-input-busca" placeholder="🔍 Filtrar por marca (ex: Microsoft, Oracle, Dell, Red Hat), órgão ou fornecedor..." />
-        <div style="display: flex; gap: 6px; align-items: center;">
-          <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('topContratos')" title="Ver metodologia e fontes oficiais dos 20 maiores contratos">ℹ️ Metodologia & Fonte</button>
-          <span class="badge-status badge-status-real" style="align-self: center;">🟢 20 MAIORES CONTRATOS DO NÚCLEO (Dados Reais)</span>
+        <div style="display: flex; gap: 8px; align-items: center;">
+          <span style="font-size: 0.74rem; font-family: var(--font-mono); color: #56615C;">Contratos.gov.br</span>
+          <button class="btn-info-metodologia" onclick="window.abrirModalMetodologia('topContratos')" title="🟢 Dados Reais Comprovados · 20 Maiores Contratos Auditáveis (Clique para auditar metodologia)">i</button>
         </div>
       </div>
 

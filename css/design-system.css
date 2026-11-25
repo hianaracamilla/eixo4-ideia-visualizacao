@@ -1200,31 +1200,39 @@ body {
   box-shadow: 1.5px 1.5px 0px #4C1130;
 }
 
-/* Botão de Metodologia e Fonte (i-zinho) */
+/* Botão de Metodologia e Fonte (i-zinho discreto e minimalista) */
 .btn-info-metodologia {
-  background-color: var(--amarelo-sol);
-  color: var(--preto-tinta);
-  border: 1.5px solid var(--preto-tinta);
-  box-shadow: 1.5px 1.5px 0px var(--preto-tinta);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 1px 6px;
+  background-color: var(--branco-puro);
+  color: #56615C;
+  border: 1.5px solid #C5BFB5;
+  box-shadow: 1px 1px 0px rgba(28, 23, 18, 0.2);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.74rem;
+  font-weight: 800;
+  width: 19px;
+  height: 19px;
+  min-width: 19px;
+  min-height: 19px;
+  border-radius: 50%;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  border-radius: var(--radius-sm);
-  transition: transform var(--trans-fast), box-shadow var(--trans-fast);
+  justify-content: center;
+  transition: all var(--trans-fast);
   text-decoration: none;
-  line-height: 1.2;
+  line-height: 1;
+  padding: 0;
+  margin-left: 4px;
   vertical-align: middle;
 }
 
 .btn-info-metodologia:hover {
+  background-color: #E2F0D9;
+  color: #1E4620;
+  border-color: #1E4620;
+  box-shadow: 1.5px 1.5px 0px #1E4620;
   transform: translateY(-1px);
-  box-shadow: 2px 2px 0px var(--preto-tinta);
-  background-color: #ffe066;
 }
 
 .btn-info-metodologia:active {
@@ -1233,8 +1241,11 @@ body {
 }
 
 .btn-info-metodologia-sm {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  min-height: 16px;
   font-size: 0.65rem;
-  padding: 0 4px;
 }
 
 /* Painel de Recursos Não Pagos / Represados (Elemento 40) */

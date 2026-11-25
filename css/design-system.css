@@ -1520,6 +1520,29 @@ body {
   border-color: #4C1130;
 }
 
+/* Botão de filtro desativado quando a tela não possui aquele tipo de dado */
+.filtro-pill.desativado,
+.filtro-pill.inativo {
+  opacity: 0.35 !important;
+  background-color: #EDEAE1 !important;
+  color: #9C9488 !important;
+  border-color: #D3CDC2 !important;
+  box-shadow: none !important;
+  cursor: not-allowed !important;
+  filter: grayscale(90%) !important;
+  transform: none !important;
+  pointer-events: auto !important;
+}
+
+.filtro-pill.desativado:hover,
+.filtro-pill.inativo:hover {
+  background-color: #EDEAE1 !important;
+  color: #9C9488 !important;
+  border-color: #D3CDC2 !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
 /* ==========================================================================
    SUB-ABAS DO MAPA DO DINHEIRO
    ========================================================================== */

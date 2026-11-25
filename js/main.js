@@ -7,8 +7,40 @@ const App = (() => {
   let abaAtiva = "orcamento";
   let filtroDadosAtivo = "todos";
 
+  function atualizarEstadoBotoesFiltro(idAba) {
+    const btnReal = document.querySelector('.filtro-pill[data-filter="real"]');
+    if (!btnReal) return;
+
+    // Telas que contêm dados reais comprovados oficiais (SIOP, Compras.gov, Contratos.gov)
+    const telasComDadosReais = ["orcamento", "diagnostico"];
+    const temDadosReais = telasComDadosReais.includes(idAba);
+
+    if (!temDadosReais) {
+      btnReal.classList.add("desativado");
+      btnReal.classList.remove("active");
+      btnReal.setAttribute("title", "Esta tela não possui dados reais oficiais comprovados (composta exclusivamente por simulações e modelagens)");
+      btnReal.setAttribute("aria-disabled", "true");
+
+      // Se o usuário estava filtrando apenas por 'real', volta automaticamente para 'todos' para a tela não sumir
+      if (filtroDadosAtivo === "real") {
+        aplicarFiltroDados("todos");
+      }
+    } else {
+      btnReal.classList.remove("desativado");
+      btnReal.setAttribute("title", "Destacar apenas dados oficiais comprovados (SIOP, Compras.gov, PNCP e TCU)");
+      btnReal.removeAttribute("aria-disabled");
+
+      if (filtroDadosAtivo === "real") {
+        btnReal.classList.add("active");
+      }
+    }
+  }
+
   function navegarPara(idAba) {
     abaAtiva = idAba;
+
+    // Atualizar estado ativo/inativo do botão de dados reais
+    atualizarEstadoBotoesFiltro(idAba);
 
     // Atualizar botões de abas
     document.querySelectorAll(".tab-btn").forEach(btn => {
@@ -255,6 +287,9 @@ const App = (() => {
     // Filtros de tipo de dado
     document.querySelectorAll(".filtro-pill[data-filter]").forEach(btn => {
       btn.addEventListener("click", () => {
+        if (btn.classList.contains("desativado")) {
+          return;
+        }
         const filtro = btn.getAttribute("data-filter");
         aplicarFiltroDados(filtro);
       });
